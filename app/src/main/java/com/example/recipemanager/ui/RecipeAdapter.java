@@ -10,9 +10,10 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.recipemanager.R;
 import com.example.recipemanager.data.Recipe;
 import com.example.recipemanager.databinding.ItemRecipeBinding;
-import com.squareup.picasso.Picasso;
 
 public class RecipeAdapter extends ListAdapter<Recipe, RecipeAdapter.VH> {
 
@@ -55,19 +56,50 @@ public class RecipeAdapter extends ListAdapter<Recipe, RecipeAdapter.VH> {
     }
 
     static class VH extends RecyclerView.ViewHolder {
-        private final ItemRecipeBinding b;
-        VH(ItemRecipeBinding b) {
-            super(b.getRoot());
-            this.b = b;
+        private final ItemRecipeBinding binding;
+        
+        VH(ItemRecipeBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
-        void bind(Recipe r, OnItemClickListener listener) {
-            b.tvName.setText(r.name);
-            if (r.imageUri != null && !r.imageUri.isEmpty()) {
-                Picasso.get().load(Uri.parse(r.imageUri)).fit().centerCrop().into(b.ivPhoto);
+        
+        void bind(Recipe recipe, OnItemClickListener listener) {
+            binding.recipeName.setText(recipe.name);
+            
+            // Set category if available
+            if (recipe.category != null && !recipe.category.isEmpty()) {
+                binding.recipeCategory.setText(recipe.category);
+                binding.recipeCategory.setVisibility(View.VISIBLE);
             } else {
-                b.ivPhoto.setImageResource(android.R.drawable.ic_menu_gallery);
+                binding.recipeCategory.setVisibility(View.GONE);
             }
-            b.getRoot().setOnClickListener(v -> listener.onClick(r));
+            
+            // Load image with Glide
+            if (recipe.imageUri != null && !recipe.imageUri.isEmpty()) {
+                Glide.with(itemView.getContext())
+                        .load(Uri.parse(recipe.imageUri))
+                        .centerCrop()
+                        .placeholder(R.drawable.ic_placeholder)
+                        .error(R.drawable.ic_placeholder)
+                        .into(binding.recipeImage);
+            } else {
+                binding.recipeImage.setImageResource(R.drawable.ic_placeholder);
+            }
+            
+            // Set favorite state
+            binding.favoriteButton.setImageResource(
+                recipe.favorite ? R.drawable.ic_favorite_filled : R.drawable.ic_favorite_border
+            );
+            
+            // Set click listeners
+            binding.getRoot().setOnClickListener(v -> listener.onClick(recipe));
+            binding.favoriteButton.setOnClickListener(v -> {
+                // Toggle favorite state
+                recipe.favorite = !recipe.favorite;
+                binding.favoriteButton.setImageResource(
+                    recipe.favorite ? R.drawable.ic_favorite_filled : R.drawable.ic_favorite_border
+                );
+            });
         }
     }
 }

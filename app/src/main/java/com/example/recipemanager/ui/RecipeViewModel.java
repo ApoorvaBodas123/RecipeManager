@@ -1,19 +1,16 @@
 package com.example.recipemanager.ui;
 
-import android.app.Application;
-
-import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.example.recipemanager.data.Recipe;
 import com.example.recipemanager.data.RecipeRepository;
 
 import java.util.List;
 
-public class RecipeViewModel extends AndroidViewModel {
+public class RecipeViewModel extends ViewModel {
     private final RecipeRepository repo;
 
     private final MutableLiveData<String> query = new MutableLiveData<>("");
@@ -22,9 +19,8 @@ public class RecipeViewModel extends AndroidViewModel {
 
     private final MediatorLiveData<List<Recipe>> recipes = new MediatorLiveData<>();
 
-    public RecipeViewModel(@NonNull Application application) {
-        super(application);
-        repo = new RecipeRepository(application);
+    public RecipeViewModel(RecipeRepository repository) {
+        this.repo = repository;
         // Default source
         recipes.addSource(repo.getAll(), recipes::setValue);
     }

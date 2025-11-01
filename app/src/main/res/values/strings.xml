@@ -15,4 +15,23 @@
     <string name="all">All</string>
     <string name="share">Share</string>
     <string name="category">Category</string>
+    <string name="recipe_image">Recipe Image</string>
+    <string name="add_to_favorites">Add to favorites</string>
+    <string name="remove_from_favorites">Remove from favorites</string>
+    <string name="search_recipes">Search recipes...</string>
+    <string name="no_recipes_found">No recipes found</string>
+    <string name="error_loading_recipes">Error loading recipes</string>
+    
+    <!-- Authentication Strings -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="dont_have_an_account_sign_up">Don\'t have an account? Sign up</string>
+    <string name="email">Email</string>
+    <string name="full_name">Full Name</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="registration_successful">Registration successful! Please login.</string>
+    <string name="logout">Logout</string>
 </resources>

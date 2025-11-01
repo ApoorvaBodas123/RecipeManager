@@ -1,5 +1,6 @@
 package com.example.recipemanager.ui;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -39,7 +40,14 @@ public class RecipeListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        vm = new ViewModelProvider(requireActivity()).get(RecipeViewModel.class);
+        
+        // Get application context
+        Application application = requireActivity().getApplication();
+        
+        // Create ViewModel using ViewModelFactory with application context
+        ViewModelFactory factory = new ViewModelFactory(application);
+        vm = new ViewModelProvider(requireActivity(), factory).get(RecipeViewModel.class);
+        
         adapter = new RecipeAdapter(recipe -> {
             Intent i = new Intent(requireContext(), RecipeDetailActivity.class);
             i.putExtra("id", recipe.id);

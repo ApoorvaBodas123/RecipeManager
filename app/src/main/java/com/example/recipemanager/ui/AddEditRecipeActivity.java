@@ -12,7 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.recipemanager.data.Recipe;
+import com.example.recipemanager.data.RecipeRepository;
 import com.example.recipemanager.databinding.ActivityAddEditRecipeBinding;
+import com.example.recipemanager.ui.RecipeViewModelFactory;
 
 public class AddEditRecipeActivity extends AppCompatActivity {
 
@@ -35,7 +37,10 @@ public class AddEditRecipeActivity extends AppCompatActivity {
         binding = ActivityAddEditRecipeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        vm = new ViewModelProvider(this).get(RecipeViewModel.class);
+        // Initialize RecipeViewModel with factory
+        RecipeRepository recipeRepository = RecipeRepository.getInstance(getApplication());
+        RecipeViewModelFactory factory = new RecipeViewModelFactory(recipeRepository);
+        vm = new ViewModelProvider(this, factory).get(RecipeViewModel.class);
 
         // Setup category spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,

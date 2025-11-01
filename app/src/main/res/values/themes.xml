@@ -1,7 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.RecipeManager" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.RecipeManager" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/md_theme_primary</item>
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_onPrimaryContainer</item>
+        
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/md_theme_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_onSecondaryContainer</item>
+        
+        <!-- Surface colors -->
+        <item name="android:colorBackground">@color/md_theme_background</item>
+        <item name="colorOnBackground">@color/md_theme_onBackground</item>
+        <item name="colorSurface">@color/md_theme_surface</item>
+        <item name="colorOnSurface">@color/md_theme_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_onSurfaceVariant</item>
+        
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+        
+        <!-- Ensure we're using Material 3 components -->
+        <item name="materialButtonStyle">@style/Widget.Material3.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.Material3.CardView</item>
+        <item name="floatingActionButtonStyle">@style/Widget.Material3.FloatingActionButton</item>
+        
+        <!-- Text appearances -->
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Material3.HeadlineSmall</item>
+        
+        <!-- Ensure Material 3 shape theming is applied -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Material3.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Material3.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Material3.LargeComponent</item>
+    </style>
+
+    <style name="Theme.RecipeManager" parent="Base.Theme.RecipeManager" />
+    
+    <!-- Floating Action Button Style -->
+    <style name="Widget.Material3.FloatingActionButton" parent="Widget.Material3.FloatingActionButton">
+        <item name="backgroundTint">?attr/colorPrimaryContainer</item>
+        <item name="tint">?attr/colorOnPrimaryContainer</item>
+        <item name="elevation">3dp</item>
+        <item name="hoveredFocusedTranslationZ">6dp</item>
+        <item name="pressedTranslationZ">3dp</item>
+    </style>
+    
+    <!-- CardView Style -->
+    <style name="Widget.Material3.CardView" parent="">
+        <item name="cardBackgroundColor">?attr/colorSurfaceVariant</item>
+        <item name="cardElevation">1dp</item>
+        <item name="cardMaxElevation">1dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+    
+    <!-- CardView Style -->
+    <style name="Widget.RecipeManager.CardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardElevation">2dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="contentPadding">0dp</item>
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+        <item name="strokeColor">?attr/colorOutline</item>
+        <item name="strokeWidth">0.5dp</item>
+    </style>
+    
+    <!-- SearchView Style -->
+    <style name="Widget.RecipeManager.SearchView" parent="Widget.Material3.SearchBar">
+        <item name="elevation">0dp</item>
+        <item name="android:background">?attr/colorSurfaceContainerHigh</item>
+        <item name="android:outlineAmbientShadowColor">@android:color/transparent</item>
+        <item name="android:outlineSpotShadowColor">@android:color/transparent</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.MediumComponent</item>
+    </style>
+    
+    <!-- FAB Style -->
+    <style name="Widget.RecipeManager.FloatingActionButton" parent="Widget.Material3.FloatingActionButton">
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="tint">?attr/colorOnPrimary</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.LargeComponent</item>
+    </style>
+    
+    <!-- Shape Appearances -->
+    <style name="ShapeAppearance.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+    
+    <style name="ShapeAppearance.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+    
+    <style name="ShapeAppearance.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
     </style>
 </resources>

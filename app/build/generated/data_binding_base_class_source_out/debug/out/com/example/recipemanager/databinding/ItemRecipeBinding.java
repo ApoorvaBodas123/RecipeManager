@@ -12,6 +12,8 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.recipemanager.R;
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.imageview.ShapeableImageView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -21,16 +23,25 @@ public final class ItemRecipeBinding implements ViewBinding {
   private final MaterialCardView rootView;
 
   @NonNull
-  public final ImageView ivPhoto;
+  public final ShapeableImageView favoriteButton;
 
   @NonNull
-  public final TextView tvName;
+  public final Chip recipeCategory;
 
-  private ItemRecipeBinding(@NonNull MaterialCardView rootView, @NonNull ImageView ivPhoto,
-      @NonNull TextView tvName) {
+  @NonNull
+  public final ImageView recipeImage;
+
+  @NonNull
+  public final TextView recipeName;
+
+  private ItemRecipeBinding(@NonNull MaterialCardView rootView,
+      @NonNull ShapeableImageView favoriteButton, @NonNull Chip recipeCategory,
+      @NonNull ImageView recipeImage, @NonNull TextView recipeName) {
     this.rootView = rootView;
-    this.ivPhoto = ivPhoto;
-    this.tvName = tvName;
+    this.favoriteButton = favoriteButton;
+    this.recipeCategory = recipeCategory;
+    this.recipeImage = recipeImage;
+    this.recipeName = recipeName;
   }
 
   @Override
@@ -60,19 +71,32 @@ public final class ItemRecipeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.ivPhoto;
-      ImageView ivPhoto = ViewBindings.findChildViewById(rootView, id);
-      if (ivPhoto == null) {
+      id = R.id.favoriteButton;
+      ShapeableImageView favoriteButton = ViewBindings.findChildViewById(rootView, id);
+      if (favoriteButton == null) {
         break missingId;
       }
 
-      id = R.id.tvName;
-      TextView tvName = ViewBindings.findChildViewById(rootView, id);
-      if (tvName == null) {
+      id = R.id.recipeCategory;
+      Chip recipeCategory = ViewBindings.findChildViewById(rootView, id);
+      if (recipeCategory == null) {
         break missingId;
       }
 
-      return new ItemRecipeBinding((MaterialCardView) rootView, ivPhoto, tvName);
+      id = R.id.recipeImage;
+      ImageView recipeImage = ViewBindings.findChildViewById(rootView, id);
+      if (recipeImage == null) {
+        break missingId;
+      }
+
+      id = R.id.recipeName;
+      TextView recipeName = ViewBindings.findChildViewById(rootView, id);
+      if (recipeName == null) {
+        break missingId;
+      }
+
+      return new ItemRecipeBinding((MaterialCardView) rootView, favoriteButton, recipeCategory,
+          recipeImage, recipeName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

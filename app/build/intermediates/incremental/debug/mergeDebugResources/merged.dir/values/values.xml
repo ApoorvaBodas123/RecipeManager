@@ -15,6 +15,7 @@
         <enum name="constraint" value="4"/>
     </attr>
     <attr format="reference" name="animateRelativeTo"/>
+    <attr format="color" name="animationBackgroundColor"/>
     <attr format="reference" name="appBarLayoutStyle"/>
     <attr format="enum" name="arcMode">
         <enum name="startVertical" value="0"/>
@@ -157,6 +158,28 @@
     <attr format="reference" name="extendedFloatingActionButtonStyle"/>
     <attr format="reference" name="extendedFloatingActionButtonSurfaceStyle"/>
     <attr format="reference" name="extendedFloatingActionButtonTertiaryStyle"/>
+    <attr format="enum" name="finishPrimaryWithPlaceholder">
+        
+        <enum name="always" value="1"/>
+        
+        <enum name="adjacent" value="2"/>
+    </attr>
+    <attr format="enum" name="finishPrimaryWithSecondary">
+        
+        <enum name="never" value="0"/>
+        
+        <enum name="always" value="1"/>
+        
+        <enum name="adjacent" value="2"/>
+    </attr>
+    <attr format="enum" name="finishSecondaryWithPrimary">
+        
+        <enum name="never" value="0"/>
+        
+        <enum name="always" value="1"/>
+        
+        <enum name="adjacent" value="2"/>
+    </attr>
     <attr format="reference" name="floatingActionButtonLargePrimaryStyle"/>
     <attr format="reference" name="floatingActionButtonLargeSecondaryStyle"/>
     <attr format="reference" name="floatingActionButtonLargeStyle"/>
@@ -533,11 +556,40 @@
     <attr format="boolean" name="singleSelection"/>
     <attr format="float" name="sizePercent"/>
     <attr format="reference" name="sliderStyle"/>
+    <attr format="enum" name="splitLayoutDirection">
+        
+        <enum name="locale" value="0"/>
+        
+        <enum name="ltr" value="1"/>
+        
+        <enum name="rtl" value="2"/>
+        
+        <enum name="topToBottom" value="3"/>
+        
+        <enum name="bottomToTop" value="4"/>
+    </attr>
+    <attr format="float" name="splitMaxAspectRatioInLandscape">
+        
+        <enum name="alwaysAllow" value="0"/>
+        
+        <enum name="alwaysDisallow" value="-1"/>
+    </attr>
+    <attr format="float" name="splitMaxAspectRatioInPortrait">
+        
+        <enum name="alwaysAllow" value="0"/>
+        
+        <enum name="alwaysDisallow" value="-1"/>
+    </attr>
+    <attr format="integer" name="splitMinHeightDp"/>
+    <attr format="integer" name="splitMinSmallestWidthDp"/>
+    <attr format="integer" name="splitMinWidthDp"/>
+    <attr format="float" name="splitRatio"/>
     <attr format="boolean" name="state_with_icon"/>
     <attr format="color" name="strokeColor"/>
     <attr format="dimension" name="strokeWidth"/>
     <attr format="reference" name="tabSecondaryStyle"/>
     <attr format="reference" name="tabStyle"/>
+    <attr format="string" name="tag"/>
     <attr format="reference" name="targetId"/>
     <attr format="reference" name="textAppearanceBody1"/>
     <attr format="reference" name="textAppearanceBody2"/>
@@ -699,6 +751,8 @@
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
+    <color name="error">@color/md_theme_error</color>
+    <color name="error_20">#33B3261E</color>
     <color name="error_color_material_dark">#ff7043</color>
     <color name="error_color_material_light">#ff5722</color>
     <color name="foreground_material_dark">@android:color/white</color>
@@ -934,14 +988,114 @@
     <color name="material_personalized_color_text_primary_inverse_disable_only">#FFFFFF</color>
     <color name="material_personalized_color_text_secondary_and_tertiary_inverse">#FFFFFF</color>
     <color name="material_personalized_color_text_secondary_and_tertiary_inverse_disabled">#FFFFFF</color>
-    <color name="md_theme_background">#FFFBFE</color>
-    <color name="md_theme_onBackground">#1C1B1F</color>
-    <color name="md_theme_onPrimary">#FFFFFF</color>
-    <color name="md_theme_onPrimaryContainer">#21005D</color>
-    <color name="md_theme_onSecondary">#FFFFFF</color>
-    <color name="md_theme_primary">#6750A4</color>
-    <color name="md_theme_primaryContainer">#EADDFF</color>
-    <color name="md_theme_secondary">#625B71</color>
+    <color name="md_theme_background">@color/md_theme_light_background</color>
+    <color name="md_theme_dark_background">#1C1B1F</color>
+    <color name="md_theme_dark_error">#F2B8B5</color>
+    <color name="md_theme_dark_errorContainer">#8C1D18</color>
+    <color name="md_theme_dark_inverseOnSurface">#1C1B1F</color>
+    <color name="md_theme_dark_inversePrimary">#6750A4</color>
+    <color name="md_theme_dark_inverseSurface">#E6E1E5</color>
+    <color name="md_theme_dark_onBackground">#E6E1E5</color>
+    <color name="md_theme_dark_onError">#601410</color>
+    <color name="md_theme_dark_onErrorContainer">#F9DEDC</color>
+    <color name="md_theme_dark_onPrimary">#381E72</color>
+    <color name="md_theme_dark_onPrimaryContainer">#EADDFF</color>
+    <color name="md_theme_dark_onSecondary">#332D41</color>
+    <color name="md_theme_dark_onSecondaryContainer">#E8DEF8</color>
+    <color name="md_theme_dark_onSurface">#E6E1E5</color>
+    <color name="md_theme_dark_onSurfaceVariant">#CAC4D0</color>
+    <color name="md_theme_dark_onTertiary">#492532</color>
+    <color name="md_theme_dark_onTertiaryContainer">#FFD8E4</color>
+    <color name="md_theme_dark_outline">#938F99</color>
+    <color name="md_theme_dark_outlineVariant">#49454F</color>
+    <color name="md_theme_dark_primary">#D0BCFF</color>
+    <color name="md_theme_dark_primaryContainer">#4F378B</color>
+    <color name="md_theme_dark_scrim">#000000</color>
+    <color name="md_theme_dark_secondary">#CCC2DC</color>
+    <color name="md_theme_dark_secondaryContainer">#4A4458</color>
+    <color name="md_theme_dark_surface">#1C1B1F</color>
+    <color name="md_theme_dark_surfaceBright">#36343B</color>
+    <color name="md_theme_dark_surfaceContainer">#211F26</color>
+    <color name="md_theme_dark_surfaceContainerHigh">#2B2930</color>
+    <color name="md_theme_dark_surfaceContainerHighest">#36343B</color>
+    <color name="md_theme_dark_surfaceContainerLow">#1D1B20</color>
+    <color name="md_theme_dark_surfaceContainerLowest">#17161C</color>
+    <color name="md_theme_dark_surfaceDim">#141218</color>
+    <color name="md_theme_dark_surfaceTint">#D0BCFF</color>
+    <color name="md_theme_dark_surfaceVariant">#49454F</color>
+    <color name="md_theme_dark_tertiary">#EFB8C8</color>
+    <color name="md_theme_dark_tertiaryContainer">#633B48</color>
+    <color name="md_theme_error">@color/md_theme_light_error</color>
+    <color name="md_theme_errorContainer">@color/md_theme_light_errorContainer</color>
+    <color name="md_theme_inverseOnSurface">@color/md_theme_light_inverseOnSurface</color>
+    <color name="md_theme_inversePrimary">@color/md_theme_light_inversePrimary</color>
+    <color name="md_theme_inverseSurface">@color/md_theme_light_inverseSurface</color>
+    <color name="md_theme_light_background">#FFFBFE</color>
+    <color name="md_theme_light_error">#B3261E</color>
+    <color name="md_theme_light_errorContainer">#F9DEDC</color>
+    <color name="md_theme_light_inverseOnSurface">#F4EFF4</color>
+    <color name="md_theme_light_inversePrimary">#D0BCFF</color>
+    <color name="md_theme_light_inverseSurface">#313033</color>
+    <color name="md_theme_light_onBackground">#1C1B1F</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+    <color name="md_theme_light_onErrorContainer">#410E0B</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_onPrimaryContainer">#21005D</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_onSecondaryContainer">#1D192B</color>
+    <color name="md_theme_light_onSurface">#1C1B1F</color>
+    <color name="md_theme_light_onSurfaceVariant">#49454F</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_onTertiaryContainer">#31101D</color>
+    <color name="md_theme_light_outline">#79747E</color>
+    <color name="md_theme_light_outlineVariant">#CAC4D0</color>
+    <color name="md_theme_light_primary">#6750A4</color>
+    <color name="md_theme_light_primaryContainer">#EADDFF</color>
+    <color name="md_theme_light_scrim">#000000</color>
+    <color name="md_theme_light_secondary">#625B71</color>
+    <color name="md_theme_light_secondaryContainer">#E8DEF8</color>
+    <color name="md_theme_light_surface">#FFFBFE</color>
+    <color name="md_theme_light_surfaceBright">#FFFBFE</color>
+    <color name="md_theme_light_surfaceContainer">#F2ECF6</color>
+    <color name="md_theme_light_surfaceContainerHigh">#ECE6F0</color>
+    <color name="md_theme_light_surfaceContainerHighest">#E6E0E9</color>
+    <color name="md_theme_light_surfaceContainerLow">#F8F2FC</color>
+    <color name="md_theme_light_surfaceContainerLowest">#FFFFFF</color>
+    <color name="md_theme_light_surfaceDim">#DDD8E1</color>
+    <color name="md_theme_light_surfaceTint">#6750A4</color>
+    <color name="md_theme_light_surfaceVariant">#E7E0EC</color>
+    <color name="md_theme_light_tertiary">#7D5260</color>
+    <color name="md_theme_light_tertiaryContainer">#FFD8E4</color>
+    <color name="md_theme_onBackground">@color/md_theme_light_onBackground</color>
+    <color name="md_theme_onError">@color/md_theme_light_onError</color>
+    <color name="md_theme_onErrorContainer">@color/md_theme_light_onErrorContainer</color>
+    <color name="md_theme_onPrimary">@color/md_theme_light_onPrimary</color>
+    <color name="md_theme_onPrimaryContainer">@color/md_theme_light_onPrimaryContainer</color>
+    <color name="md_theme_onSecondary">@color/md_theme_light_onSecondary</color>
+    <color name="md_theme_onSecondaryContainer">@color/md_theme_light_onSecondaryContainer</color>
+    <color name="md_theme_onSurface">@color/md_theme_light_onSurface</color>
+    <color name="md_theme_onSurfaceVariant">@color/md_theme_light_onSurfaceVariant</color>
+    <color name="md_theme_onTertiary">@color/md_theme_light_onTertiary</color>
+    <color name="md_theme_onTertiaryContainer">@color/md_theme_light_onTertiaryContainer</color>
+    <color name="md_theme_outline">@color/md_theme_light_outline</color>
+    <color name="md_theme_outlineVariant">@color/md_theme_light_outlineVariant</color>
+    <color name="md_theme_primary">@color/md_theme_light_primary</color>
+    <color name="md_theme_primaryContainer">@color/md_theme_light_primaryContainer</color>
+    <color name="md_theme_scrim">@color/md_theme_light_scrim</color>
+    <color name="md_theme_secondary">@color/md_theme_light_secondary</color>
+    <color name="md_theme_secondaryContainer">@color/md_theme_light_secondaryContainer</color>
+    <color name="md_theme_surface">@color/md_theme_light_surface</color>
+    <color name="md_theme_surfaceBright">@color/md_theme_light_surfaceBright</color>
+    <color name="md_theme_surfaceContainer">@color/md_theme_light_surfaceContainer</color>
+    <color name="md_theme_surfaceContainerHigh">@color/md_theme_light_surfaceContainerHigh</color>
+    <color name="md_theme_surfaceContainerHighest">@color/md_theme_light_surfaceContainerHighest</color>
+    <color name="md_theme_surfaceContainerLow">@color/md_theme_light_surfaceContainerLow</color>
+    <color name="md_theme_surfaceContainerLowest">@color/md_theme_light_surfaceContainerLowest</color>
+    <color name="md_theme_surfaceDim">@color/md_theme_light_surfaceDim</color>
+    <color name="md_theme_surfaceTint">@color/md_theme_light_surfaceTint</color>
+    <color name="md_theme_surfaceVariant">@color/md_theme_light_surfaceVariant</color>
+    <color name="md_theme_tertiary">@color/md_theme_light_tertiary</color>
+    <color name="md_theme_tertiaryContainer">@color/md_theme_light_tertiaryContainer</color>
     <color name="mtrl_btn_text_color_disabled">#61000000</color>
     <color name="mtrl_btn_transparent_bg_color">#00ffffff</color>
     <color name="mtrl_scrim_color">#52000000</color>
@@ -1816,10 +1970,17 @@
     <item name="action_bar_spinner" type="id"/>
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
+    <item name="androidx_compose_ui_view_composition_context" type="id"/>
+    <item name="androidx_window_activity_scope" type="id"/>
+    <item name="compose_view_saveable_id_tag" type="id"/>
+    <item name="consume_window_insets_tag" type="id"/>
     <item name="fragment_container_view_tag" type="id"/>
     <item name="ghost_view" type="id"/>
     <item name="ghost_view_holder" type="id"/>
+    <item name="glide_custom_view_target_tag" type="id"/>
+    <item name="hide_in_inspector_tag" type="id"/>
     <item name="home" type="id"/>
+    <item name="inspection_slot_table_set" type="id"/>
     <item name="is_pooling_container_tag" type="id"/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
     <item name="line1" type="id"/>
@@ -1892,6 +2053,7 @@
     <id name="view_tree_saved_state_registry_owner"/>
     <id name="view_tree_view_model_store_owner"/>
     <item name="visible_removing_fragment_view_tag" type="id"/>
+    <item name="wrapped_composition_tag" type="id"/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="app_bar_elevation_anim_duration">150</integer>
@@ -1992,7 +2154,9 @@
     <string name="abc_shareactionprovider_share_with_application">Share with <ns2:g example="Mail" id="application_name">%s</ns2:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="add_recipe">Add Recipe</string>
+    <string name="add_to_favorites">Add to favorites</string>
     <string name="all">All</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
     <string name="app_name">Recipe Manager</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
@@ -2014,20 +2178,34 @@
     <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d/%2$d</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
+    <string name="close_drawer">"Close navigation menu"</string>
+    <string name="close_sheet">"Close sheet"</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="default_error_message">"Invalid input"</string>
+    <string name="default_popup_window_title" ns1:ignore="ExtraTranslation">"Pop-Up Window"</string>
     <string name="delete">Delete</string>
+    <string name="dont_have_an_account_sign_up">Don\'t have an account? Sign up</string>
+    <string name="dropdown_menu">"Dropdown menu"</string>
     <string name="edit_recipe">Edit Recipe</string>
+    <string name="email">Email</string>
     <string description="Screen reader announcement for when a checkbox is on error. [CHAR LIMIT=NONE]" name="error_a11y_label">
     Error: invalid
   </string>
     <string name="error_icon_content_description">Error</string>
+    <string name="error_loading_recipes">Error loading recipes</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
     <string name="favourites">Favourites</string>
+    <string name="full_name">Full Name</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>
+    <string name="in_progress">In progress</string>
+    <string name="indeterminate">Partially checked</string>
     <string name="ingredients">Ingredients</string>
     <string name="item_view_role_description">Tab</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
     <string name="m3_exceed_max_badge_text_suffix" translatable="false"><ns2:g example="Some te" id="part of a long text">%1$s</ns2:g><ns2:g example="…" id="suffix">%2$s</ns2:g></string>
     <string name="m3_ref_typeface_brand_medium" translatable="false">sans-serif-medium</string>
     <string name="m3_ref_typeface_brand_regular" translatable="false">sans-serif</string>
@@ -2044,6 +2222,66 @@
     <string name="m3_sys_motion_easing_standard" translatable="false">cubic-bezier(0.2, 0, 0, 1)</string>
     <string name="m3_sys_motion_easing_standard_accelerate" translatable="false">cubic-bezier(0.3, 0, 1, 1)</string>
     <string name="m3_sys_motion_easing_standard_decelerate" translatable="false">cubic-bezier(0, 0, 0, 1)</string>
+    <string name="m3c_bottom_sheet_collapse_description">Collapse bottom sheet</string>
+    <string name="m3c_bottom_sheet_dismiss_description">Dismiss bottom sheet</string>
+    <string name="m3c_bottom_sheet_drag_handle_description">Drag handle</string>
+    <string name="m3c_bottom_sheet_expand_description">Expand bottom sheet</string>
+    <string name="m3c_bottom_sheet_pane_title">Bottom Sheet</string>
+    <string name="m3c_date_input_headline">Entered date</string>
+    <string name="m3c_date_input_headline_description">Entered date: %1$s</string>
+    <string name="m3c_date_input_invalid_for_pattern">Date does not match expected pattern: %1$s</string>
+    <string name="m3c_date_input_invalid_not_allowed">Date not allowed: %1$s</string>
+    <string name="m3c_date_input_invalid_year_range">
+        Date out of expected year range %1$s - %2$s
+    </string>
+    <string name="m3c_date_input_label">Date</string>
+    <string name="m3c_date_input_no_input_description">None</string>
+    <string name="m3c_date_input_title">Select date</string>
+    <string name="m3c_date_picker_headline">"Selected date"</string>
+    <string name="m3c_date_picker_headline_description">Current selection: %1$s</string>
+    <string name="m3c_date_picker_navigate_to_year_description">Navigate to year %1$s</string>
+    <string name="m3c_date_picker_no_selection_description">None</string>
+    <string name="m3c_date_picker_scroll_to_earlier_years">Scroll to show earlier years</string>
+    <string name="m3c_date_picker_scroll_to_later_years">Scroll to show later years</string>
+    <string name="m3c_date_picker_switch_to_calendar_mode">Switch to calendar input mode</string>
+    <string name="m3c_date_picker_switch_to_day_selection">
+        "Swipe to select a year, or tap to switch back to selecting a day"
+    </string>
+    <string name="m3c_date_picker_switch_to_input_mode">Switch to text input mode</string>
+    <string name="m3c_date_picker_switch_to_next_month">"Change to next month"</string>
+    <string name="m3c_date_picker_switch_to_previous_month">"Change to previous month"</string>
+    <string name="m3c_date_picker_switch_to_year_selection">"Switch to selecting a year"</string>
+    <string name="m3c_date_picker_title">"Select date"</string>
+    <string name="m3c_date_picker_today_description">Today</string>
+    <string name="m3c_date_picker_year_picker_pane_title">Year picker visible</string>
+    <string name="m3c_date_range_input_invalid_range_input">Invalid date range input</string>
+    <string name="m3c_date_range_input_title">Enter dates</string>
+    <string name="m3c_date_range_picker_day_in_range">In range</string>
+    <string name="m3c_date_range_picker_end_headline">End date</string>
+    <string name="m3c_date_range_picker_scroll_to_next_month">Scroll to show the next month</string>
+    <string name="m3c_date_range_picker_scroll_to_previous_month">Scroll to show the previous month</string>
+    <string name="m3c_date_range_picker_start_headline">Start date</string>
+    <string name="m3c_date_range_picker_title">Select dates</string>
+    <string name="m3c_dialog">"Dialog"</string>
+    <string name="m3c_dropdown_menu_collapsed">Collapsed</string>
+    <string name="m3c_dropdown_menu_expanded">Expanded</string>
+    <string name="m3c_search_bar_search">Search</string>
+    <string name="m3c_snackbar_dismiss">Dismiss</string>
+    <string name="m3c_suggestions_available">Suggestions below</string>
+    <string name="m3c_time_picker_am">AM</string>
+    <string name="m3c_time_picker_hour">Hour</string>
+    <string name="m3c_time_picker_hour_24h_suffix">%1$d hours</string>
+    <string name="m3c_time_picker_hour_selection">Select hour</string>
+    <string name="m3c_time_picker_hour_suffix">%1$d o\'clock</string>
+    <string name="m3c_time_picker_hour_text_field">for hour</string>
+    <string name="m3c_time_picker_minute">Minute</string>
+    <string name="m3c_time_picker_minute_selection">Select minutes</string>
+    <string name="m3c_time_picker_minute_suffix">%1$d minutes</string>
+    <string name="m3c_time_picker_minute_text_field">for minutes</string>
+    <string name="m3c_time_picker_period_toggle_description">Select AM or PM</string>
+    <string name="m3c_time_picker_pm">PM</string>
+    <string name="m3c_tooltip_long_press_label">Show tooltip</string>
+    <string name="m3c_tooltip_pane_description">Tooltip</string>
     <string name="material_clock_display_divider" translatable="false">:</string>
     <string description="Description for the toggle to choose between AM and PM [CHAR_LIMIT=NONE]" name="material_clock_toggle_content_description">Select AM or PM</string>
     <string description="Spoken suffix for an hour in the 24-hour clock [CHAR_LIMIT=10]" name="material_hour_24h_suffix"><ns2:g id="number">%1$s</ns2:g> hours</string>
@@ -2135,26 +2373,46 @@
     <string description="Button text to indicate that the widget will ignore the user&apos;s selection [CHAR_LIMIT=16]" name="mtrl_timepicker_cancel">Cancel</string>
     <string description="Button text to indicate that the widget will save the user&apos;s selection [CHAR_LIMIT=16]" name="mtrl_timepicker_confirm">OK</string>
     <string name="name">Name</string>
+    <string name="navigation_menu">"Navigation menu"</string>
+    <string name="no_recipes_found">No recipes found</string>
+    <string name="not_selected">Not selected</string>
+    <string name="off">Off</string>
+    <string name="on">On</string>
+    <string name="password">Password</string>
     <string name="password_toggle_content_description">Show password</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="pick_image">Pick Image</string>
+    <string name="range_end">"Range end"</string>
+    <string name="range_start">"Range start"</string>
+    <string name="recipe_image">Recipe Image</string>
+    <string name="registration_successful">Registration successful! Please login.</string>
+    <string name="remove_from_favorites">Remove from favorites</string>
     <string name="save">Save</string>
     <string name="search_hint">Search recipes</string>
     <string name="search_menu_title">Search</string>
+    <string name="search_recipes">Search recipes...</string>
     <string name="searchbar_scrolling_view_behavior" translatable="false">
     com.google.android.material.search.SearchBar$ScrollingViewBehavior
   </string>
     <string description="Content description for the X button to clear text [CHAR_LIMIT=NONE]" name="searchview_clear_text_content_description">Clear text</string>
     <string description="Content description for the navigation button to return to the previous screen [CHAR_LIMIT=NONE]" name="searchview_navigation_content_description">Back</string>
+    <string name="selected">Selected</string>
     <string name="share">Share</string>
     <string description="Title of the side sheet&apos;s accessibility pane that is spoken by TalkBack when the side sheet appears on screen. [CHAR_LIMIT=NONE]" name="side_sheet_accessibility_pane_title">Side Sheet</string>
     <string name="side_sheet_behavior" translatable="false">com.google.android.material.sidesheet.SideSheetBehavior</string>
+    <string name="sign_up">Sign Up</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="steps">Steps</string>
+    <string name="switch_role">Switch</string>
+    <string name="tab">Tab</string>
+    <string name="template_percent"><ns2:g id="percentage">%1$d</ns2:g> percent.</string>
+    <string name="tooltip_description">tooltip</string>
+    <string name="tooltip_label">show tooltip</string>
     <string name="undo">Undo</string>
+    <string name="username">Username</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
@@ -2581,6 +2839,44 @@
     <item name="android:windowMinWidthMinor">@dimen/abc_dialog_min_width_minor</item>
   </style>
     <style name="Base.Theme.MaterialComponents.Light.DialogWhenLarge" parent="Theme.MaterialComponents.Light"/>
+    <style name="Base.Theme.RecipeManager" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/md_theme_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_onPrimaryContainer</item>
+        
+        
+        <item name="colorSecondary">@color/md_theme_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_onSecondary</item>
+        <item name="colorSecondaryContainer">@color/md_theme_secondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/md_theme_onSecondaryContainer</item>
+        
+        
+        <item name="android:colorBackground">@color/md_theme_background</item>
+        <item name="colorOnBackground">@color/md_theme_onBackground</item>
+        <item name="colorSurface">@color/md_theme_surface</item>
+        <item name="colorOnSurface">@color/md_theme_onSurface</item>
+        <item name="colorSurfaceVariant">@color/md_theme_surfaceVariant</item>
+        <item name="colorOnSurfaceVariant">@color/md_theme_onSurfaceVariant</item>
+        
+        
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">?attr/isLightTheme</item>
+        
+        
+        <item name="materialButtonStyle">@style/Widget.Material3.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.Material3.CardView</item>
+        <item name="floatingActionButtonStyle">@style/Widget.Material3.FloatingActionButton</item>
+        
+        
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Material3.HeadlineSmall</item>
+        
+        
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Material3.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Material3.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Material3.LargeComponent</item>
+    </style>
     <style name="Base.ThemeOverlay.AppCompat" parent="Platform.ThemeOverlay.AppCompat"/>
     <style name="Base.ThemeOverlay.AppCompat.ActionBar">
         <item name="colorControlNormal">?android:attr/textColorPrimary</item>
@@ -5565,6 +5861,16 @@
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
+    <style name="DialogWindowTheme">
+        <item name="android:windowClipToOutline">false</item>
+    </style>
+    <style name="FloatingDialogTheme">
+        <item name="android:windowIsFloating">false</item>
+    </style>
+    <style name="FloatingDialogWindowTheme">
+        <item name="android:windowClipToOutline">false</item>
+        <item name="android:dialogTheme">@style/FloatingDialogTheme</item>
+    </style>
     <style name="MaterialAlertDialog.Material3" parent="MaterialAlertDialog.MaterialComponents">
     <item name="backgroundTint">@macro/m3_comp_dialog_container_color</item>
     <item name="enforceMaterialTheme">true</item>
@@ -5878,6 +6184,10 @@
         <item name="android:paddingLeft">@dimen/abc_action_bar_overflow_padding_start_material</item>
         <item name="android:paddingRight">@dimen/abc_action_bar_overflow_padding_end_material</item>
     </style>
+    <style name="ShapeAppearance.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
     <style name="ShapeAppearance.M3.Comp.Badge.Large.Shape" parent="ShapeAppearance.M3.Sys.Shape.Corner.Full"/>
     <style name="ShapeAppearance.M3.Comp.Badge.Shape" parent="ShapeAppearance.M3.Sys.Shape.Corner.Full"/>
     <style name="ShapeAppearance.M3.Comp.BottomAppBar.Container.Shape" parent="ShapeAppearance.M3.Sys.Shape.Corner.None"/>
@@ -5965,6 +6275,26 @@
     <item name="cornerFamily">rounded</item>
     <item name="cornerSize">4dp</item>
   </style>
+    <style name="ShapeAppearance.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+    <style name="ShapeAppearance.RecipeManager.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+    <style name="ShapeAppearance.RecipeManager.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+    <style name="ShapeAppearance.RecipeManager.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+    <style name="ShapeAppearance.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
     <style name="ShapeAppearanceOverlay.Material3.Button" parent="">
     <item name="cornerSize">50%</item>
   </style>
@@ -6565,10 +6895,7 @@
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
   </style>
-    <style name="Theme.RecipeManager" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/md_theme_primary</item>
-        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimary</item>
-    </style>
+    <style name="Theme.RecipeManager" parent="Base.Theme.RecipeManager"/>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
@@ -7625,6 +7952,13 @@
     <item name="android:stateListAnimator" ns1:ignore="NewApi">@animator/mtrl_btn_unelevated_state_list_anim</item>
     <item name="elevation">0dp</item>
   </style>
+    <style name="Widget.Material3.CardView" parent="">
+        <item name="cardBackgroundColor">?attr/colorSurfaceVariant</item>
+        <item name="cardElevation">1dp</item>
+        <item name="cardMaxElevation">1dp</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
     <style name="Widget.Material3.CardView.Elevated" parent="Base.Widget.Material3.CardView">
     <item name="android:stateListAnimator" ns1:ignore="NewApi">
       @animator/m3_card_elevated_state_list_anim
@@ -7896,6 +8230,13 @@
     <style name="Widget.Material3.ExtendedFloatingActionButton.Tertiary" parent="Base.Widget.Material3.ExtendedFloatingActionButton">
     <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.ExtendedFloatingActionButton.Tertiary</item>
   </style>
+    <style name="Widget.Material3.FloatingActionButton" parent="Widget.Material3.FloatingActionButton">
+        <item name="backgroundTint">?attr/colorPrimaryContainer</item>
+        <item name="tint">?attr/colorOnPrimaryContainer</item>
+        <item name="elevation">3dp</item>
+        <item name="hoveredFocusedTranslationZ">6dp</item>
+        <item name="pressedTranslationZ">3dp</item>
+    </style>
     <style name="Widget.Material3.FloatingActionButton.Large.Primary" parent="Base.Widget.Material3.FloatingActionButton.Large">
     <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.ExtendedFloatingActionButton.Primary</item>
   </style>
@@ -9272,6 +9613,26 @@
     <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Tooltip</item>
     <item name="shapeAppearance">@style/ShapeAppearance.MaterialComponents.Tooltip</item>
   </style>
+    <style name="Widget.RecipeManager.CardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardElevation">2dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="contentPadding">0dp</item>
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+        <item name="strokeColor">?attr/colorOutline</item>
+        <item name="strokeWidth">0.5dp</item>
+    </style>
+    <style name="Widget.RecipeManager.FloatingActionButton" parent="Widget.Material3.FloatingActionButton">
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="tint">?attr/colorOnPrimary</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.LargeComponent</item>
+    </style>
+    <style name="Widget.RecipeManager.SearchView" parent="Widget.Material3.SearchBar">
+        <item name="elevation">0dp</item>
+        <item name="android:background">?attr/colorSurfaceContainerHigh</item>
+        <item name="android:outlineAmbientShadowColor">@android:color/transparent</item>
+        <item name="android:outlineSpotShadowColor">@android:color/transparent</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.MediumComponent</item>
+    </style>
     <style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
         <item name="statusBarBackground">#000000</item>
     </style>
@@ -9378,6 +9739,17 @@
         <attr format="string" name="initialActivityCount"/>
         
         <attr format="reference" name="expandActivityOverflowButtonDrawable"/>
+    </declare-styleable>
+    <declare-styleable name="ActivityFilter">
+        
+        <attr format="string" name="activityName"/>
+        
+        <attr format="string" name="activityAction"/>
+    </declare-styleable>
+    <declare-styleable name="ActivityRule">
+        
+        <attr format="boolean" name="alwaysExpand"/>
+        <attr name="tag"/>
     </declare-styleable>
     <declare-styleable name="AlertDialog">
         <attr name="android:layout"/>
@@ -12949,6 +13321,45 @@
         <attr name="android:dropDownWidth"/>
         
         <attr name="android:entries"/>
+    </declare-styleable>
+    <declare-styleable name="SplitPairFilter">
+        
+        <attr format="string" name="primaryActivityName"/>
+        
+        <attr format="string" name="secondaryActivityName"/>
+        
+        <attr format="string" name="secondaryActivityAction"/>
+    </declare-styleable>
+    <declare-styleable name="SplitPairRule">
+        
+        <attr format="boolean" name="clearTop"/>
+        <attr name="finishPrimaryWithSecondary"/>
+        <attr name="finishSecondaryWithPrimary"/>
+        <attr name="splitRatio"/>
+        <attr name="splitMinWidthDp"/>
+        <attr name="splitMinHeightDp"/>
+        <attr name="splitMinSmallestWidthDp"/>
+        <attr name="splitMaxAspectRatioInPortrait"/>
+        <attr name="splitMaxAspectRatioInLandscape"/>
+        <attr name="splitLayoutDirection"/>
+        <attr name="tag"/>
+        <attr name="animationBackgroundColor"/>
+    </declare-styleable>
+    <declare-styleable name="SplitPlaceholderRule">
+        
+        <attr format="string" name="placeholderActivityName"/>
+        
+        <attr format="boolean" name="stickyPlaceholder"/>
+        <attr name="finishPrimaryWithPlaceholder"/>
+        <attr name="splitRatio"/>
+        <attr name="splitMinWidthDp"/>
+        <attr name="splitMinHeightDp"/>
+        <attr name="splitMinSmallestWidthDp"/>
+        <attr name="splitMaxAspectRatioInPortrait"/>
+        <attr name="splitMaxAspectRatioInLandscape"/>
+        <attr name="splitLayoutDirection"/>
+        <attr name="tag"/>
+        <attr name="animationBackgroundColor"/>
     </declare-styleable>
     <declare-styleable name="State">
         <attr name="android:id"/>

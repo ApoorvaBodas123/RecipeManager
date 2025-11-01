@@ -24,7 +24,8 @@ public class RecipeDetailActivity extends AppCompatActivity {
         binding = ActivityRecipeDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        vm = new ViewModelProvider(this).get(RecipeViewModel.class);
+        ViewModelProvider.Factory factory = new ViewModelProvider.NewInstanceFactory();
+        vm = new ViewModelProvider(this, factory).get(RecipeViewModel.class);
         id = getIntent().getLongExtra("id", 0);
         vm.getById(id).observe(this, r -> {
             current = r;

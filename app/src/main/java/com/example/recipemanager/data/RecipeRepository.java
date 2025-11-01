@@ -1,6 +1,7 @@
 package com.example.recipemanager.data;
 
 import android.app.Application;
+import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
@@ -11,10 +12,19 @@ import java.util.concurrent.Executors;
 public class RecipeRepository {
     private final RecipeDao dao;
     private final ExecutorService io;
+    private static volatile RecipeRepository instance;
 
-    public RecipeRepository(Application app) {
-        dao = AppDatabase.getInstance(app).recipeDao();
+    private RecipeRepository(Application application) {
+        AppDatabase database = AppDatabase.getInstance(application);
+        dao = database.recipeDao();
         io = Executors.newSingleThreadExecutor();
+    }
+
+    public static synchronized RecipeRepository getInstance(Application application) {
+        if (instance == null) {
+            instance = new RecipeRepository(application);
+        }
+        return instance;
     }
 
     public LiveData<List<Recipe>> getAll() { return dao.getAll(); }
