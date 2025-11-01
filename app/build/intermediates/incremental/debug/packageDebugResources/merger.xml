@@ -80,6 +80,11 @@
         <item>Snack</item>
         <item>Main-Course</item>
         <item>Beverage</item>
+    </string-array><string-array name="difficulty_levels">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+        <item>Expert</item>
     </string-array></file><file path="/Users/apoorvabodas/Desktop/madproject/RecipeManager/app/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">Recipe Manager</string><string name="search_hint">Search recipes</string><string name="add_recipe">Add Recipe</string><string name="edit_recipe">Edit Recipe</string><string name="delete">Delete</string><string name="undo">Undo</string><string name="ingredients">Ingredients</string><string name="steps">Steps</string><string name="name">Name</string><string name="save">Save</string><string name="pick_image">Pick Image</string><string name="favourites">Favourites</string><string name="all">All</string><string name="share">Share</string><string name="category">Category</string><string name="recipe_image">Recipe Image</string><string name="add_to_favorites">Add to favorites</string><string name="remove_from_favorites">Remove from favorites</string><string name="search_recipes">Search recipes...</string><string name="no_recipes_found">No recipes found</string><string name="error_loading_recipes">Error loading recipes</string><string name="username">Username</string><string name="password">Password</string><string name="login">Login</string><string name="dont_have_an_account_sign_up">Don\'t have an account? Sign up</string><string name="email">Email</string><string name="full_name">Full Name</string><string name="sign_up">Sign Up</string><string name="confirm_password">Confirm Password</string><string name="already_have_an_account_login">Already have an account? Login</string><string name="registration_successful">Registration successful! Please login.</string><string name="logout">Logout</string></file><file path="/Users/apoorvabodas/Desktop/madproject/RecipeManager/app/src/main/res/values/shape_appearance.xml" qualifiers=""><style name="ShapeAppearance.RecipeManager.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>

@@ -1,30 +1,30 @@
 [
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-62:/layout/fragment_recipe_list.xml",
-        "source": "com.example.recipemanager.app-main-65:/layout/fragment_recipe_list.xml"
+        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/item_recipe.xml",
+        "source": "com.example.recipemanager.app-main-67:/layout/item_recipe.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-62:/layout/activity_signup.xml",
-        "source": "com.example.recipemanager.app-main-65:/layout/activity_signup.xml"
+        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/activity_login.xml",
+        "source": "com.example.recipemanager.app-main-67:/layout/activity_login.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-62:/layout/activity_login.xml",
-        "source": "com.example.recipemanager.app-main-65:/layout/activity_login.xml"
+        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/activity_main.xml",
+        "source": "com.example.recipemanager.app-main-67:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-62:/layout/activity_recipe_detail.xml",
-        "source": "com.example.recipemanager.app-main-65:/layout/activity_recipe_detail.xml"
+        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/activity_recipe_detail.xml",
+        "source": "com.example.recipemanager.app-main-67:/layout/activity_recipe_detail.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-62:/layout/activity_add_edit_recipe.xml",
-        "source": "com.example.recipemanager.app-main-65:/layout/activity_add_edit_recipe.xml"
+        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/activity_add_edit_recipe.xml",
+        "source": "com.example.recipemanager.app-main-67:/layout/activity_add_edit_recipe.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-62:/layout/activity_main.xml",
-        "source": "com.example.recipemanager.app-main-65:/layout/activity_main.xml"
+        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/activity_signup.xml",
+        "source": "com.example.recipemanager.app-main-67:/layout/activity_signup.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-62:/layout/item_recipe.xml",
-        "source": "com.example.recipemanager.app-main-65:/layout/item_recipe.xml"
+        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/fragment_recipe_list.xml",
+        "source": "com.example.recipemanager.app-main-67:/layout/fragment_recipe_list.xml"
     }
 ]

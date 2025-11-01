@@ -1,66 +1,66 @@
 [
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/layout_activity_signup.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/layout/activity_signup.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/animator_fab_show.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/animator/fab_show.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/layout_activity_add_edit_recipe.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/layout/activity_add_edit_recipe.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/layout_activity_login.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/layout/activity_login.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/drawable_ic_favorite_border.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/drawable/ic_favorite_border.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/layout_activity_recipe_detail.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/layout/activity_recipe_detail.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/layout_activity_login.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/layout/activity_login.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/drawable_ic_favorite_filled.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/drawable/ic_favorite_filled.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/drawable_ic_placeholder.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/drawable/ic_placeholder.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/drawable_category_chip.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/drawable/category_chip.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/drawable_ic_favorite_filled.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/drawable/ic_favorite_filled.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/layout_activity_signup.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/layout/activity_signup.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/layout_activity_main.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/layout/activity_main.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/drawable_ic_favorite_border.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/drawable/ic_favorite_border.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/menu_main_menu.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/menu/main_menu.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/drawable_ic_placeholder.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/drawable/ic_placeholder.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/layout_item_recipe.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/layout/item_recipe.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/menu_main_menu.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/menu/main_menu.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/menu_menu_search.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/menu/menu_search.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/drawable_ic_add.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/drawable/ic_add.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/animator_fab_show.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/animator/fab_show.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/menu_menu_search.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/menu/menu_search.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/animator_fab_hide.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/animator/fab_hide.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/layout_fragment_recipe_list.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/layout/fragment_recipe_list.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/layout_activity_recipe_detail.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/layout/activity_recipe_detail.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/layout_activity_add_edit_recipe.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/layout/activity_add_edit_recipe.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/drawable_ic_add.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/drawable/ic_add.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/layout_item_recipe.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/layout/item_recipe.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/drawable_category_chip.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/drawable/category_chip.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/animator_fab_hide.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/animator/fab_hide.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-merged_res-63:/layout_fragment_recipe_list.xml.flat",
-        "source": "com.example.recipemanager.app-main-65:/layout/fragment_recipe_list.xml"
+        "merged": "com.example.recipemanager.app-merged_res-65:/layout_activity_main.xml.flat",
+        "source": "com.example.recipemanager.app-main-67:/layout/activity_main.xml"
     }
 ]

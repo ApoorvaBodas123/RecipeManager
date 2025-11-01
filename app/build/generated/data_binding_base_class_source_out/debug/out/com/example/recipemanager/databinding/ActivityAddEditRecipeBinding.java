@@ -4,6 +4,7 @@ package com.example.recipemanager.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -13,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.recipemanager.R;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -29,13 +32,61 @@ public final class ActivityAddEditRecipeBinding implements ViewBinding {
   public final Button btnSave;
 
   @NonNull
+  public final Chip chipDairyFree;
+
+  @NonNull
+  public final Chip chipGlutenFree;
+
+  @NonNull
+  public final ChipGroup chipGroupDietary;
+
+  @NonNull
+  public final Chip chipNutFree;
+
+  @NonNull
+  public final Chip chipVegan;
+
+  @NonNull
+  public final Chip chipVegetarian;
+
+  @NonNull
+  public final TextInputEditText etCalories;
+
+  @NonNull
+  public final TextInputEditText etCarbs;
+
+  @NonNull
+  public final TextInputEditText etCookTime;
+
+  @NonNull
+  public final AutoCompleteTextView etDifficulty;
+
+  @NonNull
+  public final TextInputEditText etFat;
+
+  @NonNull
+  public final TextInputEditText etFiber;
+
+  @NonNull
   public final TextInputEditText etIngredients;
 
   @NonNull
   public final TextInputEditText etName;
 
   @NonNull
+  public final TextInputEditText etPrepTime;
+
+  @NonNull
+  public final TextInputEditText etProtein;
+
+  @NonNull
+  public final TextInputEditText etSodium;
+
+  @NonNull
   public final TextInputEditText etSteps;
+
+  @NonNull
+  public final TextInputEditText etSugar;
 
   @NonNull
   public final ImageView ivPreview;
@@ -44,15 +95,38 @@ public final class ActivityAddEditRecipeBinding implements ViewBinding {
   public final Spinner spinnerCategory;
 
   private ActivityAddEditRecipeBinding(@NonNull ScrollView rootView, @NonNull Button btnPickImage,
-      @NonNull Button btnSave, @NonNull TextInputEditText etIngredients,
-      @NonNull TextInputEditText etName, @NonNull TextInputEditText etSteps,
+      @NonNull Button btnSave, @NonNull Chip chipDairyFree, @NonNull Chip chipGlutenFree,
+      @NonNull ChipGroup chipGroupDietary, @NonNull Chip chipNutFree, @NonNull Chip chipVegan,
+      @NonNull Chip chipVegetarian, @NonNull TextInputEditText etCalories,
+      @NonNull TextInputEditText etCarbs, @NonNull TextInputEditText etCookTime,
+      @NonNull AutoCompleteTextView etDifficulty, @NonNull TextInputEditText etFat,
+      @NonNull TextInputEditText etFiber, @NonNull TextInputEditText etIngredients,
+      @NonNull TextInputEditText etName, @NonNull TextInputEditText etPrepTime,
+      @NonNull TextInputEditText etProtein, @NonNull TextInputEditText etSodium,
+      @NonNull TextInputEditText etSteps, @NonNull TextInputEditText etSugar,
       @NonNull ImageView ivPreview, @NonNull Spinner spinnerCategory) {
     this.rootView = rootView;
     this.btnPickImage = btnPickImage;
     this.btnSave = btnSave;
+    this.chipDairyFree = chipDairyFree;
+    this.chipGlutenFree = chipGlutenFree;
+    this.chipGroupDietary = chipGroupDietary;
+    this.chipNutFree = chipNutFree;
+    this.chipVegan = chipVegan;
+    this.chipVegetarian = chipVegetarian;
+    this.etCalories = etCalories;
+    this.etCarbs = etCarbs;
+    this.etCookTime = etCookTime;
+    this.etDifficulty = etDifficulty;
+    this.etFat = etFat;
+    this.etFiber = etFiber;
     this.etIngredients = etIngredients;
     this.etName = etName;
+    this.etPrepTime = etPrepTime;
+    this.etProtein = etProtein;
+    this.etSodium = etSodium;
     this.etSteps = etSteps;
+    this.etSugar = etSugar;
     this.ivPreview = ivPreview;
     this.spinnerCategory = spinnerCategory;
   }
@@ -96,6 +170,78 @@ public final class ActivityAddEditRecipeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.chipDairyFree;
+      Chip chipDairyFree = ViewBindings.findChildViewById(rootView, id);
+      if (chipDairyFree == null) {
+        break missingId;
+      }
+
+      id = R.id.chipGlutenFree;
+      Chip chipGlutenFree = ViewBindings.findChildViewById(rootView, id);
+      if (chipGlutenFree == null) {
+        break missingId;
+      }
+
+      id = R.id.chipGroupDietary;
+      ChipGroup chipGroupDietary = ViewBindings.findChildViewById(rootView, id);
+      if (chipGroupDietary == null) {
+        break missingId;
+      }
+
+      id = R.id.chipNutFree;
+      Chip chipNutFree = ViewBindings.findChildViewById(rootView, id);
+      if (chipNutFree == null) {
+        break missingId;
+      }
+
+      id = R.id.chipVegan;
+      Chip chipVegan = ViewBindings.findChildViewById(rootView, id);
+      if (chipVegan == null) {
+        break missingId;
+      }
+
+      id = R.id.chipVegetarian;
+      Chip chipVegetarian = ViewBindings.findChildViewById(rootView, id);
+      if (chipVegetarian == null) {
+        break missingId;
+      }
+
+      id = R.id.etCalories;
+      TextInputEditText etCalories = ViewBindings.findChildViewById(rootView, id);
+      if (etCalories == null) {
+        break missingId;
+      }
+
+      id = R.id.etCarbs;
+      TextInputEditText etCarbs = ViewBindings.findChildViewById(rootView, id);
+      if (etCarbs == null) {
+        break missingId;
+      }
+
+      id = R.id.etCookTime;
+      TextInputEditText etCookTime = ViewBindings.findChildViewById(rootView, id);
+      if (etCookTime == null) {
+        break missingId;
+      }
+
+      id = R.id.etDifficulty;
+      AutoCompleteTextView etDifficulty = ViewBindings.findChildViewById(rootView, id);
+      if (etDifficulty == null) {
+        break missingId;
+      }
+
+      id = R.id.etFat;
+      TextInputEditText etFat = ViewBindings.findChildViewById(rootView, id);
+      if (etFat == null) {
+        break missingId;
+      }
+
+      id = R.id.etFiber;
+      TextInputEditText etFiber = ViewBindings.findChildViewById(rootView, id);
+      if (etFiber == null) {
+        break missingId;
+      }
+
       id = R.id.etIngredients;
       TextInputEditText etIngredients = ViewBindings.findChildViewById(rootView, id);
       if (etIngredients == null) {
@@ -108,9 +254,33 @@ public final class ActivityAddEditRecipeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.etPrepTime;
+      TextInputEditText etPrepTime = ViewBindings.findChildViewById(rootView, id);
+      if (etPrepTime == null) {
+        break missingId;
+      }
+
+      id = R.id.etProtein;
+      TextInputEditText etProtein = ViewBindings.findChildViewById(rootView, id);
+      if (etProtein == null) {
+        break missingId;
+      }
+
+      id = R.id.etSodium;
+      TextInputEditText etSodium = ViewBindings.findChildViewById(rootView, id);
+      if (etSodium == null) {
+        break missingId;
+      }
+
       id = R.id.etSteps;
       TextInputEditText etSteps = ViewBindings.findChildViewById(rootView, id);
       if (etSteps == null) {
+        break missingId;
+      }
+
+      id = R.id.etSugar;
+      TextInputEditText etSugar = ViewBindings.findChildViewById(rootView, id);
+      if (etSugar == null) {
         break missingId;
       }
 
@@ -127,7 +297,9 @@ public final class ActivityAddEditRecipeBinding implements ViewBinding {
       }
 
       return new ActivityAddEditRecipeBinding((ScrollView) rootView, btnPickImage, btnSave,
-          etIngredients, etName, etSteps, ivPreview, spinnerCategory);
+          chipDairyFree, chipGlutenFree, chipGroupDietary, chipNutFree, chipVegan, chipVegetarian,
+          etCalories, etCarbs, etCookTime, etDifficulty, etFat, etFiber, etIngredients, etName,
+          etPrepTime, etProtein, etSodium, etSteps, etSugar, ivPreview, spinnerCategory);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

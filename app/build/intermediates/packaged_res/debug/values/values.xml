@@ -7,6 +7,12 @@
         <item>Main-Course</item>
         <item>Beverage</item>
     </string-array>
+    <string-array name="difficulty_levels">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+        <item>Expert</item>
+    </string-array>
     <color name="error">@color/md_theme_error</color>
     <color name="error_20">#33B3261E</color>
     <color name="md_theme_background">@color/md_theme_light_background</color>

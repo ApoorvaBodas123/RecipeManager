@@ -11,6 +11,9 @@ import androidx.room.RoomSQLiteQuery;
 import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
+import com.example.recipemanager.data.converters.DifficultyConverter;
+import com.example.recipemanager.data.converters.NutritionInfoConverter;
+import com.example.recipemanager.data.converters.StringSetConverter;
 import java.lang.Class;
 import java.lang.Exception;
 import java.lang.Override;
@@ -39,7 +42,7 @@ public final class RecipeDao_Impl implements RecipeDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "INSERT OR REPLACE INTO `recipes` (`id`,`name`,`ingredients`,`steps`,`imageUri`,`category`,`favorite`) VALUES (nullif(?, 0),?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `recipes` (`id`,`name`,`ingredients`,`steps`,`imageUri`,`category`,`favorite`,`prepTime`,`cookTime`,`difficulty`,`dietaryRestrictions`,`nutritionInfo`) VALUES (nullif(?, 0),?,?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
@@ -72,6 +75,26 @@ public final class RecipeDao_Impl implements RecipeDao {
         }
         final int _tmp = entity.favorite ? 1 : 0;
         statement.bindLong(7, _tmp);
+        statement.bindLong(8, entity.prepTime);
+        statement.bindLong(9, entity.cookTime);
+        final String _tmp_1 = DifficultyConverter.fromDifficulty(entity.difficulty);
+        if (_tmp_1 == null) {
+          statement.bindNull(10);
+        } else {
+          statement.bindString(10, _tmp_1);
+        }
+        final String _tmp_2 = StringSetConverter.fromSet(entity.dietaryRestrictions);
+        if (_tmp_2 == null) {
+          statement.bindNull(11);
+        } else {
+          statement.bindString(11, _tmp_2);
+        }
+        final String _tmp_3 = NutritionInfoConverter.toString(entity.nutritionInfo);
+        if (_tmp_3 == null) {
+          statement.bindNull(12);
+        } else {
+          statement.bindString(12, _tmp_3);
+        }
       }
     };
     this.__deletionAdapterOfRecipe = new EntityDeletionOrUpdateAdapter<Recipe>(__db) {
@@ -90,7 +113,7 @@ public final class RecipeDao_Impl implements RecipeDao {
       @Override
       @NonNull
       protected String createQuery() {
-        return "UPDATE OR ABORT `recipes` SET `id` = ?,`name` = ?,`ingredients` = ?,`steps` = ?,`imageUri` = ?,`category` = ?,`favorite` = ? WHERE `id` = ?";
+        return "UPDATE OR ABORT `recipes` SET `id` = ?,`name` = ?,`ingredients` = ?,`steps` = ?,`imageUri` = ?,`category` = ?,`favorite` = ?,`prepTime` = ?,`cookTime` = ?,`difficulty` = ?,`dietaryRestrictions` = ?,`nutritionInfo` = ? WHERE `id` = ?";
       }
 
       @Override
@@ -123,7 +146,27 @@ public final class RecipeDao_Impl implements RecipeDao {
         }
         final int _tmp = entity.favorite ? 1 : 0;
         statement.bindLong(7, _tmp);
-        statement.bindLong(8, entity.id);
+        statement.bindLong(8, entity.prepTime);
+        statement.bindLong(9, entity.cookTime);
+        final String _tmp_1 = DifficultyConverter.fromDifficulty(entity.difficulty);
+        if (_tmp_1 == null) {
+          statement.bindNull(10);
+        } else {
+          statement.bindString(10, _tmp_1);
+        }
+        final String _tmp_2 = StringSetConverter.fromSet(entity.dietaryRestrictions);
+        if (_tmp_2 == null) {
+          statement.bindNull(11);
+        } else {
+          statement.bindString(11, _tmp_2);
+        }
+        final String _tmp_3 = NutritionInfoConverter.toString(entity.nutritionInfo);
+        if (_tmp_3 == null) {
+          statement.bindNull(12);
+        } else {
+          statement.bindString(12, _tmp_3);
+        }
+        statement.bindLong(13, entity.id);
       }
     };
   }
@@ -182,45 +225,67 @@ public final class RecipeDao_Impl implements RecipeDao {
           final int _cursorIndexOfImageUri = CursorUtil.getColumnIndexOrThrow(_cursor, "imageUri");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "favorite");
+          final int _cursorIndexOfPrepTime = CursorUtil.getColumnIndexOrThrow(_cursor, "prepTime");
+          final int _cursorIndexOfCookTime = CursorUtil.getColumnIndexOrThrow(_cursor, "cookTime");
+          final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
+          final int _cursorIndexOfDietaryRestrictions = CursorUtil.getColumnIndexOrThrow(_cursor, "dietaryRestrictions");
+          final int _cursorIndexOfNutritionInfo = CursorUtil.getColumnIndexOrThrow(_cursor, "nutritionInfo");
           final List<Recipe> _result = new ArrayList<Recipe>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final Recipe _item;
-            final String _tmpName;
+            _item = new Recipe();
+            _item.id = _cursor.getLong(_cursorIndexOfId);
             if (_cursor.isNull(_cursorIndexOfName)) {
-              _tmpName = null;
+              _item.name = null;
             } else {
-              _tmpName = _cursor.getString(_cursorIndexOfName);
+              _item.name = _cursor.getString(_cursorIndexOfName);
             }
-            final String _tmpIngredients;
             if (_cursor.isNull(_cursorIndexOfIngredients)) {
-              _tmpIngredients = null;
+              _item.ingredients = null;
             } else {
-              _tmpIngredients = _cursor.getString(_cursorIndexOfIngredients);
+              _item.ingredients = _cursor.getString(_cursorIndexOfIngredients);
             }
-            final String _tmpSteps;
             if (_cursor.isNull(_cursorIndexOfSteps)) {
-              _tmpSteps = null;
+              _item.steps = null;
             } else {
-              _tmpSteps = _cursor.getString(_cursorIndexOfSteps);
+              _item.steps = _cursor.getString(_cursorIndexOfSteps);
             }
-            final String _tmpImageUri;
             if (_cursor.isNull(_cursorIndexOfImageUri)) {
-              _tmpImageUri = null;
+              _item.imageUri = null;
             } else {
-              _tmpImageUri = _cursor.getString(_cursorIndexOfImageUri);
+              _item.imageUri = _cursor.getString(_cursorIndexOfImageUri);
             }
-            final String _tmpCategory;
             if (_cursor.isNull(_cursorIndexOfCategory)) {
-              _tmpCategory = null;
+              _item.category = null;
             } else {
-              _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
+              _item.category = _cursor.getString(_cursorIndexOfCategory);
             }
-            final boolean _tmpFavorite;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfFavorite);
-            _tmpFavorite = _tmp != 0;
-            _item = new Recipe(_tmpName,_tmpIngredients,_tmpSteps,_tmpImageUri,_tmpCategory,_tmpFavorite);
-            _item.id = _cursor.getLong(_cursorIndexOfId);
+            _item.favorite = _tmp != 0;
+            _item.prepTime = _cursor.getInt(_cursorIndexOfPrepTime);
+            _item.cookTime = _cursor.getInt(_cursorIndexOfCookTime);
+            final String _tmp_1;
+            if (_cursor.isNull(_cursorIndexOfDifficulty)) {
+              _tmp_1 = null;
+            } else {
+              _tmp_1 = _cursor.getString(_cursorIndexOfDifficulty);
+            }
+            _item.difficulty = DifficultyConverter.toDifficulty(_tmp_1);
+            final String _tmp_2;
+            if (_cursor.isNull(_cursorIndexOfDietaryRestrictions)) {
+              _tmp_2 = null;
+            } else {
+              _tmp_2 = _cursor.getString(_cursorIndexOfDietaryRestrictions);
+            }
+            _item.dietaryRestrictions = StringSetConverter.fromString(_tmp_2);
+            final String _tmp_3;
+            if (_cursor.isNull(_cursorIndexOfNutritionInfo)) {
+              _tmp_3 = null;
+            } else {
+              _tmp_3 = _cursor.getString(_cursorIndexOfNutritionInfo);
+            }
+            _item.nutritionInfo = NutritionInfoConverter.fromString(_tmp_3);
             _result.add(_item);
           }
           return _result;
@@ -253,45 +318,67 @@ public final class RecipeDao_Impl implements RecipeDao {
           final int _cursorIndexOfImageUri = CursorUtil.getColumnIndexOrThrow(_cursor, "imageUri");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "favorite");
+          final int _cursorIndexOfPrepTime = CursorUtil.getColumnIndexOrThrow(_cursor, "prepTime");
+          final int _cursorIndexOfCookTime = CursorUtil.getColumnIndexOrThrow(_cursor, "cookTime");
+          final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
+          final int _cursorIndexOfDietaryRestrictions = CursorUtil.getColumnIndexOrThrow(_cursor, "dietaryRestrictions");
+          final int _cursorIndexOfNutritionInfo = CursorUtil.getColumnIndexOrThrow(_cursor, "nutritionInfo");
           final List<Recipe> _result = new ArrayList<Recipe>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final Recipe _item;
-            final String _tmpName;
+            _item = new Recipe();
+            _item.id = _cursor.getLong(_cursorIndexOfId);
             if (_cursor.isNull(_cursorIndexOfName)) {
-              _tmpName = null;
+              _item.name = null;
             } else {
-              _tmpName = _cursor.getString(_cursorIndexOfName);
+              _item.name = _cursor.getString(_cursorIndexOfName);
             }
-            final String _tmpIngredients;
             if (_cursor.isNull(_cursorIndexOfIngredients)) {
-              _tmpIngredients = null;
+              _item.ingredients = null;
             } else {
-              _tmpIngredients = _cursor.getString(_cursorIndexOfIngredients);
+              _item.ingredients = _cursor.getString(_cursorIndexOfIngredients);
             }
-            final String _tmpSteps;
             if (_cursor.isNull(_cursorIndexOfSteps)) {
-              _tmpSteps = null;
+              _item.steps = null;
             } else {
-              _tmpSteps = _cursor.getString(_cursorIndexOfSteps);
+              _item.steps = _cursor.getString(_cursorIndexOfSteps);
             }
-            final String _tmpImageUri;
             if (_cursor.isNull(_cursorIndexOfImageUri)) {
-              _tmpImageUri = null;
+              _item.imageUri = null;
             } else {
-              _tmpImageUri = _cursor.getString(_cursorIndexOfImageUri);
+              _item.imageUri = _cursor.getString(_cursorIndexOfImageUri);
             }
-            final String _tmpCategory;
             if (_cursor.isNull(_cursorIndexOfCategory)) {
-              _tmpCategory = null;
+              _item.category = null;
             } else {
-              _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
+              _item.category = _cursor.getString(_cursorIndexOfCategory);
             }
-            final boolean _tmpFavorite;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfFavorite);
-            _tmpFavorite = _tmp != 0;
-            _item = new Recipe(_tmpName,_tmpIngredients,_tmpSteps,_tmpImageUri,_tmpCategory,_tmpFavorite);
-            _item.id = _cursor.getLong(_cursorIndexOfId);
+            _item.favorite = _tmp != 0;
+            _item.prepTime = _cursor.getInt(_cursorIndexOfPrepTime);
+            _item.cookTime = _cursor.getInt(_cursorIndexOfCookTime);
+            final String _tmp_1;
+            if (_cursor.isNull(_cursorIndexOfDifficulty)) {
+              _tmp_1 = null;
+            } else {
+              _tmp_1 = _cursor.getString(_cursorIndexOfDifficulty);
+            }
+            _item.difficulty = DifficultyConverter.toDifficulty(_tmp_1);
+            final String _tmp_2;
+            if (_cursor.isNull(_cursorIndexOfDietaryRestrictions)) {
+              _tmp_2 = null;
+            } else {
+              _tmp_2 = _cursor.getString(_cursorIndexOfDietaryRestrictions);
+            }
+            _item.dietaryRestrictions = StringSetConverter.fromString(_tmp_2);
+            final String _tmp_3;
+            if (_cursor.isNull(_cursorIndexOfNutritionInfo)) {
+              _tmp_3 = null;
+            } else {
+              _tmp_3 = _cursor.getString(_cursorIndexOfNutritionInfo);
+            }
+            _item.nutritionInfo = NutritionInfoConverter.fromString(_tmp_3);
             _result.add(_item);
           }
           return _result;
@@ -330,45 +417,67 @@ public final class RecipeDao_Impl implements RecipeDao {
           final int _cursorIndexOfImageUri = CursorUtil.getColumnIndexOrThrow(_cursor, "imageUri");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "favorite");
+          final int _cursorIndexOfPrepTime = CursorUtil.getColumnIndexOrThrow(_cursor, "prepTime");
+          final int _cursorIndexOfCookTime = CursorUtil.getColumnIndexOrThrow(_cursor, "cookTime");
+          final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
+          final int _cursorIndexOfDietaryRestrictions = CursorUtil.getColumnIndexOrThrow(_cursor, "dietaryRestrictions");
+          final int _cursorIndexOfNutritionInfo = CursorUtil.getColumnIndexOrThrow(_cursor, "nutritionInfo");
           final List<Recipe> _result = new ArrayList<Recipe>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final Recipe _item;
-            final String _tmpName;
+            _item = new Recipe();
+            _item.id = _cursor.getLong(_cursorIndexOfId);
             if (_cursor.isNull(_cursorIndexOfName)) {
-              _tmpName = null;
+              _item.name = null;
             } else {
-              _tmpName = _cursor.getString(_cursorIndexOfName);
+              _item.name = _cursor.getString(_cursorIndexOfName);
             }
-            final String _tmpIngredients;
             if (_cursor.isNull(_cursorIndexOfIngredients)) {
-              _tmpIngredients = null;
+              _item.ingredients = null;
             } else {
-              _tmpIngredients = _cursor.getString(_cursorIndexOfIngredients);
+              _item.ingredients = _cursor.getString(_cursorIndexOfIngredients);
             }
-            final String _tmpSteps;
             if (_cursor.isNull(_cursorIndexOfSteps)) {
-              _tmpSteps = null;
+              _item.steps = null;
             } else {
-              _tmpSteps = _cursor.getString(_cursorIndexOfSteps);
+              _item.steps = _cursor.getString(_cursorIndexOfSteps);
             }
-            final String _tmpImageUri;
             if (_cursor.isNull(_cursorIndexOfImageUri)) {
-              _tmpImageUri = null;
+              _item.imageUri = null;
             } else {
-              _tmpImageUri = _cursor.getString(_cursorIndexOfImageUri);
+              _item.imageUri = _cursor.getString(_cursorIndexOfImageUri);
             }
-            final String _tmpCategory;
             if (_cursor.isNull(_cursorIndexOfCategory)) {
-              _tmpCategory = null;
+              _item.category = null;
             } else {
-              _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
+              _item.category = _cursor.getString(_cursorIndexOfCategory);
             }
-            final boolean _tmpFavorite;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfFavorite);
-            _tmpFavorite = _tmp != 0;
-            _item = new Recipe(_tmpName,_tmpIngredients,_tmpSteps,_tmpImageUri,_tmpCategory,_tmpFavorite);
-            _item.id = _cursor.getLong(_cursorIndexOfId);
+            _item.favorite = _tmp != 0;
+            _item.prepTime = _cursor.getInt(_cursorIndexOfPrepTime);
+            _item.cookTime = _cursor.getInt(_cursorIndexOfCookTime);
+            final String _tmp_1;
+            if (_cursor.isNull(_cursorIndexOfDifficulty)) {
+              _tmp_1 = null;
+            } else {
+              _tmp_1 = _cursor.getString(_cursorIndexOfDifficulty);
+            }
+            _item.difficulty = DifficultyConverter.toDifficulty(_tmp_1);
+            final String _tmp_2;
+            if (_cursor.isNull(_cursorIndexOfDietaryRestrictions)) {
+              _tmp_2 = null;
+            } else {
+              _tmp_2 = _cursor.getString(_cursorIndexOfDietaryRestrictions);
+            }
+            _item.dietaryRestrictions = StringSetConverter.fromString(_tmp_2);
+            final String _tmp_3;
+            if (_cursor.isNull(_cursorIndexOfNutritionInfo)) {
+              _tmp_3 = null;
+            } else {
+              _tmp_3 = _cursor.getString(_cursorIndexOfNutritionInfo);
+            }
+            _item.nutritionInfo = NutritionInfoConverter.fromString(_tmp_3);
             _result.add(_item);
           }
           return _result;
@@ -407,45 +516,67 @@ public final class RecipeDao_Impl implements RecipeDao {
           final int _cursorIndexOfImageUri = CursorUtil.getColumnIndexOrThrow(_cursor, "imageUri");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "favorite");
+          final int _cursorIndexOfPrepTime = CursorUtil.getColumnIndexOrThrow(_cursor, "prepTime");
+          final int _cursorIndexOfCookTime = CursorUtil.getColumnIndexOrThrow(_cursor, "cookTime");
+          final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
+          final int _cursorIndexOfDietaryRestrictions = CursorUtil.getColumnIndexOrThrow(_cursor, "dietaryRestrictions");
+          final int _cursorIndexOfNutritionInfo = CursorUtil.getColumnIndexOrThrow(_cursor, "nutritionInfo");
           final List<Recipe> _result = new ArrayList<Recipe>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final Recipe _item;
-            final String _tmpName;
+            _item = new Recipe();
+            _item.id = _cursor.getLong(_cursorIndexOfId);
             if (_cursor.isNull(_cursorIndexOfName)) {
-              _tmpName = null;
+              _item.name = null;
             } else {
-              _tmpName = _cursor.getString(_cursorIndexOfName);
+              _item.name = _cursor.getString(_cursorIndexOfName);
             }
-            final String _tmpIngredients;
             if (_cursor.isNull(_cursorIndexOfIngredients)) {
-              _tmpIngredients = null;
+              _item.ingredients = null;
             } else {
-              _tmpIngredients = _cursor.getString(_cursorIndexOfIngredients);
+              _item.ingredients = _cursor.getString(_cursorIndexOfIngredients);
             }
-            final String _tmpSteps;
             if (_cursor.isNull(_cursorIndexOfSteps)) {
-              _tmpSteps = null;
+              _item.steps = null;
             } else {
-              _tmpSteps = _cursor.getString(_cursorIndexOfSteps);
+              _item.steps = _cursor.getString(_cursorIndexOfSteps);
             }
-            final String _tmpImageUri;
             if (_cursor.isNull(_cursorIndexOfImageUri)) {
-              _tmpImageUri = null;
+              _item.imageUri = null;
             } else {
-              _tmpImageUri = _cursor.getString(_cursorIndexOfImageUri);
+              _item.imageUri = _cursor.getString(_cursorIndexOfImageUri);
             }
-            final String _tmpCategory;
             if (_cursor.isNull(_cursorIndexOfCategory)) {
-              _tmpCategory = null;
+              _item.category = null;
             } else {
-              _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
+              _item.category = _cursor.getString(_cursorIndexOfCategory);
             }
-            final boolean _tmpFavorite;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfFavorite);
-            _tmpFavorite = _tmp != 0;
-            _item = new Recipe(_tmpName,_tmpIngredients,_tmpSteps,_tmpImageUri,_tmpCategory,_tmpFavorite);
-            _item.id = _cursor.getLong(_cursorIndexOfId);
+            _item.favorite = _tmp != 0;
+            _item.prepTime = _cursor.getInt(_cursorIndexOfPrepTime);
+            _item.cookTime = _cursor.getInt(_cursorIndexOfCookTime);
+            final String _tmp_1;
+            if (_cursor.isNull(_cursorIndexOfDifficulty)) {
+              _tmp_1 = null;
+            } else {
+              _tmp_1 = _cursor.getString(_cursorIndexOfDifficulty);
+            }
+            _item.difficulty = DifficultyConverter.toDifficulty(_tmp_1);
+            final String _tmp_2;
+            if (_cursor.isNull(_cursorIndexOfDietaryRestrictions)) {
+              _tmp_2 = null;
+            } else {
+              _tmp_2 = _cursor.getString(_cursorIndexOfDietaryRestrictions);
+            }
+            _item.dietaryRestrictions = StringSetConverter.fromString(_tmp_2);
+            final String _tmp_3;
+            if (_cursor.isNull(_cursorIndexOfNutritionInfo)) {
+              _tmp_3 = null;
+            } else {
+              _tmp_3 = _cursor.getString(_cursorIndexOfNutritionInfo);
+            }
+            _item.nutritionInfo = NutritionInfoConverter.fromString(_tmp_3);
             _result.add(_item);
           }
           return _result;
@@ -480,44 +611,66 @@ public final class RecipeDao_Impl implements RecipeDao {
           final int _cursorIndexOfImageUri = CursorUtil.getColumnIndexOrThrow(_cursor, "imageUri");
           final int _cursorIndexOfCategory = CursorUtil.getColumnIndexOrThrow(_cursor, "category");
           final int _cursorIndexOfFavorite = CursorUtil.getColumnIndexOrThrow(_cursor, "favorite");
+          final int _cursorIndexOfPrepTime = CursorUtil.getColumnIndexOrThrow(_cursor, "prepTime");
+          final int _cursorIndexOfCookTime = CursorUtil.getColumnIndexOrThrow(_cursor, "cookTime");
+          final int _cursorIndexOfDifficulty = CursorUtil.getColumnIndexOrThrow(_cursor, "difficulty");
+          final int _cursorIndexOfDietaryRestrictions = CursorUtil.getColumnIndexOrThrow(_cursor, "dietaryRestrictions");
+          final int _cursorIndexOfNutritionInfo = CursorUtil.getColumnIndexOrThrow(_cursor, "nutritionInfo");
           final Recipe _result;
           if (_cursor.moveToFirst()) {
-            final String _tmpName;
+            _result = new Recipe();
+            _result.id = _cursor.getLong(_cursorIndexOfId);
             if (_cursor.isNull(_cursorIndexOfName)) {
-              _tmpName = null;
+              _result.name = null;
             } else {
-              _tmpName = _cursor.getString(_cursorIndexOfName);
+              _result.name = _cursor.getString(_cursorIndexOfName);
             }
-            final String _tmpIngredients;
             if (_cursor.isNull(_cursorIndexOfIngredients)) {
-              _tmpIngredients = null;
+              _result.ingredients = null;
             } else {
-              _tmpIngredients = _cursor.getString(_cursorIndexOfIngredients);
+              _result.ingredients = _cursor.getString(_cursorIndexOfIngredients);
             }
-            final String _tmpSteps;
             if (_cursor.isNull(_cursorIndexOfSteps)) {
-              _tmpSteps = null;
+              _result.steps = null;
             } else {
-              _tmpSteps = _cursor.getString(_cursorIndexOfSteps);
+              _result.steps = _cursor.getString(_cursorIndexOfSteps);
             }
-            final String _tmpImageUri;
             if (_cursor.isNull(_cursorIndexOfImageUri)) {
-              _tmpImageUri = null;
+              _result.imageUri = null;
             } else {
-              _tmpImageUri = _cursor.getString(_cursorIndexOfImageUri);
+              _result.imageUri = _cursor.getString(_cursorIndexOfImageUri);
             }
-            final String _tmpCategory;
             if (_cursor.isNull(_cursorIndexOfCategory)) {
-              _tmpCategory = null;
+              _result.category = null;
             } else {
-              _tmpCategory = _cursor.getString(_cursorIndexOfCategory);
+              _result.category = _cursor.getString(_cursorIndexOfCategory);
             }
-            final boolean _tmpFavorite;
             final int _tmp;
             _tmp = _cursor.getInt(_cursorIndexOfFavorite);
-            _tmpFavorite = _tmp != 0;
-            _result = new Recipe(_tmpName,_tmpIngredients,_tmpSteps,_tmpImageUri,_tmpCategory,_tmpFavorite);
-            _result.id = _cursor.getLong(_cursorIndexOfId);
+            _result.favorite = _tmp != 0;
+            _result.prepTime = _cursor.getInt(_cursorIndexOfPrepTime);
+            _result.cookTime = _cursor.getInt(_cursorIndexOfCookTime);
+            final String _tmp_1;
+            if (_cursor.isNull(_cursorIndexOfDifficulty)) {
+              _tmp_1 = null;
+            } else {
+              _tmp_1 = _cursor.getString(_cursorIndexOfDifficulty);
+            }
+            _result.difficulty = DifficultyConverter.toDifficulty(_tmp_1);
+            final String _tmp_2;
+            if (_cursor.isNull(_cursorIndexOfDietaryRestrictions)) {
+              _tmp_2 = null;
+            } else {
+              _tmp_2 = _cursor.getString(_cursorIndexOfDietaryRestrictions);
+            }
+            _result.dietaryRestrictions = StringSetConverter.fromString(_tmp_2);
+            final String _tmp_3;
+            if (_cursor.isNull(_cursorIndexOfNutritionInfo)) {
+              _tmp_3 = null;
+            } else {
+              _tmp_3 = _cursor.getString(_cursorIndexOfNutritionInfo);
+            }
+            _result.nutritionInfo = NutritionInfoConverter.fromString(_tmp_3);
           } else {
             _result = null;
           }
