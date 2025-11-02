@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.recipemanager.app-mergeDebugResources-63:/values-v28/values-v28.xml",
+            "outputFile": "com.example.recipemanager.app-mergeDebugResources-71:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/74e7c27e28206a6897e1a3a2ee4c1e66/transformed/material-1.12.0/res/values-v28/values-v28.xml",
+                    "source": "C:\\Users\\Apoorva\\.gradle\\caches\\9.0-milestone-1\\transforms\\74e7c27e28206a6897e1a3a2ee4c1e66\\transformed\\material-1.12.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/e81bbaa26b86f42ef7379d787fee0647/transformed/appcompat-1.7.0/res/values-v28/values-v28.xml",
+                    "source": "C:\\Users\\Apoorva\\.gradle\\caches\\9.0-milestone-1\\transforms\\e81bbaa26b86f42ef7379d787fee0647\\transformed\\appcompat-1.7.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

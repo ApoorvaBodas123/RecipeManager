@@ -118,6 +118,7 @@ drawable category_chip
 drawable ic_add
 drawable ic_favorite_border
 drawable ic_favorite_filled
+drawable ic_ingredient
 drawable ic_placeholder
 id action_logout
 id action_search
@@ -139,6 +140,7 @@ id chipVegan
 id chipVegetarian
 id confirmPasswordEditText
 id confirmPasswordLayout
+id detectedIngredientsCard
 id emailEditText
 id emailLayout
 id etCalories
@@ -155,10 +157,15 @@ id etSodium
 id etSteps
 id etSugar
 id fabAdd
+id fabAddRecipe
+id fabImageRecognition
 id favoriteButton
 id fragment_container
 id fullNameEditText
 id fullNameLayout
+id generateRecipeButton
+id ingredientChip
+id ingredientsList
 id ivPhoto
 id ivPreview
 id loginButton
@@ -171,6 +178,9 @@ id recipeImage
 id recipeName
 id recycler
 id searchView
+id selectImageArea
+id selectImageButton
+id selectedImage
 id signupButton
 id signupLink
 id spinnerCategory
@@ -182,11 +192,13 @@ id tvSteps
 id usernameEditText
 id usernameLayout
 layout activity_add_edit_recipe
+layout activity_image_ingredients
 layout activity_login
 layout activity_main
 layout activity_recipe_detail
 layout activity_signup
 layout fragment_recipe_list
+layout item_ingredient
 layout item_recipe
 menu main_menu
 menu menu_search

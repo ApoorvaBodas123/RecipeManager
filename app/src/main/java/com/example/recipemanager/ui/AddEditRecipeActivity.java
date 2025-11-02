@@ -25,6 +25,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class AddEditRecipeActivity extends AppCompatActivity {
+    public static final String EXTRA_INGREDIENTS = "com.example.recipemanager.EXTRA_INGREDIENTS";
 
     private ActivityAddEditRecipeBinding binding;
     private RecipeViewModel vm;

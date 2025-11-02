@@ -2,6 +2,7 @@ package com.example.recipemanager.data;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.HashSet;
@@ -73,6 +74,7 @@ public class Recipe {
         this.nutritionInfo = new NutritionInfo();
     }
 
+    @Ignore
     public Recipe(@NonNull String name, @NonNull String ingredients, @NonNull String steps, 
                  String imageUri, String category, boolean favorite, int prepTime, int cookTime, 
                  Difficulty difficulty, Set<String> dietaryRestrictions, NutritionInfo nutritionInfo) {

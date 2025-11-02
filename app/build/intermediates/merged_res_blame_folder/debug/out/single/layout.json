@@ -1,30 +1,42 @@
 [
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/item_recipe.xml",
-        "source": "com.example.recipemanager.app-main-67:/layout/item_recipe.xml"
+        "merged": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-mergeDebugResources-72:\\layout\\activity_image_ingredients.xml",
+        "source": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-main-76:\\layout\\activity_image_ingredients.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/activity_login.xml",
-        "source": "com.example.recipemanager.app-main-67:/layout/activity_login.xml"
+        "merged": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-mergeDebugResources-72:\\layout\\activity_recipe_detail.xml",
+        "source": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-main-76:\\layout\\activity_recipe_detail.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/activity_main.xml",
-        "source": "com.example.recipemanager.app-main-67:/layout/activity_main.xml"
+        "merged": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-mergeDebugResources-72:\\layout\\item_ingredient.xml",
+        "source": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-main-76:\\layout\\item_ingredient.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/activity_recipe_detail.xml",
-        "source": "com.example.recipemanager.app-main-67:/layout/activity_recipe_detail.xml"
+        "merged": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-mergeDebugResources-72:\\layout\\fragment_recipe_list.xml",
+        "source": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-main-76:\\layout\\fragment_recipe_list.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/activity_add_edit_recipe.xml",
-        "source": "com.example.recipemanager.app-main-67:/layout/activity_add_edit_recipe.xml"
+        "merged": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-mergeDebugResources-72:\\layout\\activity_signup.xml",
+        "source": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-main-76:\\layout\\activity_signup.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/activity_signup.xml",
-        "source": "com.example.recipemanager.app-main-67:/layout/activity_signup.xml"
+        "merged": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-mergeDebugResources-72:\\layout\\activity_add_edit_recipe.xml",
+        "source": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-main-76:\\layout\\activity_add_edit_recipe.xml"
     },
     {
-        "merged": "com.example.recipemanager.app-mergeDebugResources-64:/layout/fragment_recipe_list.xml",
-        "source": "com.example.recipemanager.app-main-67:/layout/fragment_recipe_list.xml"
+        "merged": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-mergeDebugResources-72:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-main-76:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-mergeDebugResources-72:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-main-76:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-mergeDebugResources-72:\\layout\\item_recipe.xml",
+        "source": "C:\\Users\\Apoorva\\.gradle\\daemon\\9.0-milestone-1\\com.example.recipemanager.app-main-76:\\layout\\item_recipe.xml"
+    },
+    {
+        "merged": "com.example.recipemanager.app-mergeDebugResources-72:/layout/activity_image_ingredients.xml",
+        "source": "com.example.recipemanager.app-main-76:/layout/activity_image_ingredients.xml"
     }
 ]

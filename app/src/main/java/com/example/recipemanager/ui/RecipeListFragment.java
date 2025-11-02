@@ -3,9 +3,12 @@ package com.example.recipemanager.ui;
 import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +21,22 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import com.example.recipemanager.data.Recipe;
 import com.example.recipemanager.databinding.FragmentRecipeListBinding;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 public class RecipeListFragment extends Fragment {
 
@@ -47,6 +63,11 @@ public class RecipeListFragment extends Fragment {
         // Create ViewModel using ViewModelFactory with application context
         ViewModelFactory factory = new ViewModelFactory(application);
         vm = new ViewModelProvider(requireActivity(), factory).get(RecipeViewModel.class);
+        
+        // Setup FABs
+        binding.fabAddRecipe.setOnClickListener(v -> startActivity(new Intent(requireContext(), AddEditRecipeActivity.class)));
+        
+        binding.fabImageRecognition.setOnClickListener(v -> checkPermissionsAndStartImageRecognition());
         
         adapter = new RecipeAdapter(recipe -> {
             Intent i = new Intent(requireContext(), RecipeDetailActivity.class);
@@ -84,6 +105,87 @@ public class RecipeListFragment extends Fragment {
                         .show();
             }
         }));
+    }
+    
+    private void checkPermissionsAndStartImageRecognition() {
+        try {
+            // For emulator/desktop, we'll only request storage permission
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                requestPermissionsWithDexter(
+                    Manifest.permission.READ_MEDIA_IMAGES
+                );
+            } else {
+                requestPermissionsWithDexter(
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                );
+            }
+        } catch (Exception e) {
+            Log.e("PermissionError", "Error requesting permissions", e);
+            Snackbar.make(binding.getRoot(), "Error requesting permissions: " + e.getMessage(), 
+                Snackbar.LENGTH_LONG).show();
+        }
+    }
+    
+    private void requestPermissionsWithDexter(String... permissions) {
+        Dexter.withContext(requireContext())
+            .withPermissions(permissions)
+            .withListener(new MultiplePermissionsListener() {
+                @Override
+                public void onPermissionsChecked(MultiplePermissionsReport report) {
+                    if (report.areAllPermissionsGranted()) {
+                        // All permissions granted, start the image recognition activity
+                        startActivity(new Intent(requireContext(), ImageIngredientsActivity.class));
+                    } else if (report.isAnyPermissionPermanentlyDenied()) {
+                        // Show dialog explaining that permission was permanently denied
+                        showPermissionDeniedDialog();
+                    } else {
+                        // Some permissions were denied but not permanently
+                        Snackbar.make(binding.getRoot(), 
+                            "Permission denied. The feature requires camera and storage access.", 
+                            Snackbar.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                    // Show rationale and ask again
+                    showPermissionRationale(token);
+                }
+            })
+            .withErrorListener(error -> {
+                Log.e("DexterError", "Error requesting permissions: " + error.name());
+                Snackbar.make(binding.getRoot(), 
+                    "Error requesting permissions. Please try again.", 
+                    Snackbar.LENGTH_LONG).show();
+            })
+            .check();
+    }
+
+    // Removed handlePermissionResult as it's now handled in requestPermissionsWithDexter
+
+    private void showPermissionRationale(PermissionToken token) {
+        new MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Permissions Required")
+            .setMessage("This feature requires camera and storage permissions to work properly.")
+            .setPositiveButton("Continue", (dialog, which) -> token.continuePermissionRequest())
+            .setNegativeButton("Cancel", (dialog, which) -> token.cancelPermissionRequest())
+            .setOnDismissListener(dialog -> token.cancelPermissionRequest())
+            .show();
+    }
+
+    private void showPermissionDeniedDialog() {
+        new MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Permissions Required")
+            .setMessage("Camera and storage permissions are required to use image recognition. Please enable them in app settings.")
+            .setPositiveButton("Open Settings", (dialog, which) -> openAppSettings())
+            .setNegativeButton("Cancel", null)
+            .show();
+    }
+
+    private void openAppSettings() {
+        Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        intent.setData(Uri.parse("package:" + requireContext().getPackageName()));
+        startActivity(intent);
     }
 
     @Override

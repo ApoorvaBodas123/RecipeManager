@@ -4,14 +4,15 @@ package com.example.recipemanager.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.recipemanager.R;
 import com.google.android.material.chip.Chip;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -19,7 +20,7 @@ import java.lang.String;
 
 public final class FragmentRecipeListBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final CoordinatorLayout rootView;
 
   @NonNull
   public final Chip chipAll;
@@ -37,27 +38,37 @@ public final class FragmentRecipeListBinding implements ViewBinding {
   public final Chip chipSnack;
 
   @NonNull
+  public final FloatingActionButton fabAddRecipe;
+
+  @NonNull
+  public final FloatingActionButton fabImageRecognition;
+
+  @NonNull
   public final RecyclerView recycler;
 
   @NonNull
   public final MaterialSwitch switchFav;
 
-  private FragmentRecipeListBinding(@NonNull LinearLayout rootView, @NonNull Chip chipAll,
+  private FragmentRecipeListBinding(@NonNull CoordinatorLayout rootView, @NonNull Chip chipAll,
       @NonNull Chip chipBeverage, @NonNull Chip chipDessert, @NonNull Chip chipMain,
-      @NonNull Chip chipSnack, @NonNull RecyclerView recycler, @NonNull MaterialSwitch switchFav) {
+      @NonNull Chip chipSnack, @NonNull FloatingActionButton fabAddRecipe,
+      @NonNull FloatingActionButton fabImageRecognition, @NonNull RecyclerView recycler,
+      @NonNull MaterialSwitch switchFav) {
     this.rootView = rootView;
     this.chipAll = chipAll;
     this.chipBeverage = chipBeverage;
     this.chipDessert = chipDessert;
     this.chipMain = chipMain;
     this.chipSnack = chipSnack;
+    this.fabAddRecipe = fabAddRecipe;
+    this.fabImageRecognition = fabImageRecognition;
     this.recycler = recycler;
     this.switchFav = switchFav;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public CoordinatorLayout getRoot() {
     return rootView;
   }
 
@@ -112,6 +123,18 @@ public final class FragmentRecipeListBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.fabAddRecipe;
+      FloatingActionButton fabAddRecipe = ViewBindings.findChildViewById(rootView, id);
+      if (fabAddRecipe == null) {
+        break missingId;
+      }
+
+      id = R.id.fabImageRecognition;
+      FloatingActionButton fabImageRecognition = ViewBindings.findChildViewById(rootView, id);
+      if (fabImageRecognition == null) {
+        break missingId;
+      }
+
       id = R.id.recycler;
       RecyclerView recycler = ViewBindings.findChildViewById(rootView, id);
       if (recycler == null) {
@@ -124,8 +147,8 @@ public final class FragmentRecipeListBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentRecipeListBinding((LinearLayout) rootView, chipAll, chipBeverage,
-          chipDessert, chipMain, chipSnack, recycler, switchFav);
+      return new FragmentRecipeListBinding((CoordinatorLayout) rootView, chipAll, chipBeverage,
+          chipDessert, chipMain, chipSnack, fabAddRecipe, fabImageRecognition, recycler, switchFav);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
