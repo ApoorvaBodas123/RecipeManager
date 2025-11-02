@@ -4,8 +4,6 @@ package com.example.recipemanager.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -37,27 +35,23 @@ public final class ActivityImageIngredientsBinding implements ViewBinding {
   public final CircularProgressIndicator progressBar;
 
   @NonNull
-  public final LinearLayout selectImageArea;
-
-  @NonNull
   public final MaterialButton selectImageButton;
 
   @NonNull
-  public final ImageView selectedImage;
+  public final RecyclerView selectedImagesRecyclerView;
 
   private ActivityImageIngredientsBinding(@NonNull CoordinatorLayout rootView,
       @NonNull MaterialCardView detectedIngredientsCard,
       @NonNull MaterialButton generateRecipeButton, @NonNull RecyclerView ingredientsList,
-      @NonNull CircularProgressIndicator progressBar, @NonNull LinearLayout selectImageArea,
-      @NonNull MaterialButton selectImageButton, @NonNull ImageView selectedImage) {
+      @NonNull CircularProgressIndicator progressBar, @NonNull MaterialButton selectImageButton,
+      @NonNull RecyclerView selectedImagesRecyclerView) {
     this.rootView = rootView;
     this.detectedIngredientsCard = detectedIngredientsCard;
     this.generateRecipeButton = generateRecipeButton;
     this.ingredientsList = ingredientsList;
     this.progressBar = progressBar;
-    this.selectImageArea = selectImageArea;
     this.selectImageButton = selectImageButton;
-    this.selectedImage = selectedImage;
+    this.selectedImagesRecyclerView = selectedImagesRecyclerView;
   }
 
   @Override
@@ -111,27 +105,21 @@ public final class ActivityImageIngredientsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.selectImageArea;
-      LinearLayout selectImageArea = ViewBindings.findChildViewById(rootView, id);
-      if (selectImageArea == null) {
-        break missingId;
-      }
-
       id = R.id.selectImageButton;
       MaterialButton selectImageButton = ViewBindings.findChildViewById(rootView, id);
       if (selectImageButton == null) {
         break missingId;
       }
 
-      id = R.id.selectedImage;
-      ImageView selectedImage = ViewBindings.findChildViewById(rootView, id);
-      if (selectedImage == null) {
+      id = R.id.selectedImagesRecyclerView;
+      RecyclerView selectedImagesRecyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (selectedImagesRecyclerView == null) {
         break missingId;
       }
 
       return new ActivityImageIngredientsBinding((CoordinatorLayout) rootView,
           detectedIngredientsCard, generateRecipeButton, ingredientsList, progressBar,
-          selectImageArea, selectImageButton, selectedImage);
+          selectImageButton, selectedImagesRecyclerView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

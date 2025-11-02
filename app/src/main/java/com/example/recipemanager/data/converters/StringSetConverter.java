@@ -14,11 +14,16 @@ public class StringSetConverter {
 
     @TypeConverter
     public static Set<String> fromString(String value) {
-        if (value == null) {
+        if (value == null || value.trim().isEmpty()) {
             return new HashSet<>();
         }
-        Type setType = new TypeToken<HashSet<String>>() {}.getType();
-        return gson.fromJson(value, setType);
+        try {
+            Type setType = TypeToken.getParameterized(HashSet.class, String.class).getType();
+            return gson.fromJson(value, setType);
+        } catch (Exception e) {
+            // In case of any parsing error, return an empty set
+            return new HashSet<>();
+        }
     }
 
     @TypeConverter

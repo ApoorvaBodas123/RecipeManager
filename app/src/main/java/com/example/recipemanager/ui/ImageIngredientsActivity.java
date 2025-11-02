@@ -19,10 +19,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModel;
 
 import com.example.recipemanager.R;
 import com.example.recipemanager.data.model.Ingredient;
+import com.example.recipemanager.data.RecipeRepository;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -35,13 +39,9 @@ import com.google.mlkit.vision.label.defaults.ImageLabelerOptions;
 
 import java.io.IOException;
 import com.example.recipemanager.ai.RecipeGenerator;
+import com.example.recipemanager.data.model.Recipe;
 import kotlin.Result;
-import kotlin.coroutines.Continuation;
-import kotlin.coroutines.CoroutineContext;
-import kotlin.coroutines.EmptyCoroutineContext;
-import kotlinx.coroutines.CoroutineScope;
-import kotlinx.coroutines.Dispatchers;
-import kotlinx.coroutines.launch;
+import kotlin.ResultKt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +51,7 @@ import java.util.concurrent.Executors;
 public class ImageIngredientsActivity extends AppCompatActivity {
     private static final String TAG = "ImageIngredients";
     private static final int REQUEST_IMAGE_PICK = 1001;
+    private static final int MAX_IMAGES = 5; // Maximum number of images to process
     private static final String[] REQUIRED_PERMISSIONS;
     
     static {
@@ -66,42 +67,69 @@ public class ImageIngredientsActivity extends AppCompatActivity {
     }
     private static final int PERMISSIONS_REQUEST_CODE = 10;
 
+    /**
+     * Checks if all required permissions are granted.
+     * @return true if all permissions are granted, false otherwise
+     */
+    private boolean allPermissionsGranted() {
+        for (String permission : REQUIRED_PERMISSIONS) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private View progressBar;
     private MaterialCardView detectedIngredientsCard;
     private RecyclerView ingredientsList;
     private ExecutorService executorService;
     private MaterialButton selectImageButton;
     private MaterialButton generateRecipeButton;
-    private ImageView selectedImageView;
-    private View selectImageArea;
+    private RecipeViewModel viewModel;
+    private RecipeRepository recipeRepository;
+    private RecyclerView selectedImagesRecyclerView;
     private List<Ingredient> detectedIngredients = new ArrayList<>();
+    private List<Uri> selectedImageUris = new ArrayList<>();
+    private SelectedImagesAdapter selectedImagesAdapter;
     private IngredientsAdapter ingredientsAdapter;
     private RecipeGenerator recipeGenerator;
+    private int currentImageIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_ingredients);
 
-        // Initialize RecipeGenerator with your OpenAI API key
-        // TODO: Replace "YOUR_OPENAI_API_KEY" with your actual OpenAI API key
-        // For production, use a secure way to store API keys (e.g., Android Keystore, remote config)
-        String openAiApiKey = "";
-        recipeGenerator = new RecipeGenerator(openAiApiKey);
+        // Initialize RecipeGenerator (no API key needed for local recipe generation)
+        recipeGenerator = new RecipeGenerator();
+        
+        // Initialize RecipeRepository and ViewModel
+        recipeRepository = RecipeRepository.getInstance(getApplication());
+        ViewModelProvider.Factory factory = new ViewModelProvider.Factory() {
+            @NonNull
+            @Override
+            public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+                if (modelClass.isAssignableFrom(RecipeViewModel.class)) {
+                    return (T) new RecipeViewModel(recipeRepository);
+                }
+                throw new IllegalArgumentException("Unknown ViewModel class");
+            }
+        };
+        viewModel = new ViewModelProvider(this, factory).get(RecipeViewModel.class);
 
         progressBar = findViewById(R.id.progressBar);
         detectedIngredientsCard = findViewById(R.id.detectedIngredientsCard);
         ingredientsList = findViewById(R.id.ingredientsList);
         selectImageButton = findViewById(R.id.selectImageButton);
         generateRecipeButton = findViewById(R.id.generateRecipeButton);
-        selectedImageView = findViewById(R.id.selectedImage);
+        selectedImagesRecyclerView = findViewById(R.id.selectedImagesRecyclerView);
+        selectedImagesRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        selectedImagesAdapter = new SelectedImagesAdapter();
+        selectedImagesRecyclerView.setAdapter(selectedImagesAdapter);
         
-        // Set up Generate Recipe button click listener
-        generateRecipeButton.setOnClickListener(v -> generateRecipe());
-        selectImageArea = findViewById(R.id.selectImageArea);
-        
-        // Set click listener for the entire select image area
-        selectImageArea.setOnClickListener(v -> {
+        // Set click listener for the select image button
+        selectImageButton.setOnClickListener(v -> {
             if (allPermissionsGranted()) {
                 openGallery();
             } else {
@@ -114,7 +142,7 @@ public class ImageIngredientsActivity extends AppCompatActivity {
         ingredientsList.setLayoutManager(new GridLayoutManager(this, 3));
         ingredientsList.setAdapter(ingredientsAdapter);
 
-        // Set up click listeners
+        // Set up click listener for the select image button
         selectImageButton.setOnClickListener(v -> {
             if (allPermissionsGranted()) {
                 openGallery();
@@ -123,7 +151,8 @@ public class ImageIngredientsActivity extends AppCompatActivity {
             }
         });
         
-        findViewById(R.id.generateRecipeButton).setOnClickListener(v -> generateRecipe());
+        // Set up Generate Recipe button click listener
+        generateRecipeButton.setOnClickListener(v -> generateRecipe());
 
         executorService = Executors.newSingleThreadExecutor();
         
@@ -141,13 +170,33 @@ public class ImageIngredientsActivity extends AppCompatActivity {
 
     private void openGallery() {
         try {
-            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            // First try with ACTION_GET_CONTENT which is more reliable for multiple selection
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.setType("image/*");
-            startActivityForResult(intent, REQUEST_IMAGE_PICK);
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            
+            // Create a chooser to let the user pick which app to use
+            Intent chooser = Intent.createChooser(intent, "Select images");
+            startActivityForResult(chooser, REQUEST_IMAGE_PICK);
         } catch (Exception e) {
             Log.e(TAG, "Error opening gallery: " + e.getMessage());
-            Toast.makeText(this, "Error opening gallery: " + e.getMessage(), 
-                Toast.LENGTH_LONG).show();
+            try {
+                // Fallback to OPEN_DOCUMENT if GET_CONTENT fails
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("image/*");
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | 
+                              Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+                startActivityForResult(intent, REQUEST_IMAGE_PICK);
+            } catch (Exception ex) {
+                Log.e(TAG, "Error with fallback gallery intent: " + ex.getMessage());
+                runOnUiThread(() -> 
+                    Toast.makeText(this, "Error opening gallery: " + ex.getMessage(), 
+                                 Toast.LENGTH_LONG).show()
+                );
+            }
         }
     }
     
@@ -164,11 +213,8 @@ public class ImageIngredientsActivity extends AppCompatActivity {
             if (detectedIngredientsCard != null) {
                 detectedIngredientsCard.setVisibility(View.GONE);
             }
-            if (selectImageArea != null) {
-                selectImageArea.setVisibility(View.VISIBLE);
-            }
-            if (selectedImageView != null) {
-                selectedImageView.setVisibility(View.GONE);
+            if (selectedImagesRecyclerView != null) {
+                selectedImagesRecyclerView.setVisibility(View.GONE);
             }
             if (progressBar != null) {
                 progressBar.setVisibility(View.GONE);
@@ -184,11 +230,8 @@ public class ImageIngredientsActivity extends AppCompatActivity {
             if (detectedIngredientsCard != null) {
                 detectedIngredientsCard.setVisibility(View.GONE);
             }
-            if (selectImageArea != null) {
-                selectImageArea.setVisibility(View.GONE);
-            }
-            if (selectedImageView != null) {
-                selectedImageView.setVisibility(View.VISIBLE);
+            if (selectedImagesRecyclerView != null) {
+                selectedImagesRecyclerView.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -201,11 +244,8 @@ public class ImageIngredientsActivity extends AppCompatActivity {
             if (detectedIngredientsCard != null) {
                 detectedIngredientsCard.setVisibility(View.VISIBLE);
             }
-            if (selectImageArea != null) {
-                selectImageArea.setVisibility(View.GONE);
-            }
-            if (selectedImageView != null) {
-                selectedImageView.setVisibility(View.VISIBLE);
+            if (selectedImagesRecyclerView != null) {
+                selectedImagesRecyclerView.setVisibility(View.VISIBLE);
             }
             // Show and enable Generate Recipe button if we have ingredients
             if (generateRecipeButton != null) {
@@ -219,112 +259,295 @@ public class ImageIngredientsActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE_PICK && resultCode == RESULT_OK && data != null) {
-            Uri imageUri = data.getData();
-            if (imageUri != null) {
-                processImage(imageUri);
+            selectedImageUris.clear();
+            
+            try {
+                if (data.getClipData() != null) {
+                    // Multiple images selected
+                    int count = Math.min(data.getClipData().getItemCount(), MAX_IMAGES);
+                    for (int i = 0; i < count; i++) {
+                        Uri imageUri = data.getClipData().getItemAt(i).getUri();
+                        if (imageUri != null) {
+                            // Take persistable URI permission
+                            getContentResolver().takePersistableUriPermission(
+                                imageUri, 
+                                Intent.FLAG_GRANT_READ_URI_PERMISSION
+                            );
+                            selectedImageUris.add(imageUri);
+                        }
+                    }
+                } else if (data.getData() != null) {
+                    // Single image selected
+                    Uri imageUri = data.getData();
+                    // Take persistable URI permission
+                    getContentResolver().takePersistableUriPermission(
+                        imageUri,
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    );
+                    selectedImageUris.add(imageUri);
+                }
+                
+                if (!selectedImageUris.isEmpty()) {
+                    selectedImagesAdapter.updateImages(selectedImageUris);
+                    processSelectedImages();
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Error processing selected images: " + e.getMessage(), e);
+                runOnUiThread(() -> 
+                    Toast.makeText(this, "Error processing images: " + e.getMessage(), Toast.LENGTH_LONG).show()
+                );
             }
         }
     }
 
-    private void processImage(Uri imageUri) {
+    private void updateSelectedImagesPreview() {
+        if (selectedImagesAdapter != null) {
+            selectedImagesAdapter.updateImages(selectedImageUris);
+        }
+    }
+
+    private void processSelectedImages() {
+        if (selectedImageUris.isEmpty()) {
+            return;
+        }
+
         showProcessingUI();
+        detectedIngredients.clear();
+        currentImageIndex = 0;
         
-        // Display the selected image
+        // Show the selected images RecyclerView
+        selectedImagesRecyclerView.setVisibility(View.VISIBLE);
+        
+        // Process each image one by one
+        processNextImage(currentImageIndex);
+    }
+
+    private void processNextImage(int index) {
+        if (index >= selectedImageUris.size()) {
+            // All images processed, show results
+            runOnUiThread(this::showResultsUI);
+            return;
+        }
+
+        // Update current index
+        currentImageIndex = index;
+        
+        // Show which image is being processed
+        updateStatusText("Processing image " + (index + 1) + " of " + selectedImageUris.size());
+        
+        // Process the current image
+        Uri imageUri = selectedImageUris.get(index);
+        processSelectedImage(imageUri);
+    }
+
+    private void processSelectedImage(Uri imageUri) {
         try {
+            // Load the image as a bitmap
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-            selectedImageView.setImageBitmap(bitmap);
-            selectedImageView.setVisibility(View.VISIBLE);
             
-            // Process the image in background
-            executorService.execute(() -> {
-                try {
-                    InputImage image = InputImage.fromBitmap(bitmap, 0);
-                    analyzeImage(image);
-                } catch (Exception e) {
-                    Log.e(TAG, "Error analyzing image: " + e.getMessage());
+            // Convert to InputImage for ML Kit
+            InputImage image = InputImage.fromBitmap(bitmap, 0);
+            
+            // Analyze the image
+            analyzeImage(image, currentImageIndex == selectedImageUris.size() - 1);
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to load image: " + e.getMessage());
+            runOnUiThread(() -> {
+                if (currentImageIndex == 0) {
+                    showSelectImageUI();
+                }
+                Toast.makeText(this, 
+                    "Failed to load image " + (currentImageIndex) + ": " + e.getMessage(), 
+                    Toast.LENGTH_LONG).show();
+                // Continue with next image even if one fails
+                processNextImage(currentImageIndex);
+            });
+        } catch (Exception e) {
+            Log.e(TAG, "Error analyzing image: " + e.getMessage());
+            runOnUiThread(() -> {
+                if (currentImageIndex == 0) {
+                    showSelectImageUI();
+                }
+                Toast.makeText(ImageIngredientsActivity.this, 
+                    "Error analyzing image " + (currentImageIndex) + ": " + e.getMessage(), 
+                    Toast.LENGTH_LONG).show();
+                // Continue with next image even if one fails
+                processNextImage(currentImageIndex);
+            });
+        }
+    }
+
+    private void analyzeImage(InputImage image, boolean isLastImage) {
+        runOnUiThread(() -> showProgress(true));
+        
+        // Lower confidence threshold to catch more potential ingredients
+        ImageLabelerOptions options = new ImageLabelerOptions.Builder()
+            .setConfidenceThreshold(0.4f)
+            .build();
+            
+        ImageLabeling.getClient(options)
+            .process(image)
+            .addOnSuccessListener(labels -> {
+                Log.d(TAG, "Processing image " + (currentImageIndex + 1) + " of " + selectedImageUris.size());
+                
+                for (ImageLabel label : labels) {
+                    String text = label.getText().toLowerCase();
+                    float confidence = label.getConfidence();
+                    boolean isIngredient = isLikelyIngredient(text);
+                    
+                    Log.d(TAG, String.format("Label: '%s' (confidence: %.2f, ingredient: %b)", 
+                        text, confidence, isIngredient));
+                    
+                    if (confidence > 0.4f && isIngredient) {
+                        // Format the ingredient name (capitalize first letter)
+                        String formattedName = text.substring(0, 1).toUpperCase() + 
+                                            text.substring(1);
+                        
+                        // Check if we already have this ingredient
+                        boolean exists = false;
+                        for (Ingredient existing : detectedIngredients) {
+                            if (existing.getName().equalsIgnoreCase(formattedName)) {
+                                exists = true;
+                                break;
+                            }
+                        }
+                        
+                        if (!exists) {
+                            Log.i(TAG, "Adding ingredient: " + formattedName);
+                            // Create a new Ingredient with default values for other fields
+                            Ingredient newIngredient = new Ingredient(
+                                "", // id will be generated later
+                                formattedName,
+                                "", // amount
+                                ""  // unit
+                            );
+                            detectedIngredients.add(newIngredient);
+                        }
+                    }
+                }
+                
+                // Process next image or show results
+                if (currentImageIndex < selectedImageUris.size() - 1) {
+                    // Process next image
+                    processNextImage(currentImageIndex + 1);
+                } else {
+                    // All images processed
+                    Log.i(TAG, "Finished processing all images. Total ingredients: " + detectedIngredients.size());
                     runOnUiThread(() -> {
-                        showSelectImageUI();
-                        Toast.makeText(ImageIngredientsActivity.this, 
-                            "Error analyzing image: " + e.getMessage(), 
-                            Toast.LENGTH_LONG).show();
+                        // Update UI on main thread
+                        updateUI();
+                        showResultsUI();
+                    });
+                }
+            })
+            .addOnFailureListener(e -> {
+                Log.e(TAG, "Error analyzing image: " + e.getMessage());
+                // Continue with next image even if one fails
+                if (currentImageIndex < selectedImageUris.size() - 1) {
+                    processNextImage(currentImageIndex + 1);
+                } else {
+                    runOnUiThread(() -> {
+                        updateUI();
+                        showResultsUI();
                     });
                 }
             });
-        } catch (IOException e) {
-                Log.e(TAG, "Failed to load image: " + e.getMessage());
-                runOnUiThread(() -> {
-                    showSelectImageUI();
-                    Toast.makeText(this, "Failed to load image: " + e.getMessage(), 
-                        Toast.LENGTH_LONG).show();
-                });
-            }
-    }
-
-    private void analyzeImage(InputImage image) {
-        showProgress(true);
-        
-        ImageLabelerOptions options = new ImageLabelerOptions.Builder()
-                .setConfidenceThreshold(0.7f)
-                .build();
-        
-        ImageLabeler labeler = ImageLabeling.getClient(options);
-        
-        labeler.process(image)
-                .addOnSuccessListener(labels -> {
-                    detectedIngredients.clear();
-                    for (ImageLabel label : labels) {
-                        String text = label.getText().toLowerCase();
-                        float confidence = label.getConfidence();
-                        
-                        // Filter out non-food items and low confidence labels
-                        if (isLikelyIngredient(text) && confidence > 0.7) {
-                            detectedIngredients.add(new Ingredient(text, "1", ""));
-                        }
-                    }
-                    
-                    runOnUiThread(this::updateUI);
-                })
-                .addOnFailureListener(e -> {
-                    Log.e(TAG, "Image labeling failed: " + e.getMessage());
-                    runOnUiThread(() -> {
-                        showProgress(false);
-                        Toast.makeText(this, "Failed to analyze image", Toast.LENGTH_SHORT).show();
-                    });
-                });
     }
     
     private boolean isLikelyIngredient(String label) {
-        // Common food-related terms that might appear in image labels
-        String[] foodTerms = {"food", "fruit", "vegetable", "meat", "chicken", "beef", "pork", 
-            "fish", "rice", "pasta", "bread", "cheese", "egg", "milk", "soup", "salad", "sauce", 
-            "spice", "herb", "nut", "bean", "grain", "dairy", "dessert", "cake", "cookie"};
+        if (label == null || label.trim().isEmpty()) {
+            return false;
+        }
         
-        // Check if the label contains any food-related terms
-        for (String term : foodTerms) {
-            if (label.contains(term)) {
-                return true;
+        // Convert to lowercase for case-insensitive comparison
+        String lowerLabel = label.toLowerCase().trim();
+        
+        // Common non-ingredient labels to exclude
+        String[] nonIngredients = {
+            "food", "dish", "meal", "cuisine", "cooking", "plate", "bowl",
+            "lunch", "dinner", "breakfast", "snack", "tableware", "cutlery",
+            "utensil", "container", "bottle", "glass", "cup", "mug", "pan",
+            "pot", "frying pan", "cutting board", "kitchen", "appliance",
+            "appliances", "beverage", "drink", "cuisine", "dish"
+        };
+        
+        // Check if the label is in our non-ingredient list
+        for (String nonIng : nonIngredients) {
+            if (lowerLabel.equals(nonIng)) {
+                return false;
             }
         }
-        return false;
+        
+        // Check for specific patterns that indicate non-ingredients
+        if (lowerLabel.matches(".*\\d.*") || // contains numbers
+            lowerLabel.matches(".*[^a-zA-Z ].*") || // contains non-letter characters (except spaces)
+            lowerLabel.length() > 30) { // too long to be a simple ingredient
+            return false;
+        }
+        
+        // Check confidence threshold (handled by the caller)
+        
+        // If we got here, it's likely an ingredient
+        return true;
     }
     
     private void updateUI() {
-        showProgress(false);
-        if (detectedIngredients.isEmpty()) {
-            // Show the results UI even when no ingredients are detected
-            showResultsUI();
-            Toast.makeText(this, "No ingredients detected. Try a clearer image.", 
-                Toast.LENGTH_SHORT).show();
-        } else {
-            // Show the results with detected ingredients
-            showResultsUI();
-            ingredientsAdapter.submitList(new ArrayList<>(detectedIngredients));
-        }
+        runOnUiThread(() -> {
+            try {
+                Log.d(TAG, "Updating UI with " + detectedIngredients.size() + " ingredients");
+                
+                // Update the ingredients list
+                if (ingredientsAdapter != null) {
+                    ingredientsAdapter.setIngredients(detectedIngredients);
+                } else {
+                    Log.e(TAG, "ingredientsAdapter is null!");
+                }
+                
+                // Show/hide the "No ingredients detected" message
+                if (detectedIngredientsCard != null) {
+                    detectedIngredientsCard.setVisibility(
+                        detectedIngredients.isEmpty() ? View.GONE : View.VISIBLE);
+                } else {
+                    Log.e(TAG, "detectedIngredientsCard is null!");
+                }
+                
+                // Enable/disable the generate recipe button
+                if (generateRecipeButton != null) {
+                    boolean hasIngredients = !detectedIngredients.isEmpty();
+                    generateRecipeButton.setEnabled(hasIngredients);
+                    generateRecipeButton.setAlpha(hasIngredients ? 1.0f : 0.5f);
+                    Log.d(TAG, "Generate recipe button enabled: " + hasIngredients);
+                } else {
+                    Log.e(TAG, "generateRecipeButton is null!");
+                }
+                
+                // Force a redraw of the RecyclerView
+                if (ingredientsList != null) {
+                    ingredientsList.getAdapter().notifyDataSetChanged();
+                }
+                
+            } catch (Exception e) {
+                Log.e(TAG, "Error updating UI: " + e.getMessage(), e);
+            }
+        });
     }
     
     private void showProgress(boolean show) {
-        progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
-        selectImageButton.setEnabled(!show);
+        runOnUiThread(() -> {
+            progressBar.setVisibility(show ? View.VISIBLE : View.GONE);
+            selectImageButton.setEnabled(!show);
+        });
+    }
+    
+    private void updateStatusText(String message) {
+        runOnUiThread(() -> {
+            if (progressBar != null) {
+                // No need to set indeterminate or progress for CircularProgressIndicator
+                // It's already set up in the XML
+            }
+            // If you have a TextView to show the status, you can set the text here
+            // statusTextView.setText(message);
+        });
     }
     
     private void generateRecipe() {
@@ -332,56 +555,93 @@ public class ImageIngredientsActivity extends AppCompatActivity {
             Toast.makeText(this, "No ingredients detected", Toast.LENGTH_SHORT).show();
             return;
         }
-        
+
         // Show progress
         showProgress(true);
         generateRecipeButton.setEnabled(false);
         
-        // Use Kotlin coroutines to call the suspend function
-        CoroutineScope(Dispatchers.Main).launch {
-            try {
-                // Call the recipe generator with the detected ingredients
-                Result<Recipe> result = recipeGenerator.generateRecipe(detectedIngredients);
-                
-                if (result instanceof Result.Success) {
-                    // Success - navigate to the recipe editor with the generated recipe
-                    Recipe generatedRecipe = ((Result.Success<Recipe>) result).getValue();
-                    Intent intent = new Intent(ImageIngredientsActivity.this, AddEditRecipeActivity.class);
-                    intent.putExtra(AddEditRecipeActivity.EXTRA_RECIPE, generatedRecipe);
-                    startActivity(intent);
-                } else if (result instanceof Result.Failure) {
-                    // Handle failure
-                    Exception exception = ((Result.Failure) result).exception;
+        // Show a toast to indicate that recipe generation has started
+        Toast.makeText(this, "Generating recipe... This may take a moment.", Toast.LENGTH_SHORT).show();
+        
+        // Create a callback for the recipe generator
+        RecipeGenerator.Callback callback = new RecipeGenerator.Callback() {
+            @Override
+            public void onSuccess(Recipe recipe) {
+                runOnUiThread(() -> {
+                    try {
+                        // Convert the recipe to the format expected by the database
+                        com.example.recipemanager.data.Recipe dbRecipe = new com.example.recipemanager.data.Recipe();
+                        dbRecipe.name = recipe.getTitle();
+                        
+                        // Format ingredients with bullet points
+                        StringBuilder ingredientsBuilder = new StringBuilder();
+                        for (Ingredient ing : recipe.getIngredients()) {
+                            if (ingredientsBuilder.length() > 0) {
+                                ingredientsBuilder.append("\n");
+                            }
+                            ingredientsBuilder.append("• ");
+                            if (!ing.getAmount().isEmpty()) {
+                                ingredientsBuilder.append(ing.getAmount()).append(" ");
+                            }
+                            if (!ing.getUnit().isEmpty() && !ing.getUnit().equals("")) {
+                                ingredientsBuilder.append(ing.getUnit()).append(" ");
+                            }
+                            ingredientsBuilder.append(ing.getName());
+                        }
+                        dbRecipe.ingredients = ingredientsBuilder.toString();
+                        
+                        // Format steps with line breaks
+                        dbRecipe.steps = String.join("\n\n", recipe.getInstructions());
+                        dbRecipe.favorite = false;
+                        
+                        // Don't set imageUri for AI-generated recipes
+                        // This ensures no image is associated with AI-generated recipes
+                        dbRecipe.imageUri = "";
+                        
+                        // Save the recipe and wait for the save to complete
+                        viewModel.save(dbRecipe).observe(ImageIngredientsActivity.this, savedId -> {
+                            if (savedId != null && savedId > 0) {
+                                // Navigate to the recipe detail screen with the saved recipe ID
+                                Intent intent = new Intent(ImageIngredientsActivity.this, RecipeDetailActivity.class);
+                                intent.putExtra("id", savedId);
+                                startActivity(intent);
+                                finish(); // Close this activity to prevent going back to it
+                            } else {
+                                // Show error if save failed
+                                Toast.makeText(ImageIngredientsActivity.this, 
+                                    "Failed to save recipe. Please try again.", 
+                                    Toast.LENGTH_LONG).show();
+                                showProgress(false);
+                                generateRecipeButton.setEnabled(true);
+                            }
+                        });
+                    } catch (Exception e) {
+                        Log.e(TAG, "Error processing recipe: " + e.getMessage(), e);
+                        Toast.makeText(ImageIngredientsActivity.this, 
+                            "Error processing recipe: " + e.getMessage(), 
+                            Toast.LENGTH_LONG).show();
+                    } finally {
+                        showProgress(false);
+                        generateRecipeButton.setEnabled(true);
+                    }
+                });
+            }
+
+            @Override
+            public void onError(Exception exception) {
+                runOnUiThread(() -> {
                     Log.e(TAG, "Failed to generate recipe: " + exception.getMessage(), exception);
                     Toast.makeText(ImageIngredientsActivity.this, 
                         "Failed to generate recipe: " + exception.getMessage(), 
                         Toast.LENGTH_LONG).show();
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "Error generating recipe: " + e.getMessage(), e);
-                Toast.makeText(ImageIngredientsActivity.this, 
-                    "Error: " + e.getMessage(), 
-                    Toast.LENGTH_LONG).show();
-            } finally {
-                // Always hide progress and re-enable the button
-                showProgress(false);
-                generateRecipeButton.setEnabled(true);
+                    showProgress(false);
+                    generateRecipeButton.setEnabled(true);
+                });
             }
         };
         
-        // Show a toast to indicate that recipe generation has started
-        Toast.makeText(this, "Generating recipe... This may take a moment.", Toast.LENGTH_SHORT).show();
-    }
-    }
-
-    private boolean allPermissionsGranted() {
-        for (String permission : REQUIRED_PERMISSIONS) {
-            if (ContextCompat.checkSelfPermission(this, permission) 
-                    != PackageManager.PERMISSION_GRANTED) {
-                return false;
-            }
-        }
-        return true;
+        // Call the recipe generator with the callback and detected ingredients
+        recipeGenerator.generateRecipe(new ArrayList<>(detectedIngredients), callback);
     }
 
     @Override

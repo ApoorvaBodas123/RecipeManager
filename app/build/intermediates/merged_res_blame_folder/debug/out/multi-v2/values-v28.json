@@ -4,26 +4,7 @@
             "outputFile": "com.example.recipemanager.app-mergeDebugResources-71:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Apoorva\\.gradle\\caches\\9.0-milestone-1\\transforms\\74e7c27e28206a6897e1a3a2ee4c1e66\\transformed\\material-1.12.0\\res\\values-v28\\values-v28.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,153,249,344,441,529,617,705,793,880,967,1054,1141",
-                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,17",
-                        "endColumns": "97,95,94,96,87,87,87,87,86,86,86,86,10",
-                        "endOffsets": "148,244,339,436,524,612,700,788,875,962,1049,1136,1423"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,24",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,153,249,344,441,529,617,705,793,880,967,1054,1675",
-                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,27",
-                        "endColumns": "97,95,94,96,87,87,87,87,86,86,86,86,10",
-                        "endOffsets": "148,244,339,436,524,612,700,788,875,962,1049,1136,1957"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Apoorva\\.gradle\\caches\\9.0-milestone-1\\transforms\\e81bbaa26b86f42ef7379d787fee0647\\transformed\\appcompat-1.7.0\\res\\values-v28\\values-v28.xml",
+                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/4cbaf383a11487e478b5d4d6d8d21da9/transformed/appcompat-1.7.0/res/values-v28/values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",
@@ -39,6 +20,25 @@
                         "endLines": "14,15,19,23",
                         "endColumns": "74,86,12,12",
                         "endOffsets": "1211,1298,1478,1670"
+                    }
+                },
+                {
+                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/8e4c56410af5d924afd419c9b40fd0b2/transformed/material-1.12.0/res/values-v28/values-v28.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,153,249,344,441,529,617,705,793,880,967,1054,1141",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,17",
+                        "endColumns": "97,95,94,96,87,87,87,87,86,86,86,86,10",
+                        "endOffsets": "148,244,339,436,524,612,700,788,875,962,1049,1136,1423"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,24",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,153,249,344,441,529,617,705,793,880,967,1054,1675",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,27",
+                        "endColumns": "97,95,94,96,87,87,87,87,86,86,86,86,10",
+                        "endOffsets": "148,244,339,436,524,612,700,788,875,962,1049,1136,1957"
                     }
                 }
             ]

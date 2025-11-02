@@ -4,7 +4,7 @@
             "outputFile": "com.example.recipemanager.app-mergeDebugResources-71:/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Apoorva\\.gradle\\caches\\9.0-milestone-1\\transforms\\e81bbaa26b86f42ef7379d787fee0647\\transformed\\appcompat-1.7.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/4cbaf383a11487e478b5d4d6d8d21da9/transformed/appcompat-1.7.0/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

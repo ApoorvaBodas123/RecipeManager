@@ -22,13 +22,13 @@ public final class ActivityRecipeDetailBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
+  public final Button btnDelete;
+
+  @NonNull
   public final Button btnEdit;
 
   @NonNull
   public final Button btnFav;
-
-  @NonNull
-  public final Button btnShare;
 
   @NonNull
   public final ImageView ivPhoto;
@@ -42,13 +42,13 @@ public final class ActivityRecipeDetailBinding implements ViewBinding {
   @NonNull
   public final TextView tvSteps;
 
-  private ActivityRecipeDetailBinding(@NonNull ScrollView rootView, @NonNull Button btnEdit,
-      @NonNull Button btnFav, @NonNull Button btnShare, @NonNull ImageView ivPhoto,
+  private ActivityRecipeDetailBinding(@NonNull ScrollView rootView, @NonNull Button btnDelete,
+      @NonNull Button btnEdit, @NonNull Button btnFav, @NonNull ImageView ivPhoto,
       @NonNull TextView tvIngredients, @NonNull TextView tvName, @NonNull TextView tvSteps) {
     this.rootView = rootView;
+    this.btnDelete = btnDelete;
     this.btnEdit = btnEdit;
     this.btnFav = btnFav;
-    this.btnShare = btnShare;
     this.ivPhoto = ivPhoto;
     this.tvIngredients = tvIngredients;
     this.tvName = tvName;
@@ -82,6 +82,12 @@ public final class ActivityRecipeDetailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnDelete;
+      Button btnDelete = ViewBindings.findChildViewById(rootView, id);
+      if (btnDelete == null) {
+        break missingId;
+      }
+
       id = R.id.btnEdit;
       Button btnEdit = ViewBindings.findChildViewById(rootView, id);
       if (btnEdit == null) {
@@ -91,12 +97,6 @@ public final class ActivityRecipeDetailBinding implements ViewBinding {
       id = R.id.btnFav;
       Button btnFav = ViewBindings.findChildViewById(rootView, id);
       if (btnFav == null) {
-        break missingId;
-      }
-
-      id = R.id.btnShare;
-      Button btnShare = ViewBindings.findChildViewById(rootView, id);
-      if (btnShare == null) {
         break missingId;
       }
 
@@ -124,7 +124,7 @@ public final class ActivityRecipeDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityRecipeDetailBinding((ScrollView) rootView, btnEdit, btnFav, btnShare,
+      return new ActivityRecipeDetailBinding((ScrollView) rootView, btnDelete, btnEdit, btnFav,
           ivPhoto, tvIngredients, tvName, tvSteps);
     }
     String missingId = rootView.getResources().getResourceName(id);

@@ -68,13 +68,19 @@ public class AddEditRecipeActivity extends AppCompatActivity {
         ((AutoCompleteTextView) binding.etDifficulty).setAdapter(difficultyAdapter);
 
         // Check if we're editing an existing recipe
-        if (getIntent().hasExtra("recipe_id")) {
-            editingId = getIntent().getLongExtra("recipe_id", 0);
-            vm.getById(editingId).observe(this, recipe -> {
-                if (recipe != null) {
-                    populateForm(recipe);
-                }
-            });
+        if (getIntent().hasExtra("recipe_id") || getIntent().hasExtra("id")) {
+            // Try to get the ID from either key for backward compatibility
+            editingId = getIntent().getLongExtra("recipe_id", getIntent().getLongExtra("id", 0));
+            if (editingId > 0) {
+                vm.getById(editingId).observe(this, recipe -> {
+                    if (recipe != null) {
+                        populateForm(recipe);
+                    } else {
+                        Toast.makeText(this, "Failed to load recipe details", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+                });
+            }
         }
 
         binding.btnPickImage.setOnClickListener(v -> {

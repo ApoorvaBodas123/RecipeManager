@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -96,6 +97,16 @@ dependencies {
     
     // RecyclerView
     implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    
+    // SLF4J API and Android implementation
+    implementation 'org.slf4j:slf4j-api:1.7.36'
+    implementation 'com.github.tony19:logback-android:2.0.1'
+    
+    // Ktor HTTP client with OkHttp engine
+    implementation "io.ktor:ktor-client-core:2.3.5"
+    implementation "io.ktor:ktor-client-okhttp:2.3.5"
+    implementation "io.ktor:ktor-client-content-negotiation:2.3.5"
+    implementation "io.ktor:ktor-serialization-kotlinx-json:2.3.5"
     
     // Lifecycle components
     def lifecycle_version = '2.7.0'

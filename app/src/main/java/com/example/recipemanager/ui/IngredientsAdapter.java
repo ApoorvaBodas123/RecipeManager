@@ -40,6 +40,10 @@ public class IngredientsAdapter extends ListAdapter<Ingredient, IngredientsAdapt
     public void submitList(List<Ingredient> list) {
         super.submitList(list != null ? new ArrayList<>(list) : null);
     }
+    
+    public void setIngredients(List<Ingredient> ingredients) {
+        submitList(ingredients != null ? new ArrayList<>(ingredients) : null);
+    }
 
     static class IngredientViewHolder extends RecyclerView.ViewHolder {
         private final Chip chip;

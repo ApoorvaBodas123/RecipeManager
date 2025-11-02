@@ -1,4 +1,4 @@
-# The proguard configuration file for the following section is C:\Users\Apoorva\Desktop\RecipeManagerApp\app\build\intermediates\default_proguard_files\global\proguard-android-optimize.txt-8.2.2
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/RecipeManager/app/build/intermediates/default_proguard_files/global/proguard-android-optimize.txt-8.2.2
 # This is a configuration file for ProGuard.
 # http://proguard.sourceforge.net/index.html#manual/usage.html
 #
@@ -117,11 +117,31 @@
 # These classes are duplicated between android.jar and core-lambda-stubs.jar.
 -dontnote java.lang.invoke.**
 
-# End of content from C:\Users\Apoorva\Desktop\RecipeManagerApp\app\build\intermediates\default_proguard_files\global\proguard-android-optimize.txt-8.2.2
-# The proguard configuration file for the following section is C:\Users\Apoorva\Desktop\RecipeManagerApp\app\proguard-rules.pro
+# End of content from /Users/apoorvabodas/Desktop/madproject/RecipeManager/app/build/intermediates/default_proguard_files/global/proguard-android-optimize.txt-8.2.2
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/RecipeManager/app/proguard-rules.pro
+# Gson rules
+-keep class com.google.gson.** { *; }
+-keep class com.google.gson.reflect.TypeToken { *; }
+-keep class * extends com.google.gson.reflect.TypeToken
+-keep class com.google.gson.TypeAdapter { *; }
+-keep class com.google.gson.TypeAdapter$1 { *; }
 
-# End of content from C:\Users\Apoorva\Desktop\RecipeManagerApp\app\proguard-rules.pro
-# The proguard configuration file for the following section is C:\Users\Apoorva\Desktop\RecipeManagerApp\app\build\intermediates\aapt_proguard_file\debug\aapt_rules.txt
+# Preserve all annotated classes
+-keep @androidx.room.Entity class *
+-keep @androidx.room.TypeConverters class *
+-keep class * extends androidx.room.TypeConverter
+
+# Preserve all model classes
+-keep class com.example.recipemanager.data.model.** { *; }
+
+# Keep parameter names for Gson
+-keepattributes Signature
+-keepattributes *Annotation*
+-keepattributes EnclosingMethod
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.stream.** { *; }
+# End of content from /Users/apoorvabodas/Desktop/madproject/RecipeManager/app/proguard-rules.pro
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/RecipeManager/app/build/intermediates/aapt_proguard_file/debug/aapt_rules.txt
 -keep class androidx.camera.core.impl.MetadataHolderService { <init>(); }
 -keep class androidx.core.app.CoreComponentFactory { <init>(); }
 -keep class androidx.profileinstaller.ProfileInstallReceiver { <init>(); }
@@ -250,8 +270,8 @@
 -keep class com.google.android.material.timepicker.TimePickerView { <init>(android.content.Context, android.util.AttributeSet); }
 
 
-# End of content from C:\Users\Apoorva\Desktop\RecipeManagerApp\app\build\intermediates\aapt_proguard_file\debug\aapt_rules.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\855a9e379b8edf090372988359b471e0\transformed\jetified-dexter-6.2.3\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/RecipeManager/app/build/intermediates/aapt_proguard_file/debug/aapt_rules.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/169f789ca93a7ae860f6193a8c89c4f0/transformed/jetified-dexter-6.2.3/proguard.txt
 # Preserve all Dexter classes and method names
 
 -keepattributes InnerClasses, Signature, *Annotation*
@@ -261,8 +281,8 @@
 -keepclasseswithmembernames class com.karumi.dexter.** { *; }
 -keepclasseswithmembernames interface com.karumi.dexter.** { *; }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\855a9e379b8edf090372988359b471e0\transformed\jetified-dexter-6.2.3\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\74e7c27e28206a6897e1a3a2ee4c1e66\transformed\material-1.12.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/169f789ca93a7ae860f6193a8c89c4f0/transformed/jetified-dexter-6.2.3/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/8e4c56410af5d924afd419c9b40fd0b2/transformed/material-1.12.0/proguard.txt
 # Copyright (C) 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -310,47 +330,46 @@
 }
 
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\74e7c27e28206a6897e1a3a2ee4c1e66\transformed\material-1.12.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\c1902f9d7963b4c4628c1fbd3773cbd9\transformed\jetified-camera-core-1.4.0-alpha04\proguard.txt
-# Copyright (C) 2023 The Android Open Source Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/8e4c56410af5d924afd419c9b40fd0b2/transformed/material-1.12.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/3d06796a6c6a885b8ab08db09acd0d2d/transformed/room-runtime-2.6.1/proguard.txt
+-keep class * extends androidx.room.RoomDatabase
+-dontwarn androidx.room.paging.**
+-dontwarn androidx.lifecycle.LiveData
 
-# Keeps the quirk classes to prevent them from being merged incorrectly. For more information,
-# please see b/278818703.
--keep,allowobfuscation,allowshrinking class ** implements androidx.camera.core.impl.Quirk
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/3d06796a6c6a885b8ab08db09acd0d2d/transformed/room-runtime-2.6.1/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/3c8d58b44a634c996dbdce567116f109/transformed/rules/lib/META-INF/proguard/retrofit2.pro
+# Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
+# EnclosingMethod is required to use InnerClasses.
+-keepattributes Signature, InnerClasses, EnclosingMethod
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\c1902f9d7963b4c4628c1fbd3773cbd9\transformed\jetified-camera-core-1.4.0-alpha04\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\4737e4652f813cb0fe96cfcf35c92ff3\transformed\jetified-camera-camera2-1.4.0-alpha04\proguard.txt
-# Copyright (C) 2020 The Android Open Source Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# Retrofit does reflection on method and parameter annotations.
+-keepattributes RuntimeVisibleAnnotations, RuntimeVisibleParameterAnnotations
 
-# This is necessary for default initialization using Camera2Config
--keep public class androidx.camera.camera2.Camera2Config$DefaultProvider { *; }
+# Retain service method parameters when optimizing.
+-keepclassmembers,allowshrinking,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\4737e4652f813cb0fe96cfcf35c92ff3\transformed\jetified-camera-camera2-1.4.0-alpha04\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\46f4cc2fdd9a0b3278929453e199c098\transformed\jetified-vision-internal-vkp-18.2.2\proguard.txt
+# Ignore annotation used for build tooling.
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+
+# Ignore JSR 305 annotations for embedding nullability information.
+-dontwarn javax.annotation.**
+
+# Guarded by a NoClassDefFoundError try/catch and only used when on the classpath.
+-dontwarn kotlin.Unit
+
+# Top-level functions that can only be used by Kotlin.
+-dontwarn retrofit2.KotlinExtensions
+-dontwarn retrofit2.KotlinExtensions$*
+
+# With R8 full mode, it sees no subtypes of Retrofit interfaces since they are created with a Proxy
+# and replaces all potential values with null. Explicitly keeping the interfaces prevents this.
+-if interface * { @retrofit2.http.* <methods>; }
+-keep,allowobfuscation interface <1>
+
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/3c8d58b44a634c996dbdce567116f109/transformed/rules/lib/META-INF/proguard/retrofit2.pro
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/86f2f5c9f0ef2e63dac70d8ecd37194c/transformed/jetified-vision-internal-vkp-18.2.2/proguard.txt
 # We keep all fields for every generated proto file as the runtime uses
 # reflection over them that ProGuard cannot detect. Without this keep
 # rule, fields may be removed that would cause runtime failures.
@@ -373,8 +392,64 @@
     native <methods>;
 }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\46f4cc2fdd9a0b3278929453e199c098\transformed\jetified-vision-internal-vkp-18.2.2\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\a3ce78eab55edf050a370e6e53e35562\transformed\jetified-common-18.10.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/86f2f5c9f0ef2e63dac70d8ecd37194c/transformed/jetified-vision-internal-vkp-18.2.2/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/2cf753468aec5f6c4d57f8bd9dcf18dc/transformed/rules/lib/META-INF/proguard/okhttp3.pro
+# JSR 305 annotations are for embedding nullability information.
+-dontwarn javax.annotation.**
+
+# A resource is loaded with a relative path so the package of this class must be preserved.
+-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+
+# Animal Sniffer compileOnly dependency to ensure APIs are compatible with older versions of Java.
+-dontwarn org.codehaus.mojo.animal_sniffer.*
+
+# OkHttp platform used only on JVM and when Conscrypt and other security providers are available.
+-dontwarn okhttp3.internal.platform.**
+-dontwarn org.conscrypt.**
+-dontwarn org.bouncycastle.**
+-dontwarn org.openjsse.**
+
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/2cf753468aec5f6c4d57f8bd9dcf18dc/transformed/rules/lib/META-INF/proguard/okhttp3.pro
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/b0dbc90b5ed3eb119c209a04741b5ac3/transformed/jetified-camera-core-1.4.0-alpha04/proguard.txt
+# Copyright (C) 2023 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Keeps the quirk classes to prevent them from being merged incorrectly. For more information,
+# please see b/278818703.
+-keep,allowobfuscation,allowshrinking class ** implements androidx.camera.core.impl.Quirk
+
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/b0dbc90b5ed3eb119c209a04741b5ac3/transformed/jetified-camera-core-1.4.0-alpha04/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/2e4d90460ad3e4965c08340200d819b9/transformed/jetified-camera-camera2-1.4.0-alpha04/proguard.txt
+# Copyright (C) 2020 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# This is necessary for default initialization using Camera2Config
+-keep public class androidx.camera.camera2.Camera2Config$DefaultProvider { *; }
+
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/2e4d90460ad3e4965c08340200d819b9/transformed/jetified-camera-camera2-1.4.0-alpha04/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/70ff233052b173bce29cd12daf150442/transformed/jetified-common-18.10.0/proguard.txt
 # Annotations are implemented as attributes, so we have to explicitly keep them.
 # Catch all which encompasses attributes like RuntimeVisibleParameterAnnotations
 # and RuntimeVisibleTypeAnnotations
@@ -396,8 +471,8 @@
     @com.google.android.apps.common.proguard.UsedBy* *;
 }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\a3ce78eab55edf050a370e6e53e35562\transformed\jetified-common-18.10.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\e81bbaa26b86f42ef7379d787fee0647\transformed\appcompat-1.7.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/70ff233052b173bce29cd12daf150442/transformed/jetified-common-18.10.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/4cbaf383a11487e478b5d4d6d8d21da9/transformed/appcompat-1.7.0/proguard.txt
 # Copyright (C) 2018 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -417,8 +492,8 @@
   <methods>;
 }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\e81bbaa26b86f42ef7379d787fee0647\transformed\appcompat-1.7.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\2379ceee4c006e2fe8076cbb60c112e2\transformed\jetified-glide-4.15.1\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/4cbaf383a11487e478b5d4d6d8d21da9/transformed/appcompat-1.7.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/27144c58a2b06cc949143a38b6095fe3/transformed/jetified-glide-4.15.1/proguard.txt
 -keep public class * implements com.bumptech.glide.module.GlideModule
 -keep class * extends com.bumptech.glide.module.AppGlideModule {
  <init>(...);
@@ -434,8 +509,8 @@
 # Uncomment for DexGuard only
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\2379ceee4c006e2fe8076cbb60c112e2\transformed\jetified-glide-4.15.1\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\1ab2b1e784e474fc2a3b7435862bf66d\transformed\jetified-play-services-base-18.1.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/27144c58a2b06cc949143a38b6095fe3/transformed/jetified-glide-4.15.1/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/f22a31dd0eb777197daf0270fc035b77/transformed/jetified-play-services-base-18.1.0/proguard.txt
 # b/35135904 Ensure that proguard will not strip the mResultGuardian.
 -keepclassmembers class com.google.android.gms.common.api.internal.BasePendingResult {
   com.google.android.gms.common.api.internal.BasePendingResult$ReleasableResultGuardian mResultGuardian;
@@ -443,12 +518,12 @@
 
 
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\1ab2b1e784e474fc2a3b7435862bf66d\transformed\jetified-play-services-base-18.1.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\8eb32b9c20693efc48deca7c575fbf9a\transformed\jetified-play-services-tasks-18.0.2\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/f22a31dd0eb777197daf0270fc035b77/transformed/jetified-play-services-base-18.1.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/6261127920c0bd1912aab96e92eeca13/transformed/jetified-play-services-tasks-18.0.2/proguard.txt
 
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\8eb32b9c20693efc48deca7c575fbf9a\transformed\jetified-play-services-tasks-18.0.2\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\8505f5ac895ee945b250297a89bcda65\transformed\jetified-play-services-basement-18.1.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/6261127920c0bd1912aab96e92eeca13/transformed/jetified-play-services-tasks-18.0.2/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/92e6f307ecd8cf8cac8965a8305a22d8/transformed/jetified-play-services-basement-18.1.0/proguard.txt
 # Needed when building against pre-Marshmallow SDK.
 -dontwarn android.security.NetworkSecurityPolicy
 
@@ -521,8 +596,8 @@
 
 
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\8505f5ac895ee945b250297a89bcda65\transformed\jetified-play-services-basement-18.1.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\67f9fe4e8417c281f05e98b065b2fff4\transformed\recyclerview-1.3.2\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/92e6f307ecd8cf8cac8965a8305a22d8/transformed/jetified-play-services-basement-18.1.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/a47e90eee124d727ea6473a2d8196617/transformed/recyclerview-1.3.2/proguard.txt
 # Copyright (C) 2015 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -548,8 +623,8 @@
     public void suppressLayout(boolean);
     public boolean isLayoutSuppressed();
 }
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\67f9fe4e8417c281f05e98b065b2fff4\transformed\recyclerview-1.3.2\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f8e9b6d8f5a3be3d6051486caad03914\transformed\fragment-1.7.1\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/a47e90eee124d727ea6473a2d8196617/transformed/recyclerview-1.3.2/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/28eb7c3b9941e36134330af309517dee/transformed/fragment-1.7.1/proguard.txt
 # Copyright (C) 2020 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -580,8 +655,8 @@
     public <init>();
 }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f8e9b6d8f5a3be3d6051486caad03914\transformed\fragment-1.7.1\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\60175db0f12678c23395aab38a6bea96\transformed\jetified-ui-release\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/28eb7c3b9941e36134330af309517dee/transformed/fragment-1.7.1/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/51f456fddd82ab17b478784cc81092a5/transformed/jetified-ui-release/proguard.txt
 # Copyright (C) 2020 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -615,8 +690,8 @@
 # reflection to determine the class type. See b/265188224 for more context.
 -keep,allowshrinking class * extends androidx.compose.ui.node.ModifierNodeElement
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\60175db0f12678c23395aab38a6bea96\transformed\jetified-ui-release\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\04868f0cdc8e5a2780199738116155de\transformed\jetified-window-1.2.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/51f456fddd82ab17b478784cc81092a5/transformed/jetified-ui-release/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/8536c6fe4d1cadb5b4d3788a53d3a1f4/transformed/jetified-window-1.2.0/proguard.txt
 # Copyright (C) 2020 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -644,8 +719,8 @@
 }
 # Required for window area API reflection guard
 -keep interface androidx.window.area.reflectionguard.* {*;}
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\04868f0cdc8e5a2780199738116155de\transformed\jetified-window-1.2.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\3c884a0ca3a99c3384c66cc1db56761d\transformed\coordinatorlayout-1.1.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/8536c6fe4d1cadb5b4d3788a53d3a1f4/transformed/jetified-window-1.2.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/2b792d65b3172cc82cebb43224ec960d/transformed/coordinatorlayout-1.1.0/proguard.txt
 # Copyright (C) 2016 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -669,8 +744,8 @@
 # Make sure we keep annotations for CoordinatorLayout's DefaultBehavior and ViewPager's DecorView
 -keepattributes *Annotation*
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\3c884a0ca3a99c3384c66cc1db56761d\transformed\coordinatorlayout-1.1.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f80c9c1bd4eb842cc5a6bffe7f806807\transformed\transition-1.5.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/2b792d65b3172cc82cebb43224ec960d/transformed/coordinatorlayout-1.1.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/d308543fdb21a823558ca94315411dcd/transformed/transition-1.5.0/proguard.txt
 # Copyright (C) 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -690,8 +765,8 @@
   androidx.transition.ChangeBounds$ViewBounds mViewBounds;
 }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f80c9c1bd4eb842cc5a6bffe7f806807\transformed\transition-1.5.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f0b812a6f4153c2d3b2fd9a49329d7fb\transformed\vectordrawable-animated-1.1.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/d308543fdb21a823558ca94315411dcd/transformed/transition-1.5.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/5face3a5d4004f8c5a3690c471699235/transformed/vectordrawable-animated-1.1.0/proguard.txt
 # Copyright (C) 2016 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -712,8 +787,8 @@
    *** get*();
 }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f0b812a6f4153c2d3b2fd9a49329d7fb\transformed\vectordrawable-animated-1.1.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\bf05ef61257536b8c8402ed929c033f5\transformed\core-1.13.1\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/5face3a5d4004f8c5a3690c471699235/transformed/vectordrawable-animated-1.1.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/42965e6f28d9fb991fa889d9d851810c/transformed/core-1.13.1/proguard.txt
 # Never inline methods, but allow shrinking and obfuscation.
 -keepclassmembernames,allowobfuscation,allowshrinking class androidx.core.view.ViewCompat$Api* {
   <methods>;
@@ -731,8 +806,8 @@
   <methods>;
 }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\bf05ef61257536b8c8402ed929c033f5\transformed\core-1.13.1\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\7fe3bb73857d9427873fb77feeff9972\transformed\lifecycle-runtime-2.7.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/42965e6f28d9fb991fa889d9d851810c/transformed/core-1.13.1/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/446cc57aa9300e9284fd00283a762f86/transformed/lifecycle-runtime-2.7.0/proguard.txt
 -keepattributes AnnotationDefault,
                 RuntimeVisibleAnnotations,
                 RuntimeVisibleParameterAnnotations,
@@ -753,8 +828,8 @@
 # this rule is need to work properly when app is compiled with api 28, see b/142778206
 # Also this rule prevents registerIn from being inlined.
 -keepclassmembers class androidx.lifecycle.ReportFragment$LifecycleCallbacks { *; }
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\7fe3bb73857d9427873fb77feeff9972\transformed\lifecycle-runtime-2.7.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\5a12177f221f5ae05fc07cba3408f8f4\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/446cc57aa9300e9284fd00283a762f86/transformed/lifecycle-runtime-2.7.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/8271bb47c08d17279f9e51972a4e4df5/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/proguard.txt
 -keepclassmembers,allowobfuscation class * extends androidx.lifecycle.ViewModel {
     <init>(androidx.lifecycle.SavedStateHandle);
 }
@@ -763,8 +838,8 @@
     <init>(android.app.Application,androidx.lifecycle.SavedStateHandle);
 }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\5a12177f221f5ae05fc07cba3408f8f4\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b30495b9b8aaa00a576c2bfd0b448500\transformed\jetified-savedstate-1.2.1\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/8271bb47c08d17279f9e51972a4e4df5/transformed/jetified-lifecycle-viewmodel-savedstate-2.7.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/bc163ba32b59c54b28f1edfdec6dc9a6/transformed/jetified-savedstate-1.2.1/proguard.txt
 # Copyright (C) 2019 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -783,8 +858,8 @@
     <init>();
 }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b30495b9b8aaa00a576c2bfd0b448500\transformed\jetified-savedstate-1.2.1\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\06b190d0154d776c0069c3496f378b1a\transformed\lifecycle-viewmodel-2.7.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/bc163ba32b59c54b28f1edfdec6dc9a6/transformed/jetified-savedstate-1.2.1/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/78ae7f1196a3f684c9e2d32530e13a63/transformed/lifecycle-viewmodel-2.7.0/proguard.txt
 -keepclassmembers,allowobfuscation class * extends androidx.lifecycle.ViewModel {
     <init>();
 }
@@ -793,18 +868,12 @@
     <init>(android.app.Application);
 }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\06b190d0154d776c0069c3496f378b1a\transformed\lifecycle-viewmodel-2.7.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\bcad3ff55be18f9e2df8d2b2596710ed\transformed\jetified-lifecycle-process-2.7.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/78ae7f1196a3f684c9e2d32530e13a63/transformed/lifecycle-viewmodel-2.7.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/88bc9c8e0f866aab180f60f5209d0f53/transformed/jetified-lifecycle-process-2.7.0/proguard.txt
 # this rule is need to work properly when app is compiled with api 28, see b/142778206
 -keepclassmembers class * extends androidx.lifecycle.EmptyActivityLifecycleCallbacks { *; }
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\bcad3ff55be18f9e2df8d2b2596710ed\transformed\jetified-lifecycle-process-2.7.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\2bc97d099ebc538b7e2d67a9f3983b50\transformed\room-runtime-2.6.1\proguard.txt
--keep class * extends androidx.room.RoomDatabase
--dontwarn androidx.room.paging.**
--dontwarn androidx.lifecycle.LiveData
-
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\2bc97d099ebc538b7e2d67a9f3983b50\transformed\room-runtime-2.6.1\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\40cf85684fd71dc7fc8a996a5b283e81\transformed\jetified-runtime-release\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/88bc9c8e0f866aab180f60f5209d0f53/transformed/jetified-lifecycle-process-2.7.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/f0c71c6f270bd4c7265169c57861cf77/transformed/jetified-runtime-release/proguard.txt
 -assumenosideeffects public class androidx.compose.runtime.ComposerKt {
     void sourceInformation(androidx.compose.runtime.Composer,java.lang.String);
     void sourceInformationMarkerStart(androidx.compose.runtime.Composer,int,java.lang.String);
@@ -820,8 +889,48 @@
 -assumenosideeffects public class androidx.compose.runtime.ComposerImpl {
     void <clinit>();
 }
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\40cf85684fd71dc7fc8a996a5b283e81\transformed\jetified-runtime-release\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\e36f2d8973e4fe56b0475c940228d588\transformed\rules\lib\META-INF\com.android.tools\r8\coroutines.pro
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/f0c71c6f270bd4c7265169c57861cf77/transformed/jetified-runtime-release/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/5634857a41121c50efc9ebbb587a8578/transformed/rules/lib/META-INF/com.android.tools/r8-from-1.6.0/coroutines.pro
+# Allow R8 to optimize away the FastServiceLoader.
+# Together with ServiceLoader optimization in R8
+# this results in direct instantiation when loading Dispatchers.Main
+-assumenosideeffects class kotlinx.coroutines.internal.MainDispatcherLoader {
+    boolean FAST_SERVICE_LOADER_ENABLED return false;
+}
+
+-assumenosideeffects class kotlinx.coroutines.internal.FastServiceLoaderKt {
+    boolean ANDROID_DETECTED return true;
+}
+
+# Disable support for "Missing Main Dispatcher", since we always have Android main dispatcher
+-assumenosideeffects class kotlinx.coroutines.internal.MainDispatchersKt {
+    boolean SUPPORT_MISSING return false;
+}
+
+# Statically turn off all debugging facilities and assertions
+-assumenosideeffects class kotlinx.coroutines.DebugKt {
+    boolean getASSERTIONS_ENABLED() return false;
+    boolean getDEBUG() return false;
+    boolean getRECOVER_STACK_TRACES() return false;
+}
+
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/5634857a41121c50efc9ebbb587a8578/transformed/rules/lib/META-INF/com.android.tools/r8-from-1.6.0/coroutines.pro
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/f2d3cc48d5540cf0c6d7d268fabcc286/transformed/rules/lib/META-INF/proguard/ktor.pro
+# Most of volatile fields are updated with AtomicFU and should not be mangled/removed
+-keepclassmembers class io.ktor.** {
+    volatile <fields>;
+}
+
+-keepclassmembernames class io.ktor.** {
+    volatile <fields>;
+}
+
+# client engines are loaded using ServiceLoader so we need to keep them
+-keep class io.ktor.client.engine.** implements io.ktor.client.HttpClientEngineContainer
+
+
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/f2d3cc48d5540cf0c6d7d268fabcc286/transformed/rules/lib/META-INF/proguard/ktor.pro
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/6675b4133ed61de78904c7b9b4ade27c/transformed/rules/lib/META-INF/com.android.tools/r8/coroutines.pro
 # When editing this file, update the following files as well:
 # - META-INF/proguard/coroutines.pro
 # - META-INF/com.android.tools/proguard/coroutines.pro
@@ -849,58 +958,46 @@
 
 # An annotation used for build tooling, won't be directly accessed.
 -dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\e36f2d8973e4fe56b0475c940228d588\transformed\rules\lib\META-INF\com.android.tools\r8\coroutines.pro
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\68418bbf2a5cc1650f416724d9f4c2bc\transformed\rules\lib\META-INF\com.android.tools\r8-from-1.6.0\coroutines.pro
-# Allow R8 to optimize away the FastServiceLoader.
-# Together with ServiceLoader optimization in R8
-# this results in direct instantiation when loading Dispatchers.Main
--assumenosideeffects class kotlinx.coroutines.internal.MainDispatcherLoader {
-    boolean FAST_SERVICE_LOADER_ENABLED return false;
-}
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/6675b4133ed61de78904c7b9b4ade27c/transformed/rules/lib/META-INF/com.android.tools/r8/coroutines.pro
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/27b5300b181bf358adc21f349ef39af9/transformed/rules/lib/META-INF/proguard/openai.pro
+-keepattributes InnerClasses
+-keepattributes EnclosingMethod
 
--assumenosideeffects class kotlinx.coroutines.internal.FastServiceLoaderKt {
-    boolean ANDROID_DETECTED return true;
+-if @kotlinx.serialization.Serializable class
+com.aallam.openai.api.**
+{
+    static **$* *;
 }
-
-# Disable support for "Missing Main Dispatcher", since we always have Android main dispatcher
--assumenosideeffects class kotlinx.coroutines.internal.MainDispatchersKt {
-    boolean SUPPORT_MISSING return false;
+-keepnames class <1>$$serializer {
+    static <1>$$serializer INSTANCE;
 }
-
-# Statically turn off all debugging facilities and assertions
--assumenosideeffects class kotlinx.coroutines.DebugKt {
-    boolean getASSERTIONS_ENABLED() return false;
-    boolean getDEBUG() return false;
-    boolean getRECOVER_STACK_TRACES() return false;
-}
-
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\68418bbf2a5cc1650f416724d9f4c2bc\transformed\rules\lib\META-INF\com.android.tools\r8-from-1.6.0\coroutines.pro
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\c706dc77b404f54618d83d4e518e10fa\transformed\jetified-transport-backend-cct-2.3.3\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/27b5300b181bf358adc21f349ef39af9/transformed/rules/lib/META-INF/proguard/openai.pro
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/a11fb6c0c645e9d163d5ea6797a1f6a0/transformed/jetified-transport-backend-cct-2.3.3/proguard.txt
 -dontwarn com.google.auto.value.AutoValue
 -dontwarn com.google.auto.value.AutoValue$Builder
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\c706dc77b404f54618d83d4e518e10fa\transformed\jetified-transport-backend-cct-2.3.3\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\0f64304329cfb56ce0891e05426d0716\transformed\jetified-transport-runtime-2.2.6\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/a11fb6c0c645e9d163d5ea6797a1f6a0/transformed/jetified-transport-backend-cct-2.3.3/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/d46e554457097fc7ebad34b28687ae31/transformed/jetified-transport-runtime-2.2.6/proguard.txt
 -dontwarn com.google.auto.value.AutoValue
 -dontwarn com.google.auto.value.AutoValue$Builder
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\0f64304329cfb56ce0891e05426d0716\transformed\jetified-transport-runtime-2.2.6\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f71197c861aa81c8f742b5b6728121e6\transformed\jetified-transport-api-2.2.1\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/d46e554457097fc7ebad34b28687ae31/transformed/jetified-transport-runtime-2.2.6/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/575f3233ada71defad7f3a0b7911dfb5/transformed/jetified-transport-api-2.2.1/proguard.txt
 -dontwarn com.google.auto.value.AutoValue
 -dontwarn com.google.auto.value.AutoValue$Builder
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f71197c861aa81c8f742b5b6728121e6\transformed\jetified-transport-api-2.2.1\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\ef439d3d1c317d2c7a64676d0bd675fb\transformed\jetified-firebase-components-16.1.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/575f3233ada71defad7f3a0b7911dfb5/transformed/jetified-transport-api-2.2.1/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/cacdc1f2dbcbe441f24f8187e44f5479/transformed/jetified-firebase-components-16.1.0/proguard.txt
 -dontwarn com.google.firebase.components.Component$Instantiation
 -dontwarn com.google.firebase.components.Component$ComponentType
 
 -keep class * implements com.google.firebase.components.ComponentRegistrar
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\ef439d3d1c317d2c7a64676d0bd675fb\transformed\jetified-firebase-components-16.1.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\44a5ceecca252a5a14f6a10574330bc1\transformed\jetified-firebase-encoders-json-17.1.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/cacdc1f2dbcbe441f24f8187e44f5479/transformed/jetified-firebase-components-16.1.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/26624e84d1ec7c911acc8c75f251d454/transformed/jetified-firebase-encoders-json-17.1.0/proguard.txt
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\44a5ceecca252a5a14f6a10574330bc1\transformed\jetified-firebase-encoders-json-17.1.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\e7c91d61f4d0100998423294ae0fd64c\transformed\jetified-startup-runtime-1.1.1\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/26624e84d1ec7c911acc8c75f251d454/transformed/jetified-firebase-encoders-json-17.1.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/9da1d6242ec9b2a547e6d3b9217b8906/transformed/jetified-startup-runtime-1.1.1/proguard.txt
 # It's important that we preserve initializer names, given they are used in the AndroidManifest.xml.
 -keepnames class * extends androidx.startup.Initializer
 
@@ -914,8 +1011,8 @@
 
 -assumenosideeffects class androidx.startup.StartupLogger { public static <methods>; }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\e7c91d61f4d0100998423294ae0fd64c\transformed\jetified-startup-runtime-1.1.1\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\942b34a5c74208c3a1e8d61a60e62293\transformed\jetified-core-1.0.0\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/9da1d6242ec9b2a547e6d3b9217b8906/transformed/jetified-startup-runtime-1.1.1/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/19ec0c508d19c8ef03767cf5edecd3ae/transformed/jetified-core-1.0.0/proguard.txt
 # Copyright (C) 2022 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -940,15 +1037,68 @@
 -keep interface androidx.window.extensions.core.util.function.Function {
   public *** apply(***);
 }
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\942b34a5c74208c3a1e8d61a60e62293\transformed\jetified-core-1.0.0\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\cd3ef81182649023dcbdb6fd8981b188\transformed\versionedparcelable-1.1.1\proguard.txt
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/19ec0c508d19c8ef03767cf5edecd3ae/transformed/jetified-core-1.0.0/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/6ea6a825efa77f58cb6611d8ee9c52be/transformed/versionedparcelable-1.1.1/proguard.txt
 -keep class * implements androidx.versionedparcelable.VersionedParcelable
 -keep public class android.support.**Parcelizer { *; }
 -keep public class androidx.**Parcelizer { *; }
 -keep public class androidx.versionedparcelable.ParcelImpl
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\cd3ef81182649023dcbdb6fd8981b188\transformed\versionedparcelable-1.1.1\proguard.txt
-# The proguard configuration file for the following section is C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f3005557304b9103a58030b38285313b\transformed\rules\lib\META-INF\proguard\androidx-annotations.pro
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/6ea6a825efa77f58cb6611d8ee9c52be/transformed/versionedparcelable-1.1.1/proguard.txt
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/94800af0d7a582c8fab5afb9b09020c3/transformed/rules/lib/META-INF/com.android.tools/r8/kotlinx-serialization-common.pro
+# Keep `Companion` object fields of serializable classes.
+# This avoids serializer lookup through `getDeclaredClasses` as done for named companion objects.
+-if @kotlinx.serialization.Serializable class **
+-keepclassmembers class <1> {
+    static <1>$Companion Companion;
+}
+
+# Keep `serializer()` on companion objects (both default and named) of serializable classes.
+-if @kotlinx.serialization.Serializable class ** {
+    static **$* *;
+}
+-keepclassmembers class <2>$<3> {
+    kotlinx.serialization.KSerializer serializer(...);
+}
+
+# Keep `INSTANCE.serializer()` of serializable objects.
+-if @kotlinx.serialization.Serializable class ** {
+    public static ** INSTANCE;
+}
+-keepclassmembers class <1> {
+    public static <1> INSTANCE;
+    kotlinx.serialization.KSerializer serializer(...);
+}
+
+# @Serializable and @Polymorphic are used at runtime for polymorphic serialization.
+-keepattributes RuntimeVisibleAnnotations,AnnotationDefault
+
+# Don't print notes about potential mistakes or omissions in the configuration for kotlinx-serialization classes
+# See also https://github.com/Kotlin/kotlinx.serialization/issues/1900
+-dontnote kotlinx.serialization.**
+
+# Serialization core uses `java.lang.ClassValue` for caching inside these specified classes.
+# If there is no `java.lang.ClassValue` (for example, in Android), then R8/ProGuard will print a warning.
+# However, since in this case they will not be used, we can disable these warnings
+-dontwarn kotlinx.serialization.internal.ClassValueReferences
+
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/94800af0d7a582c8fab5afb9b09020c3/transformed/rules/lib/META-INF/com.android.tools/r8/kotlinx-serialization-common.pro
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/94800af0d7a582c8fab5afb9b09020c3/transformed/rules/lib/META-INF/com.android.tools/r8/kotlinx-serialization-r8.pro
+# Rule to save runtime annotations on serializable class.
+# If the R8 full mode is used, annotations are removed from classes-files.
+#
+# For the annotation serializer, it is necessary to read the `Serializable` annotation inside the serializer<T>() function - if it is present,
+# then `SealedClassSerializer` is used, if absent, then `PolymorphicSerializer'.
+#
+# When using R8 full mode, all interfaces will be serialized using `PolymorphicSerializer`.
+#
+# see https://github.com/Kotlin/kotlinx.serialization/issues/2050
+
+ -if @kotlinx.serialization.Serializable class **
+ -keep, allowshrinking, allowoptimization, allowobfuscation, allowaccessmodification class <1>
+
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/94800af0d7a582c8fab5afb9b09020c3/transformed/rules/lib/META-INF/com.android.tools/r8/kotlinx-serialization-r8.pro
+# The proguard configuration file for the following section is /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/d2ef43c828f78564796aa68f0d372e15/transformed/rules/lib/META-INF/proguard/androidx-annotations.pro
 -keep,allowobfuscation @interface androidx.annotation.Keep
 -keep @androidx.annotation.Keep class * {*;}
 
@@ -968,7 +1118,7 @@
   @androidx.annotation.DoNotInline <methods>;
 }
 
-# End of content from C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f3005557304b9103a58030b38285313b\transformed\rules\lib\META-INF\proguard\androidx-annotations.pro
+# End of content from /Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/d2ef43c828f78564796aa68f0d372e15/transformed/rules/lib/META-INF/proguard/androidx-annotations.pro
 # The proguard configuration file for the following section is <unknown>
 
 # End of content from <unknown>

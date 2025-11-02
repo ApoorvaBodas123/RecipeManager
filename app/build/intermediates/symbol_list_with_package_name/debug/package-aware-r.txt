@@ -3383,11 +3383,11 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnDelete
 id btnEdit
 id btnFav
 id btnPickImage
 id btnSave
-id btnShare
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3558,6 +3558,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id immediateStop
 id included
 id indeterminate
@@ -3746,11 +3747,10 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
-id selectImageArea
 id selectImageButton
 id select_dialog_listview
 id selected
-id selectedImage
+id selectedImagesRecyclerView
 id selection_type
 id sharedValueSet
 id sharedValueUnset
@@ -4017,6 +4017,7 @@ layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_ingredient
 layout item_recipe
+layout item_selected_image
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

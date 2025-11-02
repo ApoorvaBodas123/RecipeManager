@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -33,7 +34,18 @@ public class RecipeRepository {
     public LiveData<List<Recipe>> filterByCategory(String c) { return dao.filterByCategory(c); }
     public LiveData<Recipe> getById(long id) { return dao.getById(id); }
 
-    public void insert(Recipe r) { io.execute(() -> dao.insert(r)); }
+    public LiveData<Long> insert(Recipe r) {
+        MutableLiveData<Long> result = new MutableLiveData<>();
+        io.execute(() -> {
+            try {
+                long id = dao.insert(r);
+                result.postValue(id);
+            } catch (Exception e) {
+                result.postValue(-1L);
+            }
+        });
+        return result;
+    }
     public void update(Recipe r) { io.execute(() -> dao.update(r)); }
     public void delete(Recipe r) { io.execute(() -> dao.delete(r)); }
 }

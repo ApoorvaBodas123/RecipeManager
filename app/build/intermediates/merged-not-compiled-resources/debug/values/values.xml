@@ -8283,7 +8283,7 @@
     <style name="Widget.Material3.ExtendedFloatingActionButton.Tertiary" parent="Base.Widget.Material3.ExtendedFloatingActionButton">
     <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.ExtendedFloatingActionButton.Tertiary</item>
   </style>
-    <style name="Widget.Material3.FloatingActionButton" parent="Widget.Material3.FloatingActionButton">
+    <style name="Widget.Material3.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Primary">
         <item name="backgroundTint">?attr/colorPrimaryContainer</item>
         <item name="tint">?attr/colorOnPrimaryContainer</item>
         <item name="elevation">3dp</item>
@@ -9682,9 +9682,8 @@
     <style name="Widget.RecipeManager.SearchView" parent="Widget.Material3.SearchBar">
         <item name="elevation">0dp</item>
         <item name="android:background">?attr/colorSurfaceContainerHigh</item>
-        <item name="android:outlineAmbientShadowColor">@android:color/transparent</item>
-        <item name="android:outlineSpotShadowColor">@android:color/transparent</item>
         <item name="shapeAppearance">@style/ShapeAppearance.MediumComponent</item>
+        
     </style>
     <style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
         <item name="statusBarBackground">#000000</item>

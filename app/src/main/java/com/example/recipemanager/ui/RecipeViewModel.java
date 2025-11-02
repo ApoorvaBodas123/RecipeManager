@@ -47,6 +47,15 @@ public class RecipeViewModel extends ViewModel {
 
     public LiveData<Recipe> getById(long id) { return repo.getById(id); }
 
-    public void save(Recipe r) { if (r.id == 0) repo.insert(r); else repo.update(r); }
+    public LiveData<Long> save(Recipe r) { 
+        if (r.id == 0) {
+            return repo.insert(r);
+        } else {
+            repo.update(r);
+            MutableLiveData<Long> result = new MutableLiveData<>();
+            result.setValue(r.id);
+            return result;
+        }
+    }
     public void delete(Recipe r) { repo.delete(r); }
 }

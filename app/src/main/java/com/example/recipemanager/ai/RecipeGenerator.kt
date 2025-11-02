@@ -1,95 +1,118 @@
 package com.example.recipemanager.ai
 
-import com.aallam.openai.api.BetaOpenAI
-import com.aallam.openai.api.chat.ChatCompletionRequest
-import com.aallam.openai.api.chat.ChatMessage
-import com.aallam.openai.api.chat.ChatRole
-import com.aallam.openai.api.model.ModelId
-import com.aallam.openai.client.OpenAI
 import com.example.recipemanager.data.model.Ingredient
 import com.example.recipemanager.data.model.Recipe
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
+import kotlin.random.Random
 
-class RecipeGenerator(private val openAIKey: String) {
+class RecipeGenerator {
 
-    @OptIn(BetaOpenAI::class)
-    suspend fun generateRecipe(ingredients: List<Ingredient>): Result<Recipe> = withContext(Dispatchers.IO) {
-        return@withContext try {
-            val openAI = OpenAI(openAIKey)
-            
-            // Format ingredients list
-            val ingredientsList = ingredients.joinToString(", ") { it.name }
-            
-            // Create the prompt for the AI
-            val prompt = """
-                Create a detailed recipe using these ingredients: $ingredientsList
+    interface Callback {
+        fun onSuccess(recipe: Recipe)
+        fun onError(exception: Exception)
+    }
+
+    private val recipeTemplates = listOf(
+        RecipeTemplate(
+            "Stir-fry",
+            "A quick and easy stir-fry with your ingredients",
+            listOf("1 tbsp oil", "2 cloves garlic, minced", "1 tbsp soy sauce"),
+            listOf("Heat oil in a pan over medium-high heat.",
+                  "Add garlic and stir for 30 seconds until fragrant.",
+                  "Add your ingredients and stir-fry for 5-7 minutes.",
+                  "Add soy sauce and any other seasonings.",
+                  "Serve hot over rice or noodles."),
+            5, 10, "Easy"
+        ),
+        RecipeTemplate(
+            "Omelette",
+            "A fluffy omelette with your ingredients",
+            listOf("3 eggs", "1 tbsp butter", "Salt and pepper to taste"),
+            listOf("Whisk eggs in a bowl with salt and pepper.",
+                  "Melt butter in a non-stick pan over medium heat.",
+                  "Pour in the eggs and let them set slightly.",
+                  "Add your ingredients on one half of the omelette.",
+                  "Fold the other half over and cook for another minute.",
+                  "Serve hot with toast."),
+            5, 5, "Easy"
+        ),
+        RecipeTemplate(
+            "Pasta",
+            "A simple pasta dish with your ingredients",
+            listOf("200g pasta", "2 tbsp olive oil", "2 cloves garlic, minced", "Salt and pepper to taste"),
+            listOf("Cook pasta according to package instructions.",
+                  "Heat olive oil in a pan and sauté garlic until fragrant.",
+                  "Add your ingredients and cook for 3-4 minutes.",
+                  "Drain pasta and add to the pan.",
+                  "Toss everything together and season to taste.",
+                  "Serve with grated cheese if desired."),
+            5, 15, "Easy"
+        )
+    )
+
+    fun generateRecipe(ingredients: List<Ingredient>, callback: Callback) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                // Simulate network delay
+                delay(1000)
                 
-                Please provide the response in the following JSON format:
-                {
-                    "title": "Recipe Title",
-                    "description": "A brief description of the recipe",
-                    "ingredients": [
-                        {"name": "ingredient 1", "amount": "1 cup"},
-                        ...
-                    ],
-                    "instructions": [
-                        "Step 1: ...",
-                        "Step 2: ...",
-                        ...
-                    ],
-                    "prepTime": 10,
-                    "cookTime": 20,
-                    "difficulty": "Easy/Medium/Hard"
+                val recipe = createLocalRecipe(ingredients)
+                withContext(Dispatchers.Main) {
+                    callback.onSuccess(recipe)
                 }
-                
-                Make sure to include all the original ingredients in the recipe and add any common pantry staples as needed.
-                The recipe should be delicious and well-balanced.
-            """.trimIndent()
-
-            val chatCompletionRequest = ChatCompletionRequest(
-                model = ModelId("gpt-4"),
-                messages = listOf(
-                    ChatMessage(
-                        role = ChatRole.System,
-                        content = "You are a professional chef creating detailed and delicious recipes."
-                    ),
-                    ChatMessage(
-                        role = ChatRole.User,
-                        content = prompt
-                    )
-                ),
-                temperature = 0.7
-            )
-
-            val completion = openAI.chatCompletion(chatCompletionRequest)
-            val response = completion.choices.first().message?.content
-            
-            if (response != null) {
-                // Parse the JSON response and create a Recipe object
-                // Note: You'll need to implement proper JSON parsing based on the response format
-                val recipe = parseRecipeFromJson(response, ingredients)
-                Result.success(recipe)
-            } else {
-                Result.failure(Exception("No response from AI"))
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    callback.onError(e)
+                }
             }
-        } catch (e: Exception) {
-            Result.failure(e)
         }
     }
-    
-    private fun parseRecipeFromJson(json: String, originalIngredients: List<Ingredient>): Recipe {
-        // This is a simplified version - you should use a proper JSON parser like Gson
-        // or Kotlin's built-in JSON parsing
+
+    private fun createLocalRecipe(ingredients: List<Ingredient>): Recipe {
+        val template = recipeTemplates.random()
+        val ingredientList = mutableListOf<Ingredient>()
         
-        // For now, we'll create a simple recipe with the original ingredients
+        // Add template ingredients
+        template.ingredients.forEach { ing ->
+            val parts = ing.split(" ", limit = 2)
+            ingredientList.add(
+                Ingredient(
+                    id = "",
+                    name = parts.getOrElse(1) { ing },
+                    amount = parts.firstOrNull() ?: "",
+                    unit = ""
+                )
+            )
+        }
+        
+        // Add user's ingredients
+        ingredients.forEach { ingredient ->
+            if (ingredientList.none { it.name.equals(ingredient.name, ignoreCase = true) }) {
+                ingredientList.add(ingredient)
+            }
+        }
+        
         return Recipe(
-            title = "Generated Recipe with ${originalIngredients.joinToString(", ") { it.name }}",
-            description = "A delicious recipe created just for you!",
-            instructions = "1. Prepare all ingredients.\n2. Combine and cook as desired.",
-            prepTime = 10,
-            ingredients = ArrayList(originalIngredients),
-            difficulty = "Medium"
+            id = "",
+            title = "${ingredients.firstOrNull()?.name ?: "Delicious"} ${template.name}",
+            description = template.description,
+            ingredients = ingredientList,
+            instructions = template.instructions.joinToString("\n"),
+            prepTime = template.prepTime,
+            cookTime = template.cookTime,
+            difficulty = template.difficulty,
+            isFavorite = false,
+            imageUrl = ""
         )
     }
+    
+    private data class RecipeTemplate(
+        val name: String,
+        val description: String,
+        val ingredients: List<String>,
+        val instructions: List<String>,
+        val prepTime: Int,
+        val cookTime: Int,
+        val difficulty: String
+    )
 }
