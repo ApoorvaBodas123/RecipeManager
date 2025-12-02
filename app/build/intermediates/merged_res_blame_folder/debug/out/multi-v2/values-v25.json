@@ -4,7 +4,7 @@
             "outputFile": "com.example.recipemanager.app-mergeDebugResources-71:/values-v25/values-v25.xml",
             "map": [
                 {
-                    "source": "/Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/4cbaf383a11487e478b5d4d6d8d21da9/transformed/appcompat-1.7.0/res/values-v25/values-v25.xml",
+                    "source": "C:\\Users\\Apoorva\\.gradle\\caches\\9.0-milestone-1\\transforms\\4cbaf383a11487e478b5d4d6d8d21da9\\transformed\\appcompat-1.7.0\\res\\values-v25\\values-v25.xml",
                     "from": {
                         "startLines": "2,3,4,6",
                         "startColumns": "4,4,4,4",

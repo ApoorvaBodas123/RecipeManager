@@ -9,326 +9,326 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-11-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:4:5-76
-11-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:4:22-73
+11-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:4:5-76
+11-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:4:22-73
 12    <uses-permission
-12-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:5:5-107
+12-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:5:5-107
 13        android:name="android.permission.READ_EXTERNAL_STORAGE"
-13-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:5:22-77
+13-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:5:22-77
 14        android:maxSdkVersion="32" />
-14-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:5:78-104
+14-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:5:78-104
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:6:5-67
-15-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:6:22-64
+15-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:6:5-67
+15-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:6:22-64
 16    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-16-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:7:5-77
-16-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:7:22-74
+16-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:7:5-77
+16-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:7:22-74
 17    <uses-permission android:name="android.permission.CAMERA" />
-17-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:8:5-65
-17-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:8:22-62
+17-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:8:5-65
+17-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:8:22-62
 18
 19    <uses-feature
-19-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:9:5-85
+19-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:9:5-85
 20        android:name="android.hardware.camera"
-20-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:9:19-57
+20-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:9:19-57
 21        android:required="false" />
-21-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:9:58-82
+21-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:9:58-82
 22
 23    <!-- For allowlist service -->
 24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-24-->[com.google.mlkit:vision-internal-vkp:18.2.2] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/86f2f5c9f0ef2e63dac70d8ecd37194c/transformed/jetified-vision-internal-vkp-18.2.2/AndroidManifest.xml:7:5-79
-24-->[com.google.mlkit:vision-internal-vkp:18.2.2] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/86f2f5c9f0ef2e63dac70d8ecd37194c/transformed/jetified-vision-internal-vkp-18.2.2/AndroidManifest.xml:7:22-76
+24-->[com.google.mlkit:vision-internal-vkp:18.2.2] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\86f2f5c9f0ef2e63dac70d8ecd37194c\transformed\jetified-vision-internal-vkp-18.2.2\AndroidManifest.xml:7:5-79
+24-->[com.google.mlkit:vision-internal-vkp:18.2.2] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\86f2f5c9f0ef2e63dac70d8ecd37194c\transformed\jetified-vision-internal-vkp-18.2.2\AndroidManifest.xml:7:22-76
 25
 26    <permission
-26-->[androidx.core:core:1.13.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/42965e6f28d9fb991fa889d9d851810c/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+26-->[androidx.core:core:1.13.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\42965e6f28d9fb991fa889d9d851810c\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
 27        android:name="com.example.recipemanager.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-27-->[androidx.core:core:1.13.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/42965e6f28d9fb991fa889d9d851810c/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+27-->[androidx.core:core:1.13.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\42965e6f28d9fb991fa889d9d851810c\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
 28        android:protectionLevel="signature" />
-28-->[androidx.core:core:1.13.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/42965e6f28d9fb991fa889d9d851810c/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+28-->[androidx.core:core:1.13.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\42965e6f28d9fb991fa889d9d851810c\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
 29
 30    <uses-permission android:name="com.example.recipemanager.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-30-->[androidx.core:core:1.13.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/42965e6f28d9fb991fa889d9d851810c/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
-30-->[androidx.core:core:1.13.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/42965e6f28d9fb991fa889d9d851810c/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+30-->[androidx.core:core:1.13.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\42965e6f28d9fb991fa889d9d851810c\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+30-->[androidx.core:core:1.13.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\42965e6f28d9fb991fa889d9d851810c\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
 31
 32    <application
-32-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:11:5-50:19
+32-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:11:5-50:19
 33        android:name="com.example.recipemanager.RecipeApplication"
-33-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:12:9-42
+33-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:12:9-42
 34        android:allowBackup="true"
-34-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:13:9-35
+34-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:13:9-35
 35        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-35-->[androidx.core:core:1.13.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/42965e6f28d9fb991fa889d9d851810c/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+35-->[androidx.core:core:1.13.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\42965e6f28d9fb991fa889d9d851810c\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 36        android:debuggable="true"
 37        android:extractNativeLibs="false"
 38        android:icon="@android:drawable/ic_menu_gallery"
-38-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:15:9-57
+38-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:15:9-57
 39        android:label="@string/app_name"
-39-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:14:9-41
+39-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:14:9-41
 40        android:supportsRtl="true"
-40-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:16:9-35
+40-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:16:9-35
 41        android:testOnly="true"
 42        android:theme="@style/Theme.RecipeManager" >
-42-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:17:9-51
+42-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:17:9-51
 43
 44        <!-- Login Activity (Launcher) -->
 45        <activity
-45-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:20:9-28:20
+45-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:20:9-28:20
 46            android:name="com.example.recipemanager.ui.LoginActivity"
-46-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:21:13-45
+46-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:21:13-45
 47            android:exported="true"
-47-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:22:13-36
+47-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:22:13-36
 48            android:windowSoftInputMode="adjustResize" >
-48-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:23:13-55
+48-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:23:13-55
 49            <intent-filter>
-49-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:24:13-27:29
+49-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:24:13-27:29
 50                <action android:name="android.intent.action.MAIN" />
-50-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:25:17-69
-50-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:25:25-66
+50-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:25:17-69
+50-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:25:25-66
 51
 52                <category android:name="android.intent.category.LAUNCHER" />
-52-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:26:17-77
-52-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:26:27-74
+52-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:26:17-77
+52-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:26:27-74
 53            </intent-filter>
 54        </activity>
 55
 56        <!-- Signup Activity -->
 57        <activity
-57-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:31:9-34:58
+57-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:31:9-34:58
 58            android:name="com.example.recipemanager.ui.SignupActivity"
-58-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:32:13-46
+58-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:32:13-46
 59            android:exported="false"
-59-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:33:13-37
+59-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:33:13-37
 60            android:windowSoftInputMode="adjustResize" />
-60-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:34:13-55
+60-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:34:13-55
 61
 62        <!-- Existing Activities -->
 63        <activity android:name="com.example.recipemanager.ui.AddEditRecipeActivity" />
-63-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:37:9-62
-63-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:37:19-59
+63-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:37:9-62
+63-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:37:19-59
 64        <activity android:name="com.example.recipemanager.ui.RecipeDetailActivity" />
-64-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:38:9-61
-64-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:38:19-58
+64-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:38:9-61
+64-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:38:19-58
 65        <activity
-65-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:39:9-41:40
+65-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:39:9-41:40
 66            android:name="com.example.recipemanager.MainActivity"
-66-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:40:13-41
+66-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:40:13-41
 67            android:exported="false" />
-67-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:41:13-37
+67-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:41:13-37
 68
 69        <!-- Image Ingredients Activity -->
 70        <activity
-70-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:44:9-48:58
+70-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:44:9-48:58
 71            android:name="com.example.recipemanager.ui.ImageIngredientsActivity"
-71-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:45:13-56
+71-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:45:13-56
 72            android:exported="false"
-72-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:46:13-37
+72-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:46:13-37
 73            android:screenOrientation="portrait"
-73-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:47:13-49
+73-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:47:13-49
 74            android:theme="@style/Theme.RecipeManager" />
-74-->/Users/apoorvabodas/Desktop/madproject/RecipeManager copy/app/src/main/AndroidManifest.xml:48:13-55
+74-->C:\Users\Apoorva\Desktop\proj\RecipeManager\app\src\main\AndroidManifest.xml:48:13-55
 75        <activity
-75-->[com.karumi:dexter:6.2.3] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/169f789ca93a7ae860f6193a8c89c4f0/transformed/jetified-dexter-6.2.3/AndroidManifest.xml:27:9-29:72
+75-->[com.karumi:dexter:6.2.3] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\169f789ca93a7ae860f6193a8c89c4f0\transformed\jetified-dexter-6.2.3\AndroidManifest.xml:27:9-29:72
 76            android:name="com.karumi.dexter.DexterActivity"
-76-->[com.karumi:dexter:6.2.3] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/169f789ca93a7ae860f6193a8c89c4f0/transformed/jetified-dexter-6.2.3/AndroidManifest.xml:28:13-60
+76-->[com.karumi:dexter:6.2.3] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\169f789ca93a7ae860f6193a8c89c4f0\transformed\jetified-dexter-6.2.3\AndroidManifest.xml:28:13-60
 77            android:theme="@style/Dexter.Internal.Theme.Transparent" />
-77-->[com.karumi:dexter:6.2.3] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/169f789ca93a7ae860f6193a8c89c4f0/transformed/jetified-dexter-6.2.3/AndroidManifest.xml:29:13-69
+77-->[com.karumi:dexter:6.2.3] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\169f789ca93a7ae860f6193a8c89c4f0\transformed\jetified-dexter-6.2.3\AndroidManifest.xml:29:13-69
 78
 79        <service
-79-->[androidx.room:room-runtime:2.6.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/3d06796a6c6a885b8ab08db09acd0d2d/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+79-->[androidx.room:room-runtime:2.6.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\3d06796a6c6a885b8ab08db09acd0d2d\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
 80            android:name="androidx.room.MultiInstanceInvalidationService"
-80-->[androidx.room:room-runtime:2.6.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/3d06796a6c6a885b8ab08db09acd0d2d/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+80-->[androidx.room:room-runtime:2.6.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\3d06796a6c6a885b8ab08db09acd0d2d\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
 81            android:directBootAware="true"
-81-->[androidx.room:room-runtime:2.6.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/3d06796a6c6a885b8ab08db09acd0d2d/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+81-->[androidx.room:room-runtime:2.6.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\3d06796a6c6a885b8ab08db09acd0d2d\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
 82            android:exported="false" />
-82-->[androidx.room:room-runtime:2.6.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/3d06796a6c6a885b8ab08db09acd0d2d/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+82-->[androidx.room:room-runtime:2.6.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\3d06796a6c6a885b8ab08db09acd0d2d\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
 83        <service
-83-->[com.google.mlkit:image-labeling:17.0.8] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/fd4b413294539235559a1d23de56e8c4/transformed/jetified-image-labeling-17.0.8/AndroidManifest.xml:8:9-14:19
+83-->[com.google.mlkit:image-labeling:17.0.8] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\fd4b413294539235559a1d23de56e8c4\transformed\jetified-image-labeling-17.0.8\AndroidManifest.xml:8:9-14:19
 84            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
-84-->[com.google.mlkit:image-labeling:17.0.8] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/fd4b413294539235559a1d23de56e8c4/transformed/jetified-image-labeling-17.0.8/AndroidManifest.xml:9:13-91
+84-->[com.google.mlkit:image-labeling:17.0.8] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\fd4b413294539235559a1d23de56e8c4\transformed\jetified-image-labeling-17.0.8\AndroidManifest.xml:9:13-91
 85            android:directBootAware="true"
-85-->[com.google.mlkit:common:18.10.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/70ff233052b173bce29cd12daf150442/transformed/jetified-common-18.10.0/AndroidManifest.xml:17:13-43
+85-->[com.google.mlkit:common:18.10.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\70ff233052b173bce29cd12daf150442\transformed\jetified-common-18.10.0\AndroidManifest.xml:17:13-43
 86            android:exported="false" >
-86-->[com.google.mlkit:image-labeling:17.0.8] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/fd4b413294539235559a1d23de56e8c4/transformed/jetified-image-labeling-17.0.8/AndroidManifest.xml:10:13-37
+86-->[com.google.mlkit:image-labeling:17.0.8] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\fd4b413294539235559a1d23de56e8c4\transformed\jetified-image-labeling-17.0.8\AndroidManifest.xml:10:13-37
 87            <meta-data
-87-->[com.google.mlkit:image-labeling:17.0.8] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/fd4b413294539235559a1d23de56e8c4/transformed/jetified-image-labeling-17.0.8/AndroidManifest.xml:11:13-13:85
+87-->[com.google.mlkit:image-labeling:17.0.8] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\fd4b413294539235559a1d23de56e8c4\transformed\jetified-image-labeling-17.0.8\AndroidManifest.xml:11:13-13:85
 88                android:name="com.google.firebase.components:com.google.mlkit.vision.label.defaults.internal.BundledLabelRegistrar"
-88-->[com.google.mlkit:image-labeling:17.0.8] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/fd4b413294539235559a1d23de56e8c4/transformed/jetified-image-labeling-17.0.8/AndroidManifest.xml:12:17-132
+88-->[com.google.mlkit:image-labeling:17.0.8] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\fd4b413294539235559a1d23de56e8c4\transformed\jetified-image-labeling-17.0.8\AndroidManifest.xml:12:17-132
 89                android:value="com.google.firebase.components.ComponentRegistrar" />
-89-->[com.google.mlkit:image-labeling:17.0.8] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/fd4b413294539235559a1d23de56e8c4/transformed/jetified-image-labeling-17.0.8/AndroidManifest.xml:13:17-82
+89-->[com.google.mlkit:image-labeling:17.0.8] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\fd4b413294539235559a1d23de56e8c4\transformed\jetified-image-labeling-17.0.8\AndroidManifest.xml:13:17-82
 90            <meta-data
-90-->[com.google.mlkit:vision-internal-vkp:18.2.2] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/86f2f5c9f0ef2e63dac70d8ecd37194c/transformed/jetified-vision-internal-vkp-18.2.2/AndroidManifest.xml:14:13-16:85
+90-->[com.google.mlkit:vision-internal-vkp:18.2.2] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\86f2f5c9f0ef2e63dac70d8ecd37194c\transformed\jetified-vision-internal-vkp-18.2.2\AndroidManifest.xml:14:13-16:85
 91                android:name="com.google.firebase.components:com.google.mlkit.vision.vkp.VkpRegistrar"
-91-->[com.google.mlkit:vision-internal-vkp:18.2.2] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/86f2f5c9f0ef2e63dac70d8ecd37194c/transformed/jetified-vision-internal-vkp-18.2.2/AndroidManifest.xml:15:17-103
+91-->[com.google.mlkit:vision-internal-vkp:18.2.2] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\86f2f5c9f0ef2e63dac70d8ecd37194c\transformed\jetified-vision-internal-vkp-18.2.2\AndroidManifest.xml:15:17-103
 92                android:value="com.google.firebase.components.ComponentRegistrar" />
-92-->[com.google.mlkit:vision-internal-vkp:18.2.2] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/86f2f5c9f0ef2e63dac70d8ecd37194c/transformed/jetified-vision-internal-vkp-18.2.2/AndroidManifest.xml:16:17-82
+92-->[com.google.mlkit:vision-internal-vkp:18.2.2] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\86f2f5c9f0ef2e63dac70d8ecd37194c\transformed\jetified-vision-internal-vkp-18.2.2\AndroidManifest.xml:16:17-82
 93            <meta-data
-93-->[com.google.mlkit:vision-common:17.3.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/ac7c9ea4ec4ab5de4decd88da6c9c179/transformed/jetified-vision-common-17.3.0/AndroidManifest.xml:12:13-14:85
+93-->[com.google.mlkit:vision-common:17.3.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\ac7c9ea4ec4ab5de4decd88da6c9c179\transformed\jetified-vision-common-17.3.0\AndroidManifest.xml:12:13-14:85
 94                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
-94-->[com.google.mlkit:vision-common:17.3.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/ac7c9ea4ec4ab5de4decd88da6c9c179/transformed/jetified-vision-common-17.3.0/AndroidManifest.xml:13:17-124
+94-->[com.google.mlkit:vision-common:17.3.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\ac7c9ea4ec4ab5de4decd88da6c9c179\transformed\jetified-vision-common-17.3.0\AndroidManifest.xml:13:17-124
 95                android:value="com.google.firebase.components.ComponentRegistrar" />
-95-->[com.google.mlkit:vision-common:17.3.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/ac7c9ea4ec4ab5de4decd88da6c9c179/transformed/jetified-vision-common-17.3.0/AndroidManifest.xml:14:17-82
+95-->[com.google.mlkit:vision-common:17.3.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\ac7c9ea4ec4ab5de4decd88da6c9c179\transformed\jetified-vision-common-17.3.0\AndroidManifest.xml:14:17-82
 96            <meta-data
-96-->[com.google.mlkit:common:18.10.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/70ff233052b173bce29cd12daf150442/transformed/jetified-common-18.10.0/AndroidManifest.xml:20:13-22:85
+96-->[com.google.mlkit:common:18.10.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\70ff233052b173bce29cd12daf150442\transformed\jetified-common-18.10.0\AndroidManifest.xml:20:13-22:85
 97                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
-97-->[com.google.mlkit:common:18.10.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/70ff233052b173bce29cd12daf150442/transformed/jetified-common-18.10.0/AndroidManifest.xml:21:17-120
+97-->[com.google.mlkit:common:18.10.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\70ff233052b173bce29cd12daf150442\transformed\jetified-common-18.10.0\AndroidManifest.xml:21:17-120
 98                android:value="com.google.firebase.components.ComponentRegistrar" />
-98-->[com.google.mlkit:common:18.10.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/70ff233052b173bce29cd12daf150442/transformed/jetified-common-18.10.0/AndroidManifest.xml:22:17-82
+98-->[com.google.mlkit:common:18.10.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\70ff233052b173bce29cd12daf150442\transformed\jetified-common-18.10.0\AndroidManifest.xml:22:17-82
 99        </service>
 100        <!--
 101        Service for holding metadata. Cannot be instantiated.
 102        Metadata will be merged from other manifests.
 103        -->
 104        <service
-104-->[androidx.camera:camera-core:1.4.0-alpha04] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b0dbc90b5ed3eb119c209a04741b5ac3/transformed/jetified-camera-core-1.4.0-alpha04/AndroidManifest.xml:29:9-33:78
+104-->[androidx.camera:camera-core:1.4.0-alpha04] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b0dbc90b5ed3eb119c209a04741b5ac3\transformed\jetified-camera-core-1.4.0-alpha04\AndroidManifest.xml:29:9-33:78
 105            android:name="androidx.camera.core.impl.MetadataHolderService"
-105-->[androidx.camera:camera-core:1.4.0-alpha04] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b0dbc90b5ed3eb119c209a04741b5ac3/transformed/jetified-camera-core-1.4.0-alpha04/AndroidManifest.xml:30:13-75
+105-->[androidx.camera:camera-core:1.4.0-alpha04] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b0dbc90b5ed3eb119c209a04741b5ac3\transformed\jetified-camera-core-1.4.0-alpha04\AndroidManifest.xml:30:13-75
 106            android:enabled="false"
-106-->[androidx.camera:camera-core:1.4.0-alpha04] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b0dbc90b5ed3eb119c209a04741b5ac3/transformed/jetified-camera-core-1.4.0-alpha04/AndroidManifest.xml:31:13-36
+106-->[androidx.camera:camera-core:1.4.0-alpha04] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b0dbc90b5ed3eb119c209a04741b5ac3\transformed\jetified-camera-core-1.4.0-alpha04\AndroidManifest.xml:31:13-36
 107            android:exported="false" >
-107-->[androidx.camera:camera-core:1.4.0-alpha04] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b0dbc90b5ed3eb119c209a04741b5ac3/transformed/jetified-camera-core-1.4.0-alpha04/AndroidManifest.xml:32:13-37
+107-->[androidx.camera:camera-core:1.4.0-alpha04] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b0dbc90b5ed3eb119c209a04741b5ac3\transformed\jetified-camera-core-1.4.0-alpha04\AndroidManifest.xml:32:13-37
 108            <meta-data
-108-->[androidx.camera:camera-camera2:1.4.0-alpha04] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/2e4d90460ad3e4965c08340200d819b9/transformed/jetified-camera-camera2-1.4.0-alpha04/AndroidManifest.xml:30:13-32:89
+108-->[androidx.camera:camera-camera2:1.4.0-alpha04] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\2e4d90460ad3e4965c08340200d819b9\transformed\jetified-camera-camera2-1.4.0-alpha04\AndroidManifest.xml:30:13-32:89
 109                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
-109-->[androidx.camera:camera-camera2:1.4.0-alpha04] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/2e4d90460ad3e4965c08340200d819b9/transformed/jetified-camera-camera2-1.4.0-alpha04/AndroidManifest.xml:31:17-103
+109-->[androidx.camera:camera-camera2:1.4.0-alpha04] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\2e4d90460ad3e4965c08340200d819b9\transformed\jetified-camera-camera2-1.4.0-alpha04\AndroidManifest.xml:31:17-103
 110                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
-110-->[androidx.camera:camera-camera2:1.4.0-alpha04] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/2e4d90460ad3e4965c08340200d819b9/transformed/jetified-camera-camera2-1.4.0-alpha04/AndroidManifest.xml:32:17-86
+110-->[androidx.camera:camera-camera2:1.4.0-alpha04] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\2e4d90460ad3e4965c08340200d819b9\transformed\jetified-camera-camera2-1.4.0-alpha04\AndroidManifest.xml:32:17-86
 111        </service>
 112
 113        <provider
-113-->[com.google.mlkit:common:18.10.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/70ff233052b173bce29cd12daf150442/transformed/jetified-common-18.10.0/AndroidManifest.xml:9:9-13:38
+113-->[com.google.mlkit:common:18.10.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\70ff233052b173bce29cd12daf150442\transformed\jetified-common-18.10.0\AndroidManifest.xml:9:9-13:38
 114            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
-114-->[com.google.mlkit:common:18.10.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/70ff233052b173bce29cd12daf150442/transformed/jetified-common-18.10.0/AndroidManifest.xml:10:13-78
+114-->[com.google.mlkit:common:18.10.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\70ff233052b173bce29cd12daf150442\transformed\jetified-common-18.10.0\AndroidManifest.xml:10:13-78
 115            android:authorities="com.example.recipemanager.mlkitinitprovider"
-115-->[com.google.mlkit:common:18.10.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/70ff233052b173bce29cd12daf150442/transformed/jetified-common-18.10.0/AndroidManifest.xml:11:13-69
+115-->[com.google.mlkit:common:18.10.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\70ff233052b173bce29cd12daf150442\transformed\jetified-common-18.10.0\AndroidManifest.xml:11:13-69
 116            android:exported="false"
-116-->[com.google.mlkit:common:18.10.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/70ff233052b173bce29cd12daf150442/transformed/jetified-common-18.10.0/AndroidManifest.xml:12:13-37
+116-->[com.google.mlkit:common:18.10.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\70ff233052b173bce29cd12daf150442\transformed\jetified-common-18.10.0\AndroidManifest.xml:12:13-37
 117            android:initOrder="99" />
-117-->[com.google.mlkit:common:18.10.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/70ff233052b173bce29cd12daf150442/transformed/jetified-common-18.10.0/AndroidManifest.xml:13:13-35
+117-->[com.google.mlkit:common:18.10.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\70ff233052b173bce29cd12daf150442\transformed\jetified-common-18.10.0\AndroidManifest.xml:13:13-35
 118
 119        <activity
-119-->[com.google.android.gms:play-services-base:18.1.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/f22a31dd0eb777197daf0270fc035b77/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+119-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f22a31dd0eb777197daf0270fc035b77\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
 120            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-120-->[com.google.android.gms:play-services-base:18.1.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/f22a31dd0eb777197daf0270fc035b77/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+120-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f22a31dd0eb777197daf0270fc035b77\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
 121            android:exported="false"
-121-->[com.google.android.gms:play-services-base:18.1.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/f22a31dd0eb777197daf0270fc035b77/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+121-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f22a31dd0eb777197daf0270fc035b77\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
 122            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-122-->[com.google.android.gms:play-services-base:18.1.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/f22a31dd0eb777197daf0270fc035b77/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+122-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\f22a31dd0eb777197daf0270fc035b77\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
 123
 124        <meta-data
-124-->[com.google.android.gms:play-services-basement:18.1.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/92e6f307ecd8cf8cac8965a8305a22d8/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+124-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\92e6f307ecd8cf8cac8965a8305a22d8\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
 125            android:name="com.google.android.gms.version"
-125-->[com.google.android.gms:play-services-basement:18.1.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/92e6f307ecd8cf8cac8965a8305a22d8/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+125-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\92e6f307ecd8cf8cac8965a8305a22d8\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
 126            android:value="@integer/google_play_services_version" />
-126-->[com.google.android.gms:play-services-basement:18.1.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/92e6f307ecd8cf8cac8965a8305a22d8/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+126-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\92e6f307ecd8cf8cac8965a8305a22d8\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
 127
 128        <provider
-128-->[androidx.emoji2:emoji2:1.3.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/c9da8b945b0d583d4753304231b7898c/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+128-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\c9da8b945b0d583d4753304231b7898c\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
 129            android:name="androidx.startup.InitializationProvider"
-129-->[androidx.emoji2:emoji2:1.3.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/c9da8b945b0d583d4753304231b7898c/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:25:13-67
+129-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\c9da8b945b0d583d4753304231b7898c\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
 130            android:authorities="com.example.recipemanager.androidx-startup"
-130-->[androidx.emoji2:emoji2:1.3.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/c9da8b945b0d583d4753304231b7898c/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:26:13-68
+130-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\c9da8b945b0d583d4753304231b7898c\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
 131            android:exported="false" >
-131-->[androidx.emoji2:emoji2:1.3.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/c9da8b945b0d583d4753304231b7898c/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:27:13-37
+131-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\c9da8b945b0d583d4753304231b7898c\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
 132            <meta-data
-132-->[androidx.emoji2:emoji2:1.3.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/c9da8b945b0d583d4753304231b7898c/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+132-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\c9da8b945b0d583d4753304231b7898c\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
 133                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-133-->[androidx.emoji2:emoji2:1.3.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/c9da8b945b0d583d4753304231b7898c/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:30:17-75
+133-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\c9da8b945b0d583d4753304231b7898c\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
 134                android:value="androidx.startup" />
-134-->[androidx.emoji2:emoji2:1.3.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/c9da8b945b0d583d4753304231b7898c/transformed/jetified-emoji2-1.3.0/AndroidManifest.xml:31:17-49
+134-->[androidx.emoji2:emoji2:1.3.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\c9da8b945b0d583d4753304231b7898c\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
 135            <meta-data
-135-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/88bc9c8e0f866aab180f60f5209d0f53/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+135-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\88bc9c8e0f866aab180f60f5209d0f53\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
 136                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-136-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/88bc9c8e0f866aab180f60f5209d0f53/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+136-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\88bc9c8e0f866aab180f60f5209d0f53\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
 137                android:value="androidx.startup" />
-137-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/88bc9c8e0f866aab180f60f5209d0f53/transformed/jetified-lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+137-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\88bc9c8e0f866aab180f60f5209d0f53\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
 138            <meta-data
-138-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
 139                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-139-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
 140                android:value="androidx.startup" />
-140-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+140-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
 141        </provider>
 142
 143        <uses-library
-143-->[androidx.window:window:1.2.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/8536c6fe4d1cadb5b4d3788a53d3a1f4/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
+143-->[androidx.window:window:1.2.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\8536c6fe4d1cadb5b4d3788a53d3a1f4\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
 144            android:name="androidx.window.extensions"
-144-->[androidx.window:window:1.2.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/8536c6fe4d1cadb5b4d3788a53d3a1f4/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
+144-->[androidx.window:window:1.2.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\8536c6fe4d1cadb5b4d3788a53d3a1f4\transformed\jetified-window-1.2.0\AndroidManifest.xml:24:13-54
 145            android:required="false" />
-145-->[androidx.window:window:1.2.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/8536c6fe4d1cadb5b4d3788a53d3a1f4/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
+145-->[androidx.window:window:1.2.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\8536c6fe4d1cadb5b4d3788a53d3a1f4\transformed\jetified-window-1.2.0\AndroidManifest.xml:25:13-37
 146        <uses-library
-146-->[androidx.window:window:1.2.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/8536c6fe4d1cadb5b4d3788a53d3a1f4/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
+146-->[androidx.window:window:1.2.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\8536c6fe4d1cadb5b4d3788a53d3a1f4\transformed\jetified-window-1.2.0\AndroidManifest.xml:26:9-28:40
 147            android:name="androidx.window.sidecar"
-147-->[androidx.window:window:1.2.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/8536c6fe4d1cadb5b4d3788a53d3a1f4/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
+147-->[androidx.window:window:1.2.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\8536c6fe4d1cadb5b4d3788a53d3a1f4\transformed\jetified-window-1.2.0\AndroidManifest.xml:27:13-51
 148            android:required="false" />
-148-->[androidx.window:window:1.2.0] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/8536c6fe4d1cadb5b4d3788a53d3a1f4/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
+148-->[androidx.window:window:1.2.0] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\8536c6fe4d1cadb5b4d3788a53d3a1f4\transformed\jetified-window-1.2.0\AndroidManifest.xml:28:13-37
 149
 150        <receiver
-150-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+150-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
 151            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-151-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+151-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
 152            android:directBootAware="false"
-152-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+152-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
 153            android:enabled="true"
-153-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+153-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
 154            android:exported="true"
-154-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+154-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
 155            android:permission="android.permission.DUMP" >
-155-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+155-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
 156            <intent-filter>
-156-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+156-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
 157                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-157-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
-157-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+157-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+157-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
 158            </intent-filter>
 159            <intent-filter>
-159-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+159-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
 160                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-160-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
-160-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+160-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+160-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
 161            </intent-filter>
 162            <intent-filter>
-162-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+162-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
 163                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-163-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
-163-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+163-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+163-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
 164            </intent-filter>
 165            <intent-filter>
-165-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+165-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
 166                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-166-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
-166-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/b6d606d20cfa93df9ec9c7e2c3750871/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+166-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+166-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\b6d606d20cfa93df9ec9c7e2c3750871\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
 167            </intent-filter>
 168        </receiver>
 169
 170        <service
-170-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/a11fb6c0c645e9d163d5ea6797a1f6a0/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+170-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\a11fb6c0c645e9d163d5ea6797a1f6a0\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:29:9-35:19
 171            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-171-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/a11fb6c0c645e9d163d5ea6797a1f6a0/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+171-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\a11fb6c0c645e9d163d5ea6797a1f6a0\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:30:13-103
 172            android:exported="false" >
-172-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/a11fb6c0c645e9d163d5ea6797a1f6a0/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+172-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\a11fb6c0c645e9d163d5ea6797a1f6a0\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:31:13-37
 173            <meta-data
-173-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/a11fb6c0c645e9d163d5ea6797a1f6a0/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+173-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\a11fb6c0c645e9d163d5ea6797a1f6a0\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:32:13-34:39
 174                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-174-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/a11fb6c0c645e9d163d5ea6797a1f6a0/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+174-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\a11fb6c0c645e9d163d5ea6797a1f6a0\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:33:17-94
 175                android:value="cct" />
-175-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/a11fb6c0c645e9d163d5ea6797a1f6a0/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+175-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\a11fb6c0c645e9d163d5ea6797a1f6a0\transformed\jetified-transport-backend-cct-2.3.3\AndroidManifest.xml:34:17-36
 176        </service>
 177        <service
-177-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/d46e554457097fc7ebad34b28687ae31/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:26:9-30:19
+177-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\d46e554457097fc7ebad34b28687ae31\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:26:9-30:19
 178            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-178-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/d46e554457097fc7ebad34b28687ae31/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:27:13-117
+178-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\d46e554457097fc7ebad34b28687ae31\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:27:13-117
 179            android:exported="false"
-179-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/d46e554457097fc7ebad34b28687ae31/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:28:13-37
+179-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\d46e554457097fc7ebad34b28687ae31\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:28:13-37
 180            android:permission="android.permission.BIND_JOB_SERVICE" >
-180-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/d46e554457097fc7ebad34b28687ae31/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:29:13-69
+180-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\d46e554457097fc7ebad34b28687ae31\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:29:13-69
 181        </service>
 182
 183        <receiver
-183-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/d46e554457097fc7ebad34b28687ae31/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:32:9-34:40
+183-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\d46e554457097fc7ebad34b28687ae31\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:32:9-34:40
 184            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-184-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/d46e554457097fc7ebad34b28687ae31/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:33:13-132
+184-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\d46e554457097fc7ebad34b28687ae31\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:33:13-132
 185            android:exported="false" />
-185-->[com.google.android.datatransport:transport-runtime:2.2.6] /Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/d46e554457097fc7ebad34b28687ae31/transformed/jetified-transport-runtime-2.2.6/AndroidManifest.xml:34:13-37
+185-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\Apoorva\.gradle\caches\9.0-milestone-1\transforms\d46e554457097fc7ebad34b28687ae31\transformed\jetified-transport-runtime-2.2.6\AndroidManifest.xml:34:13-37
 186    </application>
 187
 188</manifest>
