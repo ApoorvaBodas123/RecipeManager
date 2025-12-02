@@ -38,7 +38,6 @@ import com.google.mlkit.vision.label.ImageLabeling;
 import com.google.mlkit.vision.label.defaults.ImageLabelerOptions;
 
 import java.io.IOException;
-import com.example.recipemanager.ai.RecipeGenerator;
 import com.example.recipemanager.data.model.Recipe;
 import kotlin.Result;
 import kotlin.ResultKt;
@@ -85,7 +84,6 @@ public class ImageIngredientsActivity extends AppCompatActivity {
     private RecyclerView ingredientsList;
     private ExecutorService executorService;
     private MaterialButton selectImageButton;
-    private MaterialButton generateRecipeButton;
     private RecipeViewModel viewModel;
     private RecipeRepository recipeRepository;
     private RecyclerView selectedImagesRecyclerView;
@@ -93,7 +91,6 @@ public class ImageIngredientsActivity extends AppCompatActivity {
     private List<Uri> selectedImageUris = new ArrayList<>();
     private SelectedImagesAdapter selectedImagesAdapter;
     private IngredientsAdapter ingredientsAdapter;
-    private RecipeGenerator recipeGenerator;
     private int currentImageIndex = 0;
 
     @Override
@@ -101,8 +98,6 @@ public class ImageIngredientsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_ingredients);
 
-        // Initialize RecipeGenerator (no API key needed for local recipe generation)
-        recipeGenerator = new RecipeGenerator();
         
         // Initialize RecipeRepository and ViewModel
         recipeRepository = RecipeRepository.getInstance(getApplication());
@@ -122,7 +117,6 @@ public class ImageIngredientsActivity extends AppCompatActivity {
         detectedIngredientsCard = findViewById(R.id.detectedIngredientsCard);
         ingredientsList = findViewById(R.id.ingredientsList);
         selectImageButton = findViewById(R.id.selectImageButton);
-        generateRecipeButton = findViewById(R.id.generateRecipeButton);
         selectedImagesRecyclerView = findViewById(R.id.selectedImagesRecyclerView);
         selectedImagesRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         selectedImagesAdapter = new SelectedImagesAdapter();
@@ -151,8 +145,6 @@ public class ImageIngredientsActivity extends AppCompatActivity {
             }
         });
         
-        // Set up Generate Recipe button click listener
-        generateRecipeButton.setOnClickListener(v -> generateRecipe());
 
         executorService = Executors.newSingleThreadExecutor();
         
@@ -246,11 +238,6 @@ public class ImageIngredientsActivity extends AppCompatActivity {
             }
             if (selectedImagesRecyclerView != null) {
                 selectedImagesRecyclerView.setVisibility(View.VISIBLE);
-            }
-            // Show and enable Generate Recipe button if we have ingredients
-            if (generateRecipeButton != null) {
-                generateRecipeButton.setVisibility(View.VISIBLE);
-                generateRecipeButton.setEnabled(!detectedIngredients.isEmpty());
             }
         });
     }
@@ -511,15 +498,6 @@ public class ImageIngredientsActivity extends AppCompatActivity {
                     Log.e(TAG, "detectedIngredientsCard is null!");
                 }
                 
-                // Enable/disable the generate recipe button
-                if (generateRecipeButton != null) {
-                    boolean hasIngredients = !detectedIngredients.isEmpty();
-                    generateRecipeButton.setEnabled(hasIngredients);
-                    generateRecipeButton.setAlpha(hasIngredients ? 1.0f : 0.5f);
-                    Log.d(TAG, "Generate recipe button enabled: " + hasIngredients);
-                } else {
-                    Log.e(TAG, "generateRecipeButton is null!");
-                }
                 
                 // Force a redraw of the RecyclerView
                 if (ingredientsList != null) {
@@ -548,100 +526,6 @@ public class ImageIngredientsActivity extends AppCompatActivity {
             // If you have a TextView to show the status, you can set the text here
             // statusTextView.setText(message);
         });
-    }
-    
-    private void generateRecipe() {
-        if (detectedIngredients.isEmpty()) {
-            Toast.makeText(this, "No ingredients detected", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Show progress
-        showProgress(true);
-        generateRecipeButton.setEnabled(false);
-        
-        // Show a toast to indicate that recipe generation has started
-        Toast.makeText(this, "Generating recipe... This may take a moment.", Toast.LENGTH_SHORT).show();
-        
-        // Create a callback for the recipe generator
-        RecipeGenerator.Callback callback = new RecipeGenerator.Callback() {
-            @Override
-            public void onSuccess(Recipe recipe) {
-                runOnUiThread(() -> {
-                    try {
-                        // Convert the recipe to the format expected by the database
-                        com.example.recipemanager.data.Recipe dbRecipe = new com.example.recipemanager.data.Recipe();
-                        dbRecipe.name = recipe.getTitle();
-                        
-                        // Format ingredients with bullet points
-                        StringBuilder ingredientsBuilder = new StringBuilder();
-                        for (Ingredient ing : recipe.getIngredients()) {
-                            if (ingredientsBuilder.length() > 0) {
-                                ingredientsBuilder.append("\n");
-                            }
-                            ingredientsBuilder.append("• ");
-                            if (!ing.getAmount().isEmpty()) {
-                                ingredientsBuilder.append(ing.getAmount()).append(" ");
-                            }
-                            if (!ing.getUnit().isEmpty() && !ing.getUnit().equals("")) {
-                                ingredientsBuilder.append(ing.getUnit()).append(" ");
-                            }
-                            ingredientsBuilder.append(ing.getName());
-                        }
-                        dbRecipe.ingredients = ingredientsBuilder.toString();
-                        
-                        // Format steps with line breaks
-                        dbRecipe.steps = String.join("\n\n", recipe.getInstructions());
-                        dbRecipe.favorite = false;
-                        
-                        // Don't set imageUri for AI-generated recipes
-                        // This ensures no image is associated with AI-generated recipes
-                        dbRecipe.imageUri = "";
-                        
-                        // Save the recipe and wait for the save to complete
-                        viewModel.save(dbRecipe).observe(ImageIngredientsActivity.this, savedId -> {
-                            if (savedId != null && savedId > 0) {
-                                // Navigate to the recipe detail screen with the saved recipe ID
-                                Intent intent = new Intent(ImageIngredientsActivity.this, RecipeDetailActivity.class);
-                                intent.putExtra("id", savedId);
-                                startActivity(intent);
-                                finish(); // Close this activity to prevent going back to it
-                            } else {
-                                // Show error if save failed
-                                Toast.makeText(ImageIngredientsActivity.this, 
-                                    "Failed to save recipe. Please try again.", 
-                                    Toast.LENGTH_LONG).show();
-                                showProgress(false);
-                                generateRecipeButton.setEnabled(true);
-                            }
-                        });
-                    } catch (Exception e) {
-                        Log.e(TAG, "Error processing recipe: " + e.getMessage(), e);
-                        Toast.makeText(ImageIngredientsActivity.this, 
-                            "Error processing recipe: " + e.getMessage(), 
-                            Toast.LENGTH_LONG).show();
-                    } finally {
-                        showProgress(false);
-                        generateRecipeButton.setEnabled(true);
-                    }
-                });
-            }
-
-            @Override
-            public void onError(Exception exception) {
-                runOnUiThread(() -> {
-                    Log.e(TAG, "Failed to generate recipe: " + exception.getMessage(), exception);
-                    Toast.makeText(ImageIngredientsActivity.this, 
-                        "Failed to generate recipe: " + exception.getMessage(), 
-                        Toast.LENGTH_LONG).show();
-                    showProgress(false);
-                    generateRecipeButton.setEnabled(true);
-                });
-            }
-        };
-        
-        // Call the recipe generator with the callback and detected ingredients
-        recipeGenerator.generateRecipe(new ArrayList<>(detectedIngredients), callback);
     }
 
     @Override

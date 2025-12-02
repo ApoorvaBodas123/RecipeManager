@@ -4,24 +4,24 @@
             "outputFile": "com.example.recipemanager.app-mergeDebugResources-71:/values-ro/values-ro.xml",
             "map": [
                 {
-                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/51f456fddd82ab17b478784cc81092a5/transformed/jetified-ui-release/res/values-ro/values-ro.xml",
+                    "source": "/Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/4cbaf383a11487e478b5d4d6d8d21da9/transformed/appcompat-1.7.0/res/values-ro/values-ro.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,202,286,383,485,573,651,738,829,911,983,1052,1140,1230,1303,1380,1447",
-                        "endColumns": "96,83,96,101,87,77,86,90,81,71,68,87,89,72,76,66,114",
-                        "endOffsets": "197,281,378,480,568,646,733,824,906,978,1047,1135,1225,1298,1375,1442,1557"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,228,334,447,531,636,755,840,920,1011,1104,1199,1293,1393,1486,1581,1675,1766,1858,1939,2049,2157,2255,2367,2473,2577,2739,2840",
+                        "endColumns": "122,105,112,83,104,118,84,79,90,92,94,93,99,92,94,93,90,91,80,109,107,97,111,105,103,161,100,81",
+                        "endOffsets": "223,329,442,526,631,750,835,915,1006,1099,1194,1288,1388,1481,1576,1670,1761,1853,1934,2044,2152,2250,2362,2468,2572,2734,2835,2917"
                     },
                     "to": {
-                        "startLines": "49,50,69,70,71,76,77,193,194,195,196,198,199,203,206,207,208",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4592,4689,7033,7130,7232,7617,7695,18788,18879,18961,19033,19181,19269,19604,19857,19934,20001",
-                        "endColumns": "96,83,96,101,87,77,86,90,81,71,68,87,89,72,76,66,114",
-                        "endOffsets": "4684,4768,7125,7227,7315,7690,7777,18874,18956,19028,19097,19264,19354,19672,19929,19996,20111"
+                        "startLines": "7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,200",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "371,494,600,713,797,902,1021,1106,1186,1277,1370,1465,1559,1659,1752,1847,1941,2032,2124,2205,2315,2423,2521,2633,2739,2843,3005,19359",
+                        "endColumns": "122,105,112,83,104,118,84,79,90,92,94,93,99,92,94,93,90,91,80,109,107,97,111,105,103,161,100,81",
+                        "endOffsets": "489,595,708,792,897,1016,1101,1181,1272,1365,1460,1554,1654,1747,1842,1936,2027,2119,2200,2310,2418,2516,2628,2734,2838,3000,3101,19436"
                     }
                 },
                 {
-                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/8e4c56410af5d924afd419c9b40fd0b2/transformed/material-1.12.0/res/values-ro/values-ro.xml",
+                    "source": "/Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/8e4c56410af5d924afd419c9b40fd0b2/transformed/material-1.12.0/res/values-ro/values-ro.xml",
                     "from": {
                         "startLines": "2,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -40,41 +40,7 @@
                     }
                 },
                 {
-                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/f22a31dd0eb777197daf0270fc035b77/transformed/jetified-play-services-base-18.1.0/res/values-ro/values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "193,296,452,577,682,829,957,1076,1181,1339,1445,1600,1728,1870,2032,2099,2162",
-                        "endColumns": "102,155,124,104,146,127,118,104,157,105,154,127,141,161,66,62,77",
-                        "endOffsets": "295,451,576,681,828,956,1075,1180,1338,1444,1599,1727,1869,2031,2098,2161,2239"
-                    },
-                    "to": {
-                        "startLines": "51,52,53,54,55,56,57,58,60,61,62,63,64,65,66,67,68",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4773,4880,5040,5169,5278,5429,5561,5684,5938,6100,6210,6369,6501,6647,6813,6884,6951",
-                        "endColumns": "106,159,128,108,150,131,122,108,161,109,158,131,145,165,70,66,81",
-                        "endOffsets": "4875,5035,5164,5273,5424,5556,5679,5788,6095,6205,6364,6496,6642,6808,6879,6946,7028"
-                    }
-                },
-                {
-                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/4cbaf383a11487e478b5d4d6d8d21da9/transformed/appcompat-1.7.0/res/values-ro/values-ro.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,228,334,447,531,636,755,840,920,1011,1104,1199,1293,1393,1486,1581,1675,1766,1858,1939,2049,2157,2255,2367,2473,2577,2739,2840",
-                        "endColumns": "122,105,112,83,104,118,84,79,90,92,94,93,99,92,94,93,90,91,80,109,107,97,111,105,103,161,100,81",
-                        "endOffsets": "223,329,442,526,631,750,835,915,1006,1099,1194,1288,1388,1481,1576,1670,1761,1853,1934,2044,2152,2250,2362,2468,2572,2734,2835,2917"
-                    },
-                    "to": {
-                        "startLines": "7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,200",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "371,494,600,713,797,902,1021,1106,1186,1277,1370,1465,1559,1659,1752,1847,1941,2032,2124,2205,2315,2423,2521,2633,2739,2843,3005,19359",
-                        "endColumns": "122,105,112,83,104,118,84,79,90,92,94,93,99,92,94,93,90,91,80,109,107,97,111,105,103,161,100,81",
-                        "endOffsets": "489,595,708,792,897,1016,1101,1181,1272,1365,1460,1554,1654,1747,1842,1936,2027,2119,2200,2310,2418,2516,2628,2734,2838,3000,3101,19436"
-                    }
-                },
-                {
-                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/f5fc38a279732dd8d721ce1fa00d278c/transformed/jetified-material3-release/res/values-ro/values-ro.xml",
+                    "source": "/Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/f5fc38a279732dd8d721ce1fa00d278c/transformed/jetified-material3-release/res/values-ro/values-ro.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -91,24 +57,7 @@
                     }
                 },
                 {
-                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/177c5e9b72f99836adb6f7b97a6263f3/transformed/jetified-foundation-release/res/values-ro/values-ro.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,150",
-                        "endColumns": "94,99",
-                        "endOffsets": "145,245"
-                    },
-                    "to": {
-                        "startLines": "209,210",
-                        "startColumns": "4,4",
-                        "startOffsets": "20116,20211",
-                        "endColumns": "94,99",
-                        "endOffsets": "20206,20306"
-                    }
-                },
-                {
-                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/92e6f307ecd8cf8cac8965a8305a22d8/transformed/jetified-play-services-basement-18.1.0/res/values-ro/values.xml",
+                    "source": "/Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/92e6f307ecd8cf8cac8965a8305a22d8/transformed/jetified-play-services-basement-18.1.0/res/values-ro/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -125,7 +74,41 @@
                     }
                 },
                 {
-                    "source": "/Users/apoorvabodas/Desktop/madproject/Recipe-Book-Android-App/caches/9.0-milestone-1/transforms/42965e6f28d9fb991fa889d9d851810c/transformed/core-1.13.1/res/values-ro/values-ro.xml",
+                    "source": "/Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/177c5e9b72f99836adb6f7b97a6263f3/transformed/jetified-foundation-release/res/values-ro/values-ro.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,150",
+                        "endColumns": "94,99",
+                        "endOffsets": "145,245"
+                    },
+                    "to": {
+                        "startLines": "209,210",
+                        "startColumns": "4,4",
+                        "startOffsets": "20116,20211",
+                        "endColumns": "94,99",
+                        "endOffsets": "20206,20306"
+                    }
+                },
+                {
+                    "source": "/Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/51f456fddd82ab17b478784cc81092a5/transformed/jetified-ui-release/res/values-ro/values-ro.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,202,286,383,485,573,651,738,829,911,983,1052,1140,1230,1303,1380,1447",
+                        "endColumns": "96,83,96,101,87,77,86,90,81,71,68,87,89,72,76,66,114",
+                        "endOffsets": "197,281,378,480,568,646,733,824,906,978,1047,1135,1225,1298,1375,1442,1557"
+                    },
+                    "to": {
+                        "startLines": "49,50,69,70,71,76,77,193,194,195,196,198,199,203,206,207,208",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4592,4689,7033,7130,7232,7617,7695,18788,18879,18961,19033,19181,19269,19604,19857,19934,20001",
+                        "endColumns": "96,83,96,101,87,77,86,90,81,71,68,87,89,72,76,66,114",
+                        "endOffsets": "4684,4768,7125,7227,7315,7690,7777,18874,18956,19028,19097,19264,19354,19672,19929,19996,20111"
+                    }
+                },
+                {
+                    "source": "/Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/42965e6f28d9fb991fa889d9d851810c/transformed/core-1.13.1/res/values-ro/values-ro.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -139,6 +122,23 @@
                         "startOffsets": "3559,3657,3759,3859,3958,4060,4169,19756",
                         "endColumns": "97,101,99,98,101,108,116,100",
                         "endOffsets": "3652,3754,3854,3953,4055,4164,4281,19852"
+                    }
+                },
+                {
+                    "source": "/Users/apoorvabodas/.gradle/caches/9.0-milestone-1/transforms/f22a31dd0eb777197daf0270fc035b77/transformed/jetified-play-services-base-18.1.0/res/values-ro/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "193,296,452,577,682,829,957,1076,1181,1339,1445,1600,1728,1870,2032,2099,2162",
+                        "endColumns": "102,155,124,104,146,127,118,104,157,105,154,127,141,161,66,62,77",
+                        "endOffsets": "295,451,576,681,828,956,1075,1180,1338,1444,1599,1727,1869,2031,2098,2161,2239"
+                    },
+                    "to": {
+                        "startLines": "51,52,53,54,55,56,57,58,60,61,62,63,64,65,66,67,68",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4773,4880,5040,5169,5278,5429,5561,5684,5938,6100,6210,6369,6501,6647,6813,6884,6951",
+                        "endColumns": "106,159,128,108,150,131,122,108,161,109,158,131,145,165,70,66,81",
+                        "endOffsets": "4875,5035,5164,5273,5424,5556,5679,5788,6095,6205,6364,6496,6642,6808,6879,6946,7028"
                     }
                 }
             ]
